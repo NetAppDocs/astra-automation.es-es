@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: workflows_infra/wf_list_buckets.html 
+keywords:  
+summary: Puede enumerar los bloques de S3 definidos para una cuenta de Astra específica. 
+---
+= Enumere los cucharones
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede enumerar los bloques de S3 definidos para una cuenta de Astra específica.
+
+
+
+=== 1. Enumere los cucharones
+
+Realice la siguiente llamada a la API de REST para enumerar los bloques.
+
+[cols="25,75"]
+|===
+| Método HTTP | Ruta 
+
+
+| OBTENGA | /accounts/{account_id}/topolog/v1/buckets 
+|===
+
+
+===== Ejemplo de curl: Devuelve todos los datos de todos los bloques
+
+[source, curl]
+----
+curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/buckets' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+----

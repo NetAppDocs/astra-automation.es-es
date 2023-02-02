@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: information/additional_resources.html 
+keywords: addition resources, additional information, astra family, cloud, netapp cloud, netapp support 
+summary: Hay recursos adicionales a los que puede acceder para obtener ayuda y obtener más información sobre los servicios cloud de NetApp y la compatibilidad, así como sobre conceptos generales DE REST y cloud. 
+---
+= Recursos adicionales
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Hay recursos adicionales a los que puede acceder para obtener ayuda y obtener más información sobre los servicios cloud de NetApp y la compatibilidad, así como sobre conceptos generales DE REST y cloud.
+
+
+
+== Astra
+
+* https://docs.netapp.com/us-en/astra-control-center/["Documentación de Astra Control Center"^]
++
+Documentación para la versión actual del software Astra Control Center implementado en las instalaciones del cliente.
+
+* https://docs.netapp.com/us-en/astra-control-service/["Documentación de Astra Control Service"^]
++
+Documentación para el lanzamiento actual del software Astra Control Service disponible en la nube pública.
+
+* https://docs.netapp.com/us-en/trident/["Documentación de Astra Trident"^]
++
+Documentación para la versión actual del software Astra Trident, un orquestador de almacenamiento de código abierto que mantiene NetApp.
+
+* https://docs.netapp.com/us-en/astra-family/["Documentación de la familia Astra"^]
++
+Ubicación central para acceder a toda la documentación de Astra para puestas en marcha tanto en las instalaciones como en cloud público.
+
+
+
+
+
+== Recursos de cloud de NetApp
+
+* https://bluexp.netapp.com/["BlueXP de NetApp"^]
++
+Sitio central de las soluciones cloud de NetApp.
+
+* https://services.cloud.netapp.com/redirect-to-login?startOnSignup=false["Consola Cloud Central de NetApp"^]
++
+Consola de servicio Cloud Central de NetApp con inicio de sesión.
+
+* https://mysupport.netapp.com/["Soporte de NetApp"^]
++
+Acceda a herramientas de solución de problemas, documentación y asistencia de soporte técnico.
+
+
+
+
+
+== Conceptos DE REST y cloud
+
+* Doctorado https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm["disertación"^] Por Roy Fiding
++
+En esta publicación se introdujo y se estableció el modelo de desarrollo de aplicaciones DE REST.
+
+* https://auth0.com/["Auth0"^]
++
+Se trata del servicio de plataforma de autenticación y autorización utilizado por el servicio Astra para el acceso a la Web.
+
+* https://www.rfc-editor.org/["Editor RFC"^]
++
+Fuente autoritativa para estándares web e Internet que se mantiene como una colección de documentos RFC con números únicos.
+
+

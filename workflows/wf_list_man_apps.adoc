@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: workflows/wf_list_man_apps.html 
+keywords:  
+summary: Puede enumerar las aplicaciones que gestiona actualmente Astra. Puede hacerlo como parte de la búsqueda de las instantáneas o backups de una aplicación específica. 
+---
+= Enumere las aplicaciones
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede enumerar las aplicaciones que gestiona actualmente Astra. Puede hacerlo como parte de la búsqueda de las instantáneas o backups de una aplicación específica.
+
+
+
+=== 1. Enumere las aplicaciones
+
+Realice la siguiente llamada de API de REST.
+
+[cols="25,75"]
+|===
+| Método HTTP | Ruta 
+
+
+| OBTENGA | /account/{account_id}/k8s/v2/apps 
+|===
+
+
+===== Parámetros de entrada adicionales
+
+Además de los parámetros comunes con todas las llamadas API DE REST, en los ejemplos curl de este paso se incluyen los siguientes parámetros.
+
+[cols="25,10,10,55"]
+|===
+| Parámetro | Tipo | Obligatorio | Descripción 
+
+
+| incluya | Consulta | No | Opcionalmente, seleccione los valores que desea devolver en la respuesta. 
+|===
+
+
+===== Ejemplo de curl: Devuelve todos los datos de todas las aplicaciones
+
+[source, curl]
+----
+curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v2/apps' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+----
+
+
+===== Ejemplo de curl: Devuelve el nombre, ID y estado de todas las aplicaciones
+
+[source, curl]
+----
+curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v2/apps?include=name,id,state' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+----
+
+
+===== Ejemplo de resultado JSON
+
+[source, json]
+----
+{
+    "items": [
+        [
+            "mysql",
+            "4ee2b8fa-3696-4f32-8879-399792f477c3",
+            "ready"
+        ],
+        [
+            "postgresql",
+            "3b984474-e5c9-4b64-97ee-cdeb9bcd212e",
+            "ready"
+        ],
+    ],
+    "metadata": {}
+}
+----

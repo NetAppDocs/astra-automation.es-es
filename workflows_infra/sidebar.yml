@@ -1,0 +1,46 @@
+---
+section: workflows_infra
+title: Flujos de trabajo de infraestructura
+entries:
+- title: Antes de empezar
+  url: "/workflows_infra/workflows_infra_before.html"
+- title: Identidad y acceso
+  entries:
+  - title: Enumere usuarios
+    url: "/workflows_infra/wf_list_users.html"
+  - title: Cree un usuario
+    url: "/workflows_infra/wf_create_user.html"
+- title: Configuración de LDAP
+  entries:
+  - title: Prepare la configuración de LDAP
+    url: "/workflows_infra/ldap_prepare.html"
+  - title: Configure el servidor LDAP
+    url: "/workflows_infra/wf_ldap_configure_server.html"
+  - title: Agregue entradas LDAP a Astra
+    url: "/workflows_infra/wf_ldap_add_entries.html"
+  - title: Deshabilite y restablezca LDAP
+    url: "/workflows_infra/wf_ldap_disable_reset.html"
+- title: De clúster
+  entries:
+  - title: Enumere los clústeres
+    url: "/workflows_infra/wf_list_clusters.html"
+  - title: Añadir un clúster
+    url: "/workflows_infra/wf_add_cluster.html"
+  - title: Enumere los clústeres gestionados
+    url: "/workflows_infra/wf_list_man_clusters.html"
+  - title: Gestione un clúster
+    url: "/workflows_infra/wf_man_cluster.html"
+- title: Nubes
+  entries:
+  - title: Enumerar nubes
+    url: "/workflows_infra/wf_list_clouds.html"
+- title: Cucharones
+  entries:
+  - title: Cucharones de lista
+    url: "/workflows_infra/wf_list_buckets.html"
+- title: Reducida
+  entries:
+  - title: Enumerar las clases de almacenamiento
+    url: "/workflows_infra/wf_list_storage_classes.html"
+  - title: Enumerar los back-ends de almacenamiento
+    url: "/workflows_infra/wf_list_storage_backends.html"

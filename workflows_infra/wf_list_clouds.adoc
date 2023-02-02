@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: workflows_infra/wf_list_clouds.html 
+keywords:  
+summary: Puede enumerar las nubes definidas y disponibles una cuenta de Astra específica. 
+---
+= Enumerar las nubes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede enumerar las nubes definidas y disponibles una cuenta de Astra específica.
+
+
+
+=== 1. Enumere las nubes
+
+Realice las siguientes llamadas a la API DE REST para enumerar las nubes.
+
+[cols="25,75"]
+|===
+| Método HTTP | Ruta 
+
+
+| OBTENGA | /accounts/{account_id}/topolog/v1/nubes 
+|===
+
+
+===== Ejemplo curl: Devuelve todos los datos de todos los clouds
+
+[source, curl]
+----
+curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/clouds' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+----

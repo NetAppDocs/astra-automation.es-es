@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: workflows_infra/wf_list_man_clusters.html 
+keywords:  
+summary: Puede enumerar los clústeres de Kubernetes que gestiona actualmente Astra. 
+---
+= Enumere los clústeres gestionados
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede enumerar los clústeres de Kubernetes que gestiona actualmente Astra.
+
+
+
+=== 1. Enumere los clústeres administrados
+
+Realice la siguiente llamada de API de REST.
+
+[cols="1,6"]
+|===
+| Método HTTP | Ruta 
+
+
+| OBTENGA | /Accounts/{account_id}/topolog/v1/managedClusters 
+|===
+
+
+===== Ejemplo curl: Devuelve todos los datos de todos los clústeres
+
+[source, curl]
+----
+curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/managedClusters' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+----

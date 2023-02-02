@@ -1,0 +1,95 @@
+---
+sidebar: sidebar 
+permalink: python/astra_toolkits.html 
+keywords: python, sdk, astra sdk, toolkit, toolkit script, netapp-astra-toolkits, pypi 
+summary: NetApp Astra Control Python SDK es un paquete de código abierto que puede utilizar para automatizar la puesta en marcha de Astra Control. El paquete es también un recurso valioso para conocer la API REST de Astra Control, quizás como parte de la creación de su propia plataforma de automatización. 
+---
+= Kit de desarrollo de software Astra Control Python de NetApp
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Astra Control Python SDK es un paquete de código abierto que puede utilizar para automatizar la puesta en marcha de Astra Control. El paquete es también un recurso valioso para conocer la API REST de Astra Control, quizás como parte de la creación de su propia plataforma de automatización.
+
+
+NOTE: Por su simplicidad, el SDK NetApp Astra Control Python se conoce como *SDK* durante el resto de esta página.
+
+
+
+== Dos herramientas de software relacionadas
+
+El SDK incluye dos herramientas diferentes a través de las relacionadas que funcionan en diferentes niveles de abstracción al acceder a la API REST de Astra Control.
+
+.SDK de Astra
+Astra SDK proporciona las funciones principales de la plataforma. Incluye un conjunto de clases Python que abstraen las llamadas de la API DE REST subyacente. Estas clases admiten acciones administrativas sobre diversos recursos de Astra Control, como aplicaciones, copias de seguridad, instantáneas y clusters.
+
+El Astra SDK forma parte del paquete y se proporciona en un único `astraSDK.py` archivo. Puede importar este archivo al entorno y utilizar las clases directamente.
+
+
+NOTE: * NetApp Astra Control Python SDK* (o solo SDK) es el nombre de todo el paquete. *Astra SDK* se refiere a las clases básicas de Python en un único archivo `astraSDK.py`.
+
+.Guión del kit de herramientas
+Además del archivo Astra SDK, la `toolkit.py` también está disponible el guión. Este script funciona a un nivel más alto de abstracción al proporcionar acceso a acciones administrativas discretas definidas internamente como funciones Python. La secuencia de comandos importa Astra SDK y realiza llamadas a las clases según sea necesario.
+
+
+
+== Cómo acceder
+
+Puede acceder al SDK de las siguientes maneras.
+
+.Paquete Python
+SDK está disponible en https://pypi.org/["Índice de paquetes Python"^] bajo el nombre *actoolkit*. Al paquete se le asigna un número de versión y se seguirá actualizando según sea necesario. Debe utilizar la utilidad de administración de paquetes *PiP* para instalar el paquete en su entorno.
+
+Una vez instaladas, las astraSDK.py clases se pueden utilizar colocándose `import astraSDK` en sus scripts. Además, `actoolkit` se puede invocar directamente en el símbolo del sistema y es equivalente a. `toolkit.py` (`actoolkit list clusters` es igual que `./toolkit.py list clusters`).
+
+Consulte https://pypi.org/project/actoolkit/["PyPI: Kit de desarrollo de software Astra Control Python de NetApp"^] si quiere más información.
+
+.Código fuente GitHub
+El código fuente del SDK también está disponible en GitHub. El repositorio incluye lo siguiente:
+
+* `astraSDK.py` (Astra SDK con clases Python)
+* `toolkit.py` (script basado en funciones de mayor nivel)
+* Instrucciones y requisitos de instalación detallados
+* Scripts de instalación
+* Documentación adicional
+
+
+Puede clonar el https://github.com/NetApp/netapp-astra-toolkits["GitHub: NetApp/netapp-astra-kits"^] repositorio en el entorno local.
+
+
+
+== Requisitos básicos y de instalación
+
+Hay varias opciones y requisitos que se deben considerar como parte de la instalación del paquete y como parte de la preparación para utilizarlo.
+
+.Resumen de las opciones de instalación
+Puede instalar el SDK de una de las siguientes maneras:
+
+* Utilice el preparado https://hub.docker.com/r/netapp/astra-toolkits["Docker: NetApp/astra-Toolkits"^] imagen, que tiene todas las dependencias necesarias instaladas, incluyendo `actoolkit`
+* Utilice PIP para instalar `actoolkit` Paquete de PyPI en el entorno de Python
+* Clone el repositorio de GitHub y copie y modifique los dos archivos principales de Python para que puedan acceder al código de cliente Python
+
+
+Consulte las páginas PyPI y GitHub para obtener más información.
+
+.Requisitos para el entorno de Astra Control
+Ya sea utilizando directamente las clases Python en Astra SDK o las funciones de `toolkit.py` Script, en última instancia, accederá a la API DE REST en una implementación de Astra Control. Gracias a esto, necesitará una cuenta Astra junto con un token de API. Consulte link:../get-started/before_get_started.html["Antes de empezar"] Y las otras páginas de la sección *Introducción* de esta documentación para obtener más información.
+
+.Requisitos del SDK de Astra Control Python de NetApp
+El SDK tiene varios requisitos previos relacionados con el entorno local de Python. Por ejemplo, debe utilizar Python 3.8 o posterior. Además, hay varios paquetes Python que son necesarios. Consulte la página del repositorio de GitHub o la página del paquete PyPI para obtener más información.
+
+
+
+== Resumen de recursos útiles
+
+Estos son algunos de los recursos que necesitará para comenzar.
+
+* https://pypi.org/project/actoolkit["PyPI: Kit de desarrollo de software Astra Control Python de NetApp"^]
+* https://github.com/NetApp/netapp-astra-toolkits["GitHub: NetApp/netapp-astra-kits"^]
+* https://hub.docker.com/r/netapp/astra-toolkits["Docker: NetApp/astra-Toolkits"^]
+

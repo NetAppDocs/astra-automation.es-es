@@ -1,0 +1,121 @@
+---
+sidebar: sidebar 
+permalink: workflows_infra/wf_add_cluster.html 
+keywords:  
+summary: Puede añadir un clúster para que Astra lo gestione. 
+---
+= Añada un clúster mediante credenciales
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede añadir un clúster para que Astra lo gestione. A partir de la versión Astra 22.11, puede añadir un clúster con Astra Control Center y Astra Control Service.
+
+
+NOTE: No es necesario añadir un clúster cuando se usa un servicio de Kubernetes de uno de los principales proveedores de cloud (AKS, EKS, GKE).
+
+
+
+=== 1. Obtenga el archivo kubeconfig
+
+Necesita obtener una copia del archivo *kubconfig* de su administrador o servicio de Kubernetes.
+
+
+
+=== 2. Prepare el archivo kubeconfig
+
+Antes de utilizar el archivo *kubeconfig*, debe realizar las siguientes operaciones:
+
+.Convierta el archivo del formato YAML a JSON
+Si recibe el archivo kubeconfig con formato YAML, debe convertirlo a JSON.
+
+.Codifica JSON en base64
+Debe codificar el archivo JSON en base64. Por ejemplo:
+
+`yq -o=json ~/.kube/config | base64`
+
+
+
+=== 3. Seleccione el cloud
+
+Realice el flujo de trabajo link:../workflows_infra/wf_list_clouds.html["Enumerar las nubes"] y seleccione el cloud donde se añadirá el clúster.
+
+
+NOTE: La única nube que puede seleccionar es la *nube privada*.
+
+
+
+=== 4. Crear una credencial
+
+Realice la siguiente llamada a la API DE REST para crear una credencial mediante el archivo kubeconfig.
+
+[cols="25,75"]
+|===
+| Método HTTP | Ruta 
+
+
+| PUBLICAR | /accounts/{account_id}/core/v1/credenciales 
+|===
+
+
+===== Ejemplo de entrada JSON
+
+[source, curl]
+----
+{
+  "type" :  "application/astra-credential",
+  "version" : "1.1",
+  "name" : "Cloud One",
+  "keyType" : "kubeconfig",
+  "keyStore" : {
+    "base64": encoded_kubeconfig
+  },
+  "valid" : "true"
+}
+----
+
+
+===== Ejemplo de curl
+
+[source, curl]
+----
+curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/core/v1/credentials' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --data @JSONinput
+----
+
+
+=== 5. Añada el clúster
+
+Realice la siguiente llamada de API REST para añadir el clúster al cloud. El valor de `credentialID` El campo de entrada se obtiene de la llamada a la API DE REST en el paso anterior.
+
+[cols="25,75"]
+|===
+| Método HTTP | Ruta 
+
+
+| PUBLICAR | /accounts/{account_id}/topolog/v1/cloud/{cloud_id}/clusters 
+|===
+
+
+===== Ejemplo de entrada JSON
+
+[source, curl]
+----
+{
+  "type" :  "application/astra-cluster",
+  "version" : "1.1",
+  "credentialID": credential_id
+}
+----
+
+
+===== Ejemplo de curl
+
+[source, curl]
+----
+curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/clouds/<CLOUD_ID>/clusters' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --data @JSONinput
+----

@@ -1,0 +1,168 @@
+---
+sidebar: sidebar 
+permalink: rest-core/http_details.html 
+keywords: http, http details, uri, json 
+summary: La API REST de Astra Control utiliza HTTP y los parámetros relacionados para actuar en las instancias y colecciones de recursos. 
+---
+= Detalles de HTTP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La API REST de Astra Control utiliza HTTP y los parámetros relacionados para actuar en las instancias y colecciones de recursos. A continuación se presentan los detalles de la implementación HTTP.
+
+
+
+== Transacciones API y modelo CRUD
+
+La API REST de Astra Control implementa un modelo transaccional con operaciones bien definidas y transiciones de estado.
+
+.Transacción de API de solicitud y respuesta
+Cada llamada de API REST se realiza como una solicitud HTTP al servicio Astra. Cada solicitud genera una respuesta asociada al cliente. Este par de solicitud-respuesta puede considerarse una transacción API.
+
+.Compatibilidad con el modelo operativo CRUD
+Se accede a cada una de las instancias y colecciones de recursos disponibles a través de la API REST de Astra Control basándose en el modelo *CRUD*. Hay cuatro operaciones, cada una de las cuales se asigna a un único método HTTP. Entre las operaciones se incluyen:
+
+* Cree
+* Lea
+* Actualizar
+* Eliminar
+
+
+Para algunos de los recursos de Astra, sólo se admite un subconjunto de estas operaciones. Debe revisar el link:../get-started/online_api_ref.html["Referencia de API en línea"] Para obtener más información acerca de una llamada API específica.
+
+
+
+== Métodos HTTP
+
+Los métodos o verbos HTTP soportados por la API se presentan en la tabla siguiente.
+
+[cols="15,15,70"]
+|===
+| Método | CRUD | Descripción 
+
+
+| OBTENGA | Lea | Recupera propiedades de objeto para una instancia o colección de recursos. Esto se considera una operación de *lista* cuando se utiliza con una colección. 
+
+
+| PUBLICAR | Cree | Crea una nueva instancia de recurso basada en los parámetros de entrada. La URL a largo plazo se devuelve en un `Location` encabezado de respuesta. 
+
+
+| PUESTO | Actualizar | Actualiza una instancia de recurso completa con el cuerpo de solicitud JSON proporcionado. Se conservan los valores clave que no pueden modificarse el usuario. 
+
+
+| ELIMINAR | Eliminar | Elimina una instancia de recurso existente. 
+|===
+
+
+== Encabezados de solicitud y respuesta
+
+En la siguiente tabla se resumen los encabezados HTTP utilizados con la API REST de Astra Control.
+
+
+NOTE: Consulte https://www.rfc-editor.org/rfc/rfc7232.txt["RFC 7232"^] y.. https://www.rfc-editor.org/rfc/rfc7233.txt["RFC 7233"^] si quiere más información.
+
+[cols="30,15,55"]
+|===
+| Encabezado | Tipo | Notas de uso 
+
+
+| Acepte | Solicitud | Si el valor es "*/*" o no se proporciona, `application/json` Se devuelve en el encabezado de respuesta Content-Type. Si el valor se establece en Tipo de medio de recurso de Astra, se devuelve el mismo tipo de medio en el encabezado Tipo de contenido. 
+
+
+| Autorización | Solicitud | Token del portador con la clave API para el usuario. 
+
+
+| Tipo de contenido | Respuesta | Devuelto en función del `Accept` solicite el encabezado. 
+
+
+| ETag | Respuesta | Se incluye con un éxito según se define con RFC 7232. El valor es una representación hexadecimal del valor MD5 para todo el recurso JSON. 
+
+
+| Coincidencia IF | Solicitud | Cabecera de solicitud de condición previa implementada como se describe en la sección 3.1 RFC 7232 y soporte para solicitudes *PUT*. 
+
+
+| If-Modified-Since | Solicitud | Cabecera de solicitud de condición previa implementada como se describe en la sección 3.4 RFC 7232 y soporte para solicitudes *PUT*. 
+
+
+| If-Unmodified-since | Solicitud | Cabecera de solicitud de condición previa implementada como se describe en la sección 3.4 RFC 7232 y soporte para solicitudes *PUT*. 
+
+
+| Ubicación | Respuesta | Contiene la dirección URL completa del recurso recién creado. 
+|===
+
+
+== Parámetros de consulta
+
+Los siguientes parámetros de consulta están disponibles para su uso con colecciones de recursos. Consulte link:../additional/working_with_collections.html["Trabajar con colecciones"] si quiere más información.
+
+[cols="20,80"]
+|===
+| Parámetro de consulta | Descripción 
+
+
+| incluya | Contiene los campos que se deben devolver al leer una colección. 
+
+
+| filtro | Indica los campos que deben coincidir para que se devuelva un recurso al leer una colección. 
+
+
+| OrderBy | Determina el orden de los recursos devueltos al leer una colección. 
+
+
+| límite | Limita el número máximo de recursos devueltos al leer una colección. 
+
+
+| omitir | Establece el número de recursos que se van a transferir y omitir al leer una colección. 
+
+
+| cuente | Indica si se debe devolver el número total de recursos en el objeto de metadatos. 
+|===
+
+
+== códigos de estado HTTP
+
+A continuación se describen los códigos de estado HTTP utilizados por la API DE REST de Astra Control.
+
+
+NOTE: La API REST de Astra Control también utiliza el estándar *Detalles del problema para API de HTTP*. Consulte link:diagnostics_support.html["Diagnóstico y soporte"] si quiere más información.
+
+[cols="15,20,65"]
+|===
+| Codificación | Significado | Descripción 
+
+
+| 200 | DE ACUERDO | Indica que las llamadas que no crean una nueva instancia de recurso tienen éxito. 
+
+
+| 201 | Creado | Se ha creado correctamente un objeto y el encabezado de respuesta de ubicación incluye el identificador único del objeto. 
+
+
+| 204 | Sin contenido | La solicitud se ha realizado correctamente aunque no se ha devuelto ningún contenido. 
+
+
+| 400 | Solicitud incorrecta | La entrada de la solicitud no se reconoce o no es apropiada. 
+
+
+| 401 | No autorizado | El usuario no está autorizado y debe authentir. 
+
+
+| 403 | Prohibido | Se deniega el acceso debido a un error de autorización. 
+
+
+| 404 | No encontrado | El recurso al que se hace referencia en la solicitud no existe. 
+
+
+| 409 | Conflicto | Error al intentar crear un objeto porque el objeto ya existe. 
+
+
+| 500 | Error interno | Se ha producido un error interno general en el servidor. 
+
+
+| 503 | Servicio no disponible | El servicio no está listo para atender la solicitud por algún motivo. 
+|===

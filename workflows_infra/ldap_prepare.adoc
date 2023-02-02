@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: workflows_infra/ldap_prepare.html 
+keywords: LDAP, LDAP integration 
+summary: 'Opcionalmente, puede integrar Astra Control Center con un servidor Lightweight Directory Access Protocol (LDAP) para realizar la autenticación de determinados usuarios de Astra.' 
+---
+= Prepare la configuración de LDAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Opcionalmente, puede integrar Astra Control Center con un servidor Lightweight Directory Access Protocol (LDAP) para realizar la autenticación de determinados usuarios de Astra. LDAP es un protocolo estándar del sector para acceder a información de directorio distribuida y una opción muy popular para la autenticación empresarial.
+
+.Información relacionada
+* https://datatracker.ietf.org/doc/html/rfc4510["Hoja de ruta de especificación técnica de LDAP"^]
+* https://datatracker.ietf.org/doc/html/rfc4511["LDAP, versión 3"^]
+
+
+
+
+== Descripción general del proceso de implementación
+
+En un nivel superior, hay varios pasos que debe realizar para configurar un servidor LDAP con el fin de proporcionar autenticación a los usuarios de Astra.
+
+
+NOTE: Aunque los pasos que se muestran a continuación están en una secuencia, en algunos casos puede realizarlos en un orden diferente. Por ejemplo, puede definir los usuarios y grupos de Astra antes de configurar el servidor LDAP.
+
+. Revisar link:../workflows_infra/ldap_prepare.html#requirements-and-limitations["Requisitos y limitaciones"] para comprender las opciones, requisitos y limitaciones.
+. Seleccione un servidor LDAP y las opciones de configuración deseadas (incluida la seguridad).
+. Realice el flujo de trabajo link:../workflows_infra/wf_ldap_configure_server.html["Configure Astra para que utilice un servidor LDAP"] Integrar Astra con el servidor LDAP.
+. Revise los usuarios y grupos del servidor LDAP para asegurarse de que están definidos correctamente.
+. Ejecute el flujo de trabajo adecuado en link:../workflows_infra/wf_ldap_add_entries.html["Agregue entradas LDAP a Astra"] Identificar los usuarios que se autenticarán mediante LDAP.
+
+
+
+
+== Requisitos y limitaciones
+
+Antes de configurar Astra para utilizar LDAP para la autenticación, debe revisar los aspectos básicos de configuración de Astra que se presentan a continuación, incluidas las limitaciones y las opciones de configuración.
+
+.Sólo compatible con Astra Control Center
+La plataforma Astra Control proporciona dos modelos de puesta en marcha. La autenticación LDAP solo es compatible con las implementaciones de Astra Control Center.
+
+.Configuración mediante la API DE REST o la interfaz de usuario web
+La versión actual de Astra Control Center admite la configuración de la autenticación LDAP mediante la API REST de Astra Control y la interfaz de usuario web de Astra.
+
+.Se requiere servidor LDAP
+Debe tener un servidor LDAP para aceptar y procesar las solicitudes de autenticación Astra. Active Directory de Microsoft es compatible con la versión actual de Astra Control Center.
+
+.Conexión segura con el servidor LDAP
+Al configurar el servidor LDAP en Astra, puede definir opcionalmente una conexión segura. En este caso, se necesita un certificado para el protocolo LDAPS.
+
+.Configurar usuarios o grupos
+Debe seleccionar los usuarios para autenticarse con el LDAP. Puede hacerlo identificando los usuarios individuales o un grupo de usuarios. Las cuentas se deben definir en el servidor LDAP. También deben identificarse en Astra (tipo LDAP) que permite que las solicitudes de autenticación se reenvíen a LDAP.
+
+.Restricción de función al enlazar un usuario o un grupo
+Con la versión actual de Astra Control Center, el único valor admitido para `roleConstraint` es "*". Esto indica que el usuario no está restringido a un conjunto limitado de espacios de nombres y que puede acceder a todos ellos. Consulte link:../workflows_infra/wf_ldap_add_entries.html["Agregue entradas LDAP a Astra"] si quiere más información.
+
+.Credenciales de LDAP
+Entre las credenciales que utiliza LDAP, se incluyen el nombre de usuario (dirección de correo electrónico) y la contraseña asociada.
+
+.Direcciones de correo electrónico exclusivas
+Todas las direcciones de correo electrónico que actúen como nombres de usuario en una implementación de Astra Control Center deben ser únicas. No puede agregar un usuario LDAP con una dirección de correo electrónico que ya esté definida en Astra. Si existe un correo electrónico duplicado, primero debe eliminarlo de Astra. Consulte https://docs.netapp.com/us-en/astra-control-center/use/manage-users.html#remove-users["Quitar usuarios"^] En el sitio de documentación de Astra Control Center para obtener más información.
+
+.Opcionalmente, defina primero los grupos y usuarios LDAP
+Puede agregar los usuarios y grupos LDAP a Astra Control Center aunque aún no existan en LDAP o si no se ha configurado el servidor LDAP. Esto permite preconfigurar los usuarios y grupos antes de configurar el servidor LDAP.
+
+.Un usuario definido en varios grupos LDAP
+Si un usuario LDAP pertenece a varios grupos LDAP y se han asignado roles diferentes en Astra a los grupos, el rol efectivo del usuario al autenticarse será el más privilegiado. Por ejemplo, si se asigna un usuario el `viewer` rol con group1 pero tiene la `member` función en grupo2, el rol del usuario sería `member`. Esto se basa en la jerarquía utilizada por Astra (de la más alta a la más baja):
+
+* Propietario
+* Admin
+* Miembro
+* Visionador
+
+
+.Sincronización periódica de cuentas
+Astra sincroniza los usuarios y grupos de TI con el servidor LDAP aproximadamente cada 60 segundos. Por lo tanto, si se agrega o elimina un usuario o grupo de LDAP, puede tardar hasta un minuto en estar disponible en Astra.
+
+.Deshabilitar y restablecer la configuración de LDAP
+Antes de intentar restablecer la configuración de LDAP, primero debe deshabilitar la autenticación LDAP. Además, para cambiar el servidor LDAP (`connectionHost`), debe realizar ambas operaciones. Consulte link:../workflows_infra/wf_ldap_disable_reset.html["Deshabilite y restablezca LDAP"] si quiere más información.
+
+.Parámetros de la API de REST
+Los flujos de trabajo de configuración LDAP realizan llamadas a la API DE REST para realizar las tareas específicas. Cada llamada API puede incluir parámetros de entrada, como se muestra en las muestras proporcionadas. Consulte link:../get-started/online_api_ref.html["Referencia de API en línea"] para obtener información sobre cómo localizar la documentación de referencia.

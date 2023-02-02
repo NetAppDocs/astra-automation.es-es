@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: workflows/wf_manage_app.html 
+keywords:  
+summary: Puede crear una aplicación gestionada basada en una aplicación ya conocida por Astra en un espacio de nombres específico. Cuando una aplicación se gestiona o se define en Astra, se puede proteger mediante la realización de backups y copias Snapshot. 
+---
+= Gestionar una aplicación
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede crear una aplicación gestionada basada en una aplicación ya conocida por Astra en un espacio de nombres específico. Cuando una aplicación se gestiona o se define en Astra, se puede proteger mediante la realización de backups y copias Snapshot.
+
+
+
+=== 1. Seleccione el espacio de nombres
+
+Realice el flujo de trabajo link:../workflows/wf_list_namespaces.html["Enumere los espacios de nombres"] y seleccione el espacio de nombres.
+
+
+
+=== 2. Seleccione el clúster
+
+Realice el flujo de trabajo link:../workflows_infra/wf_list_clusters.html["Enumere los clústeres"] y seleccione el clúster.
+
+
+
+=== 3. Administrar la aplicación
+
+Realice la siguiente llamada a la API de REST para gestionar la aplicación.
+
+[cols="25,75"]
+|===
+| Método HTTP | Ruta 
+
+
+| PUBLICAR | /account/{account_id}/k8s/v2/apps 
+|===
+
+
+===== Parámetros de entrada adicionales
+
+Además de los parámetros comunes con todas las llamadas API DE REST, en los ejemplos curl de este paso se incluyen los siguientes parámetros.
+
+[cols="25,10,10,55"]
+|===
+| Parámetro | Tipo | Obligatorio | Descripción 
+
+
+| JSON | Cuerpo | Sí | Proporciona los parámetros necesarios para identificar la aplicación que se va a gestionar. Vea el ejemplo siguiente. 
+|===
+
+
+===== Ejemplo de entrada JSON
+
+[source, json]
+----
+{
+  "clusterID": "7ce83fba-6aa1-4e0c-a194-26e714f5eb46",
+  "name": "subtext",
+  "namespaceScopedResources": [{"namespace": "kube-matrix"}],
+  "type": "application/astra-app",
+  "version": "2.0"
+}
+----
+
+
+===== Ejemplo de curl: Gestione una aplicación
+
+[source, curl]
+----
+curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v2/apps' --header 'Content-Type: application/astra-app+json' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'  --data @JSONinput
+----

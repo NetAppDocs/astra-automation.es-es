@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: workflows_infra/workflows_infra_before.html 
+keywords: workflows, infrastructure workflows, preparation 
+summary: Puede utilizar estos flujos de trabajo para crear y mantener la infraestructura utilizada con una implementación de Astra Control Center. En muchos casos, los flujos de trabajo también se pueden utilizar con Astra Control Service. 
+---
+= Antes de empezar
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede utilizar estos flujos de trabajo para crear y mantener la infraestructura utilizada con una implementación de Astra Control Center. En muchos casos, los flujos de trabajo también se pueden utilizar con Astra Control Service.
+
+
+NOTE: Estos flujos de trabajo pueden ampliarse y mejorarse mediante NetApp en cualquier momento, por lo que debe revisarlos periódicamente.
+
+
+
+== Preparación general
+
+Antes de utilizar cualquiera de los flujos de trabajo de Astra, asegúrese de revisarlos link:../get-started/prepare_to_use_workflows.html["Prepárese para usar los flujos de trabajo"].
+
+
+
+== Categorías de flujo de trabajo
+
+Los flujos de trabajo de infraestructuras están organizados en diferentes categorías para facilitar la localización del que desee.
+
+[cols="25,75"]
+|===
+| Categoría | Descripción 
+
+
+| Identidad y acceso | Estos flujos de trabajo le permiten gestionar la identidad y cómo se accede a Astra. Los recursos incluyen usuarios, credenciales y tokens. 
+
+
+| Configuración de LDAP | Opcionalmente, puede configurar Astra Control Center para que utilice LDAP para autenticar a los usuarios seleccionados. 
+
+
+| De clúster | Es posible añadir clústeres de Kubernetes gestionados, que permiten proteger y admitir las aplicaciones que contienen. 
+
+
+| Nubes | Estos flujos de trabajo proporcionan acceso a las nubes disponibles a través de la API REST de Astra Control. 
+
+
+| Cucharones | Se pueden usar estos flujos de trabajo para crear y gestionar los bloques S3 que se utilizan para almacenar backups. 
+
+
+| Reducida | Estos flujos de trabajo permiten añadir y mantener volúmenes y back-ends de almacenamiento. 
+|===

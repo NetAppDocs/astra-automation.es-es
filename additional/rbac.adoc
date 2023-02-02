@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: additional/rbac.html 
+keywords: rbac, roles, namespace granularity 
+summary: 'La API REST de Astra admite el control de acceso basado en roles (RBAC) para otorgar y restringir el acceso a las funciones del sistema.' 
+---
+= Seguridad RBAC
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La API REST de Astra admite el control de acceso basado en roles (RBAC) para otorgar y restringir el acceso a las funciones del sistema.
+
+
+
+== Funciones de Astra
+
+Cada usuario de Astra se asigna a una sola función que determina las acciones que se pueden realizar. Los roles se organizan en una jerarquía tal y como se describe en la tabla siguiente.
+
+[cols="15,85"]
+|===
+| Función | Descripción 
+
+
+| Propietario | Tiene todos los permisos de la función Admin y también puede eliminar cuentas Astra. 
+
+
+| Admin | Tiene todos los permisos de la función Miembro y también puede invitar a los usuarios a unirse a una cuenta. 
+
+
+| Miembro | Puede gestionar completamente la aplicación Astra y los recursos informáticos. 
+
+
+| Visionador | Limitado a sólo ver recursos. 
+|===
+
+
+== RBAC mejorado con granularidad de espacio de nombres
+
+
+NOTE: Esta función se introdujo con la versión 22.04 de la API ASTRA REST.
+
+Cuando se establece un enlace de roles para un usuario específico, se puede aplicar una restricción para limitar los espacios de nombres a los que el usuario tiene acceso. Hay varias formas de definir esta restricción como se describe en la tabla siguiente. Consulte el parámetro `roleContraints` En la API de enlace de roles para obtener más información.
+
+[cols="20,80"]
+|===
+| Espacios de nombres | Descripción 
+
+
+| Todo | El usuario puede acceder a todos los espacios de nombres mediante el parámetro comodín "*". Este es el valor predeterminado para mantener la compatibilidad con versiones anteriores. 
+
+
+| Ninguno | La lista de restricciones se especifica aunque esté vacía. Esto indica que el usuario no puede acceder a ningún espacio de nombres. 
+
+
+| Lista Namespace | Se incluye el UUID de un espacio de nombres que restringe al usuario al espacio de nombres único. También se puede utilizar una lista separada por comas para permitir el acceso a varios espacios de nombres. 
+
+
+| Etiqueta | Se especifica una etiqueta y se permite el acceso a todos los espacios de nombres coincidentes. 
+|===

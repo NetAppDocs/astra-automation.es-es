@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: workflows/wf_delete_failed_app.html 
+keywords:  
+summary: Es posible que no pueda eliminar una aplicación gestionada si tiene una copia de seguridad o una instantánea en estado fallido. En este caso, puede eliminar manualmente la aplicación. 
+---
+= Eliminar una aplicación fallida
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Es posible que no pueda eliminar una aplicación gestionada si tiene una copia de seguridad o una instantánea en estado fallido. En este caso, puede eliminar manualmente la aplicación mediante el flujo de trabajo que se describe a continuación.
+
+
+
+=== 1. Seleccione la aplicación que desea eliminar
+
+Realice el flujo de trabajo link:wf_list_man_apps.html["Enumere las aplicaciones"] y seleccione la aplicación que desea eliminar.
+
+
+
+=== 2. Enumere las copias de seguridad existentes de la aplicación
+
+Realice el flujo de trabajo link:wf_list_backups.html["Enumere los backups"].
+
+
+
+=== 3. Eliminar todos los backups
+
+Elimine todos los backups de aplicaciones realizando el flujo de trabajo link:wf_delete_backup.html["Eliminar una copia de seguridad"] para cada backup de la lista.
+
+
+
+=== 4. Enumera las instantáneas existentes para la aplicación
+
+Realice el flujo de trabajo link:wf_list_snapshots.html["Enumere las instantáneas"].
+
+
+
+=== 5. Elimine todas las instantáneas
+
+Realice el flujo de trabajo link:wf_delete_snapshot.html["Eliminar una copia de Snapshot"] de cada instantánea de la lista.
+
+
+
+=== 6. Retire la aplicación
+
+Realice el flujo de trabajo link:wf_unmanage_app.html["Desgestionar una aplicación"] para eliminar la aplicación.

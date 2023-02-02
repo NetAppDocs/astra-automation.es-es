@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: rest-core/url_format.html 
+keywords: url, url format, endpoint, version 
+summary: La estructura general de la URL utilizada para acceder a una instancia de recurso o a una colección a través de la API DE REST está compuesta por varios valores. Esta estructura refleja el modelo de objeto subyacente y el diseño del sistema. 
+---
+= Formato de URL
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La estructura general de la URL utilizada para acceder a una instancia de recurso o a una colección a través de la API DE REST está compuesta por varios valores. Esta estructura refleja el modelo de objeto subyacente y el diseño del sistema.
+
+.Cuenta como la raíz
+La raíz de la ruta de recursos a cada extremo DE REST es la cuenta Astra. Por lo tanto, todas las rutas de la URL comienzan con `/account/{account_id}` donde `account_id` Es el valor único UUIDv4 de la cuenta. Estructura interna esto refleja un diseño en el que todo el acceso a los recursos se basa en una cuenta específica.
+
+.Categoría de recurso de extremo
+Los extremos de recursos de Astra se dividen en tres categorías diferentes:
+
+* Núcleo (`/core`)
+* Aplicación gestionada (`/k8s`)
+* Topología (`/topology`)
+
+
+Consulte link:../endpoints/resources.html["Recursos"] si quiere más información.
+
+.Versión de categoría
+Cada una de las tres categorías de recursos tiene una versión global que controla la versión de los recursos a los que se tiene acceso. Por convención y definición, pasar a una nueva versión principal de una categoría de recursos (como, por ejemplo, de `/v1` para `/v2`) Introducirá cambios de ruptura en la API.
+
+.Instancia o colección de recursos
+Se puede usar una combinación de tipos de recursos e identificadores en la ruta de acceso, en función de si se accede a una instancia de recurso o a una recopilación.
+
+.Ejemplo
+* Ruta de recursos
++
+En función de la estructura presentada anteriormente, una ruta típica a un punto final es: `/accounts/{account_id}/core/v1/users`.
+
+* Complete la dirección URL
++
+La dirección URL completa del punto final correspondiente es: `https://astra.netapp.io/accounts/{account_id}/core/v1/users`.
+
+

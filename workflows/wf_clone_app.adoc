@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: workflows/wf_clone_app.html 
+keywords:  
+summary: Puede crear una nueva aplicación clonando una aplicación existente. 
+---
+= Clonar una aplicación
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede crear una nueva aplicación clonando una aplicación existente.
+
+
+
+=== Antes de empezar
+
+Tenga en cuenta lo siguiente acerca de este flujo de trabajo:
+
+* No se utiliza una copia de seguridad o una instantánea de la aplicación
+* La operación de clonado se ejecuta dentro del mismo clúster
+* La nueva aplicación se coloca en un espacio de nombres diferente
+
+
+
+NOTE: Para clonar una aplicación en un clúster diferente, debe actualizar el `clusterId` Parámetro en la entrada JSON según sea apropiado para su entorno.
+
+
+
+=== 1. Seleccione la aplicación que desea clonar
+
+Realice el flujo de trabajo link:wf_list_man_apps.html["Enumere las aplicaciones"] y seleccione la aplicación que desea clonar. Se necesitan varios valores de recursos para la llamada DE REST utilizada para clonar la aplicación.
+
+
+
+=== 2. Clone la aplicación
+
+Realice la siguiente llamada a la API DE REST para clonar la aplicación.
+
+[cols="25,75"]
+|===
+| Método HTTP | Ruta 
+
+
+| PUBLICAR | /account/{account_id}/k8s/v2/apps 
+|===
+
+
+===== Parámetros de entrada adicionales
+
+Además de los parámetros comunes con todas las llamadas API DE REST, en los ejemplos curl de este paso se incluyen los siguientes parámetros.
+
+[cols="25,10,10,55"]
+|===
+| Parámetro | Tipo | Obligatorio | Descripción 
+
+
+| JSON | Cuerpo | Sí | Proporciona los parámetros para la aplicación clonada. Vea el ejemplo siguiente. 
+|===
+
+
+===== Ejemplo de entrada JSON
+
+[source, json]
+----
+{
+  "type": "application/astra-app",
+  "version": "2.0",
+  "name": "mysql-clone",
+  "clusterID": "30880586-d579-4d27-930f-a9633e59173b",
+  "sourceClusterID": "30880586-d579-4d27-930f-a9633e59173b",
+  "namespace": "mysql-ns",
+  "sourceAppID": "e591ee59-ea90-4a9f-8e6c-d2b6e8647096"
+}
+----
+
+
+===== Ejemplo de curl: Clonar una aplicación
+
+[source, curl]
+----
+curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v2/apps' --header 'Content-Type: application/astra-app+json' --header '*/*' --header 'Authorization: Bearer <API_TOKEN>' --data @JSONinput
+----
