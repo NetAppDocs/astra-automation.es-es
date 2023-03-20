@@ -42,6 +42,6 @@ En función de la estructura presentada anteriormente, una ruta típica a un pun
 
 * Complete la dirección URL
 +
-La dirección URL completa del punto final correspondiente es: `https://astra.netapp.io/accounts/{account_id}/core/v1/users`.
+La dirección URL completa del punto final correspondiente es: `\https://astra.netapp.io/accounts/{account_id}/core/v1/users`.
 
 

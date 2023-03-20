@@ -967,7 +967,6 @@
   <block id="2fc537b9f7b2c95f698a1e045c1ca8c7" category="list-text">Ruta de recursos</block>
   <block id="4c1c10477ca13145352fd9a92f9744f6" category="paragraph">En función de la estructura presentada anteriormente, una ruta típica a un punto final es:<block ref="12662cf5431171146c880e7742535780" prefix=" " category="inline-code"></block>.</block>
   <block id="8a95104150e07b745de96037e7eb15b4" category="list-text">Complete la dirección URL</block>
-  <block id="f39323c9cdd9d851595dba08fa974f82" category="paragraph">La dirección URL completa del punto final correspondiente es:<block ref="5b0e8fd9db35d3aec1a4072a60117b3f" prefix=" " category="inline-code"></block>.</block>
   <block id="ad60c6f0b038daedb3b46ea65cd82bc1" category="summary">La API REST de Astra Control utiliza HTTP y los parámetros relacionados para actuar en las instancias y colecciones de recursos.</block>
   <block id="7ab91fd48b58ce1ea4cada1f1a4e1808" category="doc">Detalles de HTTP</block>
   <block id="e4c8251a9c6d357d3aa4b05293542914" category="paragraph">La API REST de Astra Control utiliza HTTP y los parámetros relacionados para actuar en las instancias y colecciones de recursos. A continuación se presentan los detalles de la implementación HTTP.</block>
@@ -1185,4 +1184,5 @@
   <block id="365c8dec8255a8a164436c71a2611920" category="sidebar">Uso de Python</block>
   <block id="35bcd8d33247c44923eb71df2f2f0a2d" category="sidebar">Python nativo</block>
   <block id="19ec08da81a826d919d64ab860845c04" category="sidebar">Referencia de API</block>
+  <block id="d01376790c7b0b81f92f0a93fe0d3fad" category="paragraph">La dirección URL completa del punto final correspondiente es:<block ref="889041d0c093d3ff7a84829871523416" prefix=" " category="inline-code"></block>.</block>
 </blocks>
