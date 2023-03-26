@@ -36,6 +36,10 @@ Documentación para la versión actual del software Astra Trident, un orquestado
 +
 Ubicación central para acceder a toda la documentación de Astra para puestas en marcha tanto en las instalaciones como en cloud público.
 
+* https://discord.gg/NetApp["Discordia"^]
++
+Soporte de la comunidad para Astra Control y otros productos de NetApp.
+
 
 
 

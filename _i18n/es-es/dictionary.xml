@@ -1185,4 +1185,8 @@
   <block id="35bcd8d33247c44923eb71df2f2f0a2d" category="sidebar">Python nativo</block>
   <block id="19ec08da81a826d919d64ab860845c04" category="sidebar">Referencia de API</block>
   <block id="d01376790c7b0b81f92f0a93fe0d3fad" category="paragraph">La dirección URL completa del punto final correspondiente es:<block ref="889041d0c093d3ff7a84829871523416" prefix=" " category="inline-code"></block>.</block>
+  <block id="8f5cc6430613f1c12f36965050bb7197" category="inline-link">Discordia</block>
+  <block id="5f86a5c97c95f60e61c70ba77d7346ae" category="list-text"><block ref="5f86a5c97c95f60e61c70ba77d7346ae" category="inline-link-rx"></block></block>
+  <block id="0b5b4445b358715641cec74fe5aa74a5" category="paragraph">Soporte de la comunidad para Astra Control y otros productos de NetApp.</block>
+  <block id="c216e952dc373af46e9e31e0b8bdcf89" category="sidebar">Automatización de Astra</block>
 </blocks>
