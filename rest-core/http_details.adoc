@@ -99,7 +99,7 @@ NOTE: Consulte https://www.rfc-editor.org/rfc/rfc7232.txt["RFC 7232"^] y.. https
 
 == Parámetros de consulta
 
-Los siguientes parámetros de consulta están disponibles para su uso con colecciones de recursos. Consulte link:../additional/working_with_collections.html["Trabajar con colecciones"] si quiere más información.
+Los siguientes parámetros de consulta están disponibles para su uso con colecciones de recursos. Consulte link:../additional/work_with_collections.html["Trabajar con colecciones"] si quiere más información.
 
 [cols="20,80"]
 |===
@@ -130,7 +130,7 @@ Los siguientes parámetros de consulta están disponibles para su uso con colecc
 A continuación se describen los códigos de estado HTTP utilizados por la API DE REST de Astra Control.
 
 
-NOTE: La API REST de Astra Control también utiliza el estándar *Detalles del problema para API de HTTP*. Consulte link:diagnostics_support.html["Diagnóstico y soporte"] si quiere más información.
+NOTE: La API REST de Astra Control también utiliza el estándar *Detalles del problema para API de HTTP*. Consulte link:../additional/diagnostics_support.html["Diagnóstico y soporte"] si quiere más información.
 
 [cols="15,20,65"]
 |===
