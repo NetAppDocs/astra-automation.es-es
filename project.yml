@@ -12,7 +12,10 @@ settings:
   versions:
   - name: Automatización de Astra
     url: "/astra-automation"
-    version-number: '23.01'
+    version-number: '23.04'
+  - name: Automatización de Astra
+    url: https://docs.netapp.com/us-en/astra-automation-2211/
+    version-number: '22.11'
   - name: Automatización de Astra
     url: https://docs.netapp.com/us-en/astra-automation-2208/
     version-number: '22.08'

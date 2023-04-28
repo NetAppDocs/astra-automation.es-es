@@ -35,7 +35,10 @@ Antes de utilizar el archivo *kubeconfig*, debe realizar las siguientes operacio
 Si recibe el archivo kubeconfig con formato YAML, debe convertirlo a JSON.
 
 .Codifica JSON en base64
-Debe codificar el archivo JSON en base64. Por ejemplo:
+Debe codificar el archivo JSON en base64.
+
+.Ejemplo
+Aquí hay un ejemplo de la conversión del archivo kubeconfig de YAML a JSON y luego codificarlo en base64:
 
 `yq -o=json ~/.kube/config | base64`
 

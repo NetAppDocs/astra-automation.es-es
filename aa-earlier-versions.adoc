@@ -16,6 +16,7 @@ summary: Puede acceder a la documentación de automatización de versiones anter
 [role="lead"]
 Puede acceder a la documentación de automatización de versiones anteriores de Astra Control en los siguientes enlaces.
 
+* https://docs.netapp.com/us-en/astra-automation-2211/["Documentación de Astra Control Automation 22,11"^]
 * https://docs.netapp.com/us-en/astra-automation-2208/["Documentación de Astra Control Automation 22.08"^]
 * https://docs.netapp.com/us-en/astra-automation-2204/["Documentación de Astra Control Automation 22.04"^]
 * https://docs.netapp.com/us-en/astra-automation-2112/["Documentación de Astra Control Automation 21.12"^]
