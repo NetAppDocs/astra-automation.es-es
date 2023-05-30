@@ -22,8 +22,9 @@ Necesita obtener un token de API Astra para utilizar la API REST de Astra Contro
 
 Un identificador de API identifica a la persona que llama a Astra y debe incluirse con cada llamada de API DE REST.
 
-* Puede generar un token de API mediante la interfaz de usuario web de Astra.
-* La identidad de usuario que se lleva con el token la determina el usuario que crea el token.
+* Debe generar un token de API mediante la interfaz de usuario web de Astra.
+* El procedimiento para generar un token es el mismo para ambos modelos de puesta en marcha de Astra. Solo la URL que se utiliza para acceder a Astra es diferente.
+* La identidad de usuario que lleva el token y los permisos asociados son determinados por el usuario que creó el token.
 * El token debe incluirse en el `Authorization` Encabezado de solicitud HTTP.
 * Un token nunca caduca después de que se crea.
 * Puede revocar un token en la interfaz de usuario web de Astra.
@@ -46,15 +47,17 @@ Necesita credenciales para una cuenta Astra.
 Esta tarea genera un token de API en la interfaz web de Astra. También debe recuperar el ID de cuenta que también se necesita al realizar llamadas API.
 
 .Pasos
-. Inicie sesión en Astra con sus credenciales de cuenta.
+. Inicia sesión en Astra con las credenciales de tu cuenta de la siguiente manera:
 +
-Acceda a las siguientes instalaciones para el servicio Astra Control: https://astra.netapp.io/["https://astra.netapp.io"^]
+** Servicio Astra Control: link:https://astra.netapp.io["https://astra.netapp.io"^]
+** Astra Control Center: Utilice la URL de su entorno local tal y como se establece durante la instalación
+
 
 . Haga clic en el icono de figura situado en la parte superior derecha de la página y seleccione *acceso API*.
-. Haga clic en *generar símbolo de API* en la página y, en la ventana emergente, haga clic en *generar símbolo de API*.
+. Haga clic en *Generar token de API* en la página y luego haga clic en *Generar token de API* en la ventana emergente.
 . Haga clic en el icono para copiar la cadena de token al portapapeles y guardarla en el editor.
 . Copie y guarde el ID de cuenta que está disponible en la misma página.
 
 
 .Después de terminar
-Cuando accede a la API REST de Astra Control mediante Curl o un lenguaje de programación, debe incluir el token del portador de API en HTTP `Authorization` solicite el encabezado.
+Cuando accedes a la API de REST DE Astra Control mediante curl o un lenguaje de programación, debes incluir el token del portador de la API en HTTP `Authorization` solicite el encabezado.

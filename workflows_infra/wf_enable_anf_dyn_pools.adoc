@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: workflows_infra/wf_enable_anf_dyn_pools.html 
+keywords: Azure NetApp Files, ANF, dynamic ANF pools, subscription id 
+summary: Cuando se realiza un backup de una aplicación gestionada en un clúster privado de las instalaciones que tiene un back-end de almacenamiento de ANF, debe habilitar la función dinámica ANF Pools. Esto se realiza proporcionando un identificador de suscripción para utilizarlo al expandir y contraer los pools de capacidad. 
+---
+= Habilite ANF Pools dinámicos para clústeres autogestionados
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cuando se realiza un backup de una aplicación gestionada en un clúster privado de las instalaciones que tiene un back-end de almacenamiento de ANF, debe habilitar la función dinámica ANF Pools. Esto se realiza proporcionando un identificador de suscripción para utilizarlo al expandir y contraer los pools de capacidad.
+
+
+NOTE: Los pools de ANF dinámicos son una característica de las aplicaciones gestionadas por Astra que utilizan un entorno de administración de almacenamiento Azure NetApp Files (ANF). Cuando se realiza un backup de estas aplicaciones, Astra amplía automáticamente y reduce 1,5 veces los pools de capacidad a los volúmenes persistentes. Esto garantiza que haya espacio suficiente para la copia de seguridad sin incurrir en un cargo permanente adicional. Consulte https://docs.netapp.com/us-en/astra-control-service/learn/azure-storage.html#application-backups["Backups de aplicaciones Azure"^] si quiere más información.
+
+
+
+=== 1. Agregue el identificador de suscripción de Azure
+
+Realice la siguiente llamada de API de REST.
+
+
+NOTE: Debe actualizar el ejemplo de entrada JSON según corresponda para su entorno, incluido el ID de suscripción y el valor base64 para el principal de servicio.
+
+[cols="1,6"]
+|===
+| Método HTTP | Ruta 
+
+
+| PUBLICAR | /accounts/{account_id}/core/v1/credenciales 
+|===
+.Ejemplo de entrada JSON
+[source, json]
+----
+{
+  "keyStore": {
+    "privKey": "SGkh",
+    "pubKey": "UGhpcyCpcyBhbiBleGFtcGxlLg==",
+    "base64": "fwogICAgJmFwcElkIjogIjY4ZmSiODFiLTY0YWYtNDdjNC04ZjUzLWE2NDdlZTUzMGZkZCIsCiAgICAiZGlzcGxheU5hbWUiOiAic3AtYXN0cmEtZGV2LXFhIiwKICAgICJuYW1lIjogImh0dHA6Ly9zcC1hc3RyYS1kZXYtcWEiLAogICAgInBhc3N3b3JkIjogIllLQThRfk9IVVJkZWZYM0pSTWJlLnpUeFBleVE0UnNwTG9DcUJjazAiLAogICAgInRlbmFudCI6ICIwMTFjZGY2Yy03NTEyLTQ3MDUtYjI0ZS03NzIxYWZkOGNhMzciLAogICAgInN1YnNjcmlwdGlvbklkIjogImIyMDAxNTVmLTAwMWEtNDNiZS04N2JlLTNlZGRlODNhY2VmNCIKfQ=="
+  },
+  "name": "myCert",
+  "type": "application/astra-credential",
+  "version": "1.1",
+  "metadata": {
+    "labels": [
+      {
+        "name": "astra.netapp.io/labels/read-only/credType",
+        "value": "service-account"
+      },
+      {
+        "name": "astra.netapp.io/labels/read-only/cloudName",
+        "value": "OCP"
+      },
+      {
+        "name": "astra.netapp.io/labels/read-only/azure/subscriptionID",
+        "value": "b212156f-001a-43be-87be-3edde83acef5"
+      }
+    ]
+  }
+}
+----
+.Ejemplo de curl
+[source, curl]
+----
+curl --location -i --request POST --data @JSONinput 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/core/v1/credentials' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --header 'Content-Type: application/astra-credential+json'
+----
+
+
+=== 2. Añadir un cubo si es necesario
+
+Si es necesario, debe agregar un depósito a la aplicación gestionada.
+
+
+
+=== 3. Haz una copia de seguridad de la aplicación administrada
+
+Realice el flujo de trabajo link:../workflows/wf_create_backup.html["Cree una copia de seguridad para una aplicación"]. El pool de capacidad donde está presente el volumen persistente original se expandirá y se reducirá automáticamente.
+
+
+
+=== 4. Revise el registro de eventos
+
+Los eventos de actividad se registran durante la copia de seguridad. Realice el flujo de trabajo link:../workflows/wf_list_notifications.html["Enumere las notificaciones"] para ver los mensajes.

@@ -13,4 +13,8 @@ entries:
 - title: Conceptos básicos de Kubernetes
   url: "/get-started/kubernetes_concepts.html"
 - title: Referencia de API en línea
-  url: "/get-started/online_api_ref.html"
+  entries:
+  - title: Acceda al documento de referencia
+    url: "/get-started/online_api_ref.html"
+  - title: Emitir una llamada a la API de REST DE Astra
+    url: "/get-started/online_api_call.html"

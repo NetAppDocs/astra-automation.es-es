@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: get-started/online_api_call.html 
+keywords: reference, api reference, execute call 
+summary: Puedes emitir una llamada a la API de REST DE Astra Control desde la página de documentación de referencia de la API. 
+---
+= Emitir una llamada a la API de REST DE Astra
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puedes emitir una llamada a la API de REST DE Astra Control desde la página de documentación de referencia de la API.
+
+.Antes de empezar
+Debes iniciar sesión en Astra y acceder a la página de referencia de la API. Consulte link:../get-started/online_api_ref.html["Accede a la documentación de referencia de la API de Astra"] si quiere más información. También se necesita un token para usar la API de REST. Consulte link:../get-started/get_api_token.html["Obtenga un token de API"] Para obtener detalles sobre la generación de un token de API.
+
+.Pasos
+. En la parte superior de la página de referencia de la API, haga clic en *Autorizar*.
+. Copia y pega el valor de tu token API en el campo de la ventana emergente y haz clic en *Autorizar* y luego en *Cerrar*.
+. Desplácese hacia abajo por la página y abra la llamada API deseada.
+. En el clic derecho *Pruébalo*.
+. Desplácese hacia abajo dentro de la misma llamada a la API y haga clic en *Ejecutar*.
+
+
+.Resultado
+Se ejecuta la llamada API y se muestra el código de estado HTTP.
