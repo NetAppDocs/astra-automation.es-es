@@ -18,6 +18,24 @@ NetApp actualiza regularmente la API REST de Astra Control para ofrecerle nuevas
 
 
 
+== 27 de junio de 2023 (23,06)
+
+Esta versión incluye actualizaciones selectivas de la API de REST.
+
+
+
+=== Azure Marketplace
+
+Las suscripciones de Azure Marketplace ahora se facturan por hora en lugar de por minuto. Consulte también https://docs.netapp.com/us-en/astra-control-service/use/set-up-billing.html["Configurar facturación"^].
+
+
+
+=== Optimización de Restic
+
+Puede activar la optimización del rendimiento para los backups de resincronización mediante la marca `useResticParallel` en el nuevo `astra.datamover` Recurso de la API de configuración. Cuando se establece en `true`, el número de `backendConnections` Esos usos ráticos aumentan cuando se realizan backups de grandes volúmenes en un contenedor de Azure. Para volúmenes de 1TB a 4TB, se utilizan conexiones 128. En el caso de los volúmenes de más de 4TB GB, se utilizan 512 conexiones back-end.
+
+
+
 == 30 de mayo de 2023 (23,05)
 
 Esta versión incluye actualizaciones selectivas de la API de REST.
