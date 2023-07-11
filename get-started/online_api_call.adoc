@@ -24,7 +24,7 @@ Debes iniciar sesión en Astra y acceder a la página de referencia de la API. C
 . Copia y pega el valor de tu token API en el campo de la ventana emergente y haz clic en *Autorizar* y luego en *Cerrar*.
 . Desplácese hacia abajo por la página y abra la llamada API deseada.
 . En el clic derecho *Pruébalo*.
-. Desplácese hacia abajo dentro de la misma llamada a la API y haga clic en *Ejecutar*.
+. Desplácese hacia abajo dentro de la misma llamada API. Proporcione los valores de parámetros requeridos y haga clic en *Ejecutar* para emitir la llamada.
 
 
 .Resultado

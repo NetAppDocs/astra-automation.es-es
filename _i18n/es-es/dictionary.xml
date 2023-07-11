@@ -1193,7 +1193,6 @@
   <block id="f1fca9fdba2865f1e5e68171f8e501c8" category="list-text">Copia y pega el valor de tu token API en el campo de la ventana emergente y haz clic en *Autorizar* y luego en *Cerrar*.</block>
   <block id="d77956bf312c489126fb210ac26e1560" category="list-text">Desplácese hacia abajo por la página y abra la llamada API deseada.</block>
   <block id="640c9068a50bdac21a3ada93c538c020" category="list-text">En el clic derecho *Pruébalo*.</block>
-  <block id="faa896405f051eeeb846ead40d365dcf" category="list-text">Desplácese hacia abajo dentro de la misma llamada a la API y haga clic en *Ejecutar*.</block>
   <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">Resultado</block>
   <block id="5a698356ed60cc238c0048ecf6f15037" category="paragraph">Se ejecuta la llamada API y se muestra el código de estado HTTP.</block>
   <block id="e90840c9e835dabec4f6627d0ccddef2" category="paragraph">Necesitará credenciales para iniciar sesión en la interfaz de usuario web de Astra para su puesta en marcha. El procedimiento para acceder a la documentación de referencia es el mismo para Astra Control Service y Astra Control Center. Solo la URL es diferente. No se necesita un token de API para acceder al documento de referencia y verlo</block>
@@ -1235,4 +1234,5 @@
   <block id="3987948e759f27889fb63521255c084f" category="inline-link">Documentación de Astra Control Service 23,06</block>
   <block id="8de8be2639041c77c0c0e3c2870c7446" category="list-text"><block ref="8de8be2639041c77c0c0e3c2870c7446" category="inline-link-rx"></block></block>
   <block id="529552afdc21e1a01b8e807df92fe719" category="admonition">No hay nuevos problemas conocidos con la versión 23,06 de la API de REST DE Astra Control. Todos los problemas descritos a continuación se detectaron en versiones anteriores y siguen siendo aplicables con la versión actual.</block>
+  <block id="db21e6fd52879394e8294f15387580ad" category="list-text">Desplácese hacia abajo dentro de la misma llamada API. Proporcione los valores de parámetros requeridos y haga clic en *Ejecutar* para emitir la llamada.</block>
 </blocks>
