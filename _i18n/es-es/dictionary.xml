@@ -391,14 +391,11 @@
   <block id="27ee1c661b70f7b369179a81dd12721d" category="list-text">Los extremos OpenMetrics proporcionan acceso a las métricas de la cuenta mediante el recurso OpenMetrics. Existe soporte para el modelo de puesta en marcha de Astra Control Center.</block>
   <block id="0f20f78dc9e61210d9143c555c8e2db8" category="summary">Puede revocar un token de API en la interfaz web de Astra cuando ya no sea necesario.</block>
   <block id="99910604d292e8754daf25a401bb8857" category="doc">Revocar un token de API</block>
-  <block id="1e035d8ab99dbf14a530ceac5ef93e74" category="paragraph">Necesita una cuenta Astra. También debe identificar los tokens que desea revocar.</block>
   <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">Acerca de esta tarea</block>
   <block id="c4f78d9edffd445c660b4325747b976a" category="paragraph">Después de que se revoque un token, éste se puede utilizar de forma inmediata y permanente.</block>
   <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">Pasos</block>
-  <block id="c7937dcfe6d6141d399008b7df375246" category="list-text">Inicie sesión en Astra con sus credenciales de cuenta.</block>
   <block id="d41d8cd98f00b204e9800998ecf8427e" category="inline-link"></block>
   <block id="c3cd4b6e8352817aeaab7114fc20ee4d" category="inline-link"><block ref="c3cd4b6e8352817aeaab7114fc20ee4d" category="inline-link-rx"></block></block>
-  <block id="6f38ef059f4b592ce26b99012c9d756d" category="paragraph">Acceda a las siguientes instalaciones para el servicio Astra Control:<block ref="0045c0d6f22ad59c53fc1e6d3b91c771" category="inline-link-rx"></block></block>
   <block id="7d88293618d45c51062ebb23f7a5777d" category="list-text">Haga clic en el icono de figura situado en la parte superior derecha de la página y seleccione *acceso API*.</block>
   <block id="6aec476981db1f529613506dbaf170dd" category="list-text">Seleccione el token o tokens que desea revocar.</block>
   <block id="ae4a6c751a5ef4ed21296977cde2b309" category="list-text">En el cuadro desplegable *acciones*, haga clic en *revocar tokens*.</block>
@@ -441,10 +438,8 @@
   <block id="621e2d44fe17dda8434e1747939506fc" category="cell">Actividades del sistema que se registran como parte del procesamiento de Astra.</block>
   <block id="b9df3bfca1810fb5992aadc53d6c5f6e" category="cell">Subconjunto de los eventos que se consideran lo suficientemente importantes como para ser presentados al usuario.</block>
   <block id="0f15555c27239decf2cb19f7c4f55045" category="cell">Las notificaciones que el usuario debe leer o recuperar aún.</block>
-  <block id="a941511c207017106c6b7b09e9dec884" category="summary">En la documentación de este sitio se describe la API Astra Control REST y las tecnologías de automatización relacionadas disponibles con Astra Control.</block>
   <block id="d71331c5ce470b093ebf6c996f4ed88a" category="doc">Acerca de esta versión</block>
   <block id="b23a60ebc7020fe310d80180653261b7" category="paragraph-title">Cadencia de liberación</block>
-  <block id="ce3f3db7878407d89bb9f3e42409287c" category="paragraph">Debido a que este sitio documenta la API DE REST para ambos modelos de puesta en marcha, es posible que haya algunas funciones que solo están disponibles con la última versión del servicio Astra Control Service. Cualquier diferencia entre los dos modelos de puesta en marcha se indica según sea necesario.</block>
   <block id="ce2f654fe20c0aa5fa4ece0648021275" category="paragraph-title">Implementaciones de Astra Control</block>
   <block id="fdd9fe55f1a01a1ad085e5d6ce35c93b" category="paragraph">La documentación de este sitio se aplica a las siguientes versiones de Astra Control:</block>
   <block id="ab066b3292d8ab61ef3b5c77169cdd19" category="paragraph-title">Más información</block>
@@ -454,7 +449,6 @@
   <block id="c4fabb35d8b386aaa673c94aee7e69f2" category="inline-link-macro">Recursos DE REST y extremos</block>
   <block id="d8c5d8ee32fcd828c5197ddcb0a431b2" category="list-text"><block ref="d8c5d8ee32fcd828c5197ddcb0a431b2" category="inline-link-macro-rx"></block></block>
   <block id="fdd081f1598a50889ba0720484271938" category="inline-link-macro">Versiones anteriores de la documentación de Astra Automation</block>
-  <block id="0cc206202c15e68cf39519791ed593a1" category="list-text"><block ref="0cc206202c15e68cf39519791ed593a1" category="inline-link-macro-rx"></block></block>
   <block id="6dbfc88df6a1c21e55d3430850d3bd1c" category="paragraph-title">Ayúdenos a mejorar la documentación</block>
   <block id="3f4fc4220755866f399810fee47c7884" category="inline-link-macro">Colaborador de GitHub</block>
   <block id="d2d35c8cbc7027976910df89e09c7b5a" category="paragraph">Síganos en Twitter *@NetAppDoc* para obtener notificaciones sobre la documentación de NetApp. También puede proporcionar sus comentarios como un <block ref="78cabac26f0b6e0ce9a3e24d1b749910" category="inline-link-macro-rx"></block> o enviar un correo electrónico a _doccomments@netapp.com_.</block>
@@ -544,9 +538,7 @@
   <block id="afa765b35dc1feb232f57160727f2c44" category="list-text">El acceso a la API DE REST se proporciona mediante un token de acceso de la API que se puede generar en la interfaz de usuario web de Astra. El token de API proporciona acceso seguro a la API.</block>
   <block id="affb0039f4c476ad568439a171c9db0c" category="list-text">Soporte para colecciones</block>
   <block id="39fc3040b9fe64cf202ce4de80bf7f69" category="list-text">Hay un amplio conjunto de parámetros de consulta que se pueden utilizar para tener acceso a las colecciones de recursos. Algunas de las operaciones admitidas son el filtrado, la ordenación y la paginación.</block>
-  <block id="78ceba6718263592394adb03dc11471c" category="summary">Debe revisar todos los problemas conocidos de la versión actual relacionados con la API REST de Astra Control. Los problemas conocidos identifican problemas por los que el uso correcto del producto puede resultar imposible.</block>
   <block id="95dc0391ce7b396d7dd5622284e8fc3e" category="doc">Problemas conocidos</block>
-  <block id="73e9416791f56a93d23840b6c27ae436" category="paragraph">Consulte una de las siguientes páginas según su modelo de puesta en marcha.</block>
   <block id="eb6a5d80177fc44f1a834a5fac76b612" category="inline-link">Problemas conocidos del servicio Astra Control</block>
   <block id="1a8244f3a147b8df7de50e9d16df07ac" category="list-text"><block ref="1a8244f3a147b8df7de50e9d16df07ac" category="inline-link-rx"></block></block>
   <block id="7a95f2a4373ad29d744890f090214195" category="inline-link">Problemas conocidos de Astra Control Center</block>
@@ -554,15 +546,11 @@
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="summary">Los avisos legales proporcionan acceso a las declaraciones de copyright, marcas comerciales, patentes y mucho más.</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Avisos legales</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">Derechos de autor</block>
-  <block id="09e95b77ffe81fe465a83ba99efad5c8" category="paragraph"><block ref="09e95b77ffe81fe465a83ba99efad5c8" category="inline-link-rx"></block></block>
   <block id="126a02652da6de02962cf1b654fd6376" category="section-title">Marcas comerciales</block>
   <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NETAPP, el logotipo de NETAPP y las marcas enumeradas en la página de marcas comerciales de NetApp son marcas comerciales de NetApp, Inc. Los demás nombres de empresas y productos son marcas comerciales de sus respectivos propietarios.</block>
-  <block id="7aa531e9acfe2b98e34d2c92fe9846ff" category="paragraph"><block ref="7aa531e9acfe2b98e34d2c92fe9846ff" category="inline-link-rx"></block></block>
   <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">Estadounidenses</block>
   <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">Puede encontrar una lista actual de las patentes propiedad de NetApp en:</block>
-  <block id="d7f1fbcf9ce4e42f705add574d262b2c" category="paragraph"><block ref="d7f1fbcf9ce4e42f705add574d262b2c" category="inline-link-rx"></block></block>
   <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">Política de privacidad</block>
-  <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
   <block id="e81b0f8fae224ca0c3d3258b75a989dd" category="section-title">Licencia Astra Control API</block>
   <block id="f7c79ca7f13fd9da78390d5a97db7042" category="paragraph"><block ref="f7c79ca7f13fd9da78390d5a97db7042" category="inline-link-rx"></block></block>
   <block id="31862872c35b9509755103831963a7ff" category="summary">Hay recursos adicionales a los que puede acceder para obtener ayuda y obtener más información sobre los servicios cloud de NetApp y la compatibilidad, así como sobre conceptos generales DE REST y cloud.</block>
@@ -1128,7 +1116,6 @@
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Manos a la obra</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="sidebar">Descripción general</block>
   <block id="547abae9d6ca9df339ec4543e220ab8e" category="sidebar">Primera llamada API</block>
-  <block id="d58b759501469292f5d0464d265c376c" category="sidebar">Implementación de REST</block>
   <block id="b4ec6b7393a41bf5e5870f1ce48009e5" category="sidebar">Recursos Y colecciones PARA REST</block>
   <block id="f38713c0367843938a57ef219a3bfbfc" category="sidebar">Resumen de recursos de Astra API</block>
   <block id="e6b088db24ebe67ed0e9567d309387ec" category="sidebar">Flujos de trabajo</block>
@@ -1140,7 +1127,6 @@
   <block id="013a127f643228c21ab6c9baf558cef5" category="sidebar">Añadir un clúster</block>
   <block id="b99e07f4bea810f88b69ecfe1784ab28" category="sidebar">Enumerar nubes</block>
   <block id="b65e59022e022b723c1c1fbb73cd0092" category="sidebar">Cucharones de lista</block>
-  <block id="d75a5043a76ca76174481f399b106691" category="sidebar">Consideraciones de uso adicionales</block>
   <block id="36b64aad8a26246fe3ad4116a2b6f289" category="sidebar">Diagnóstico</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">Notas de la versión</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">Novedades</block>
@@ -1172,7 +1158,6 @@
   <block id="62a9da32071f678334a21060c67e7014" category="paragraph">Aquí hay un ejemplo de la conversión del archivo kubeconfig de YAML a JSON y luego codificarlo en base64:</block>
   <block id="013e0c333b0775d95a5c6579724b4b45" category="inline-link">Documentación de Astra Control Automation 22,11</block>
   <block id="52eabae058b28c969498b7a857c6879d" category="list-text"><block ref="52eabae058b28c969498b7a857c6879d" category="inline-link-rx"></block></block>
-  <block id="c41bf5dc0ae334cb95d5c9af7e04effd" category="paragraph">En general, las actualizaciones del servicio Astra Control Service y Astra Control Center se realizan al mismo tiempo. Sin embargo, Astra Control Service cuenta con una cadencia de lanzamiento acelerada que puede derivar en una o varias actualizaciones incrementales posteriores a la versión más reciente de Astra Control Center.</block>
   <block id="cdfde9b3972928d07d0aa9787e6589c3" category="section-title">25 de abril de 2023 (23,04)</block>
   <block id="05b8695ac535480ad4f4cf9e5bd4ecd2" category="paragraph">Esta versión incluye actualizaciones selectivas de la API de REST.</block>
   <block id="a1dba4846637919a02bf180b636f6229" category="section-title">Operaciones de restauración selectivas</block>
@@ -1225,7 +1210,6 @@
   <block id="58e46bdad56d44447c43649a3b5b4f7b" category="paragraph">Las suscripciones de Azure Marketplace ahora se facturan por hora en lugar de por minuto. Consulte también<block ref="633dc17422f08a9c882e1f52f9a90b82" category="inline-link-rx"></block>.</block>
   <block id="8e926a216f6adb19574523270dec9729" category="section-title">Optimización de Restic</block>
   <block id="a73241b184629bdaef0ee68446abeb15" category="paragraph">Puede activar la optimización del rendimiento para los backups de resincronización mediante la marca<block ref="6fb6e873ef6d6ac86ac763f089d95fa1" prefix=" " category="inline-code"></block> en el nuevo<block ref="4e513e9fe169e7733cdfe334575b2dec" prefix=" " category="inline-code"></block> Recurso de la API de configuración. Cuando se establece en<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>, el número de<block ref="47964ec30dfb028cc802262834e3577b" prefix=" " category="inline-code"></block> Esos usos ráticos aumentan cuando se realizan backups de grandes volúmenes en un contenedor de Azure. Para volúmenes de 1TB a 4TB, se utilizan conexiones 128. En el caso de los volúmenes de más de 4TB GB, se utilizan 512 conexiones back-end.</block>
-  <block id="529552afdc21e1a01b8e807df92fe719" category="admonition">No hay nuevos problemas conocidos con la versión 23,06 de la API de REST DE Astra Control. Todos los problemas descritos a continuación se detectaron en versiones anteriores y siguen siendo aplicables con la versión actual.</block>
   <block id="db21e6fd52879394e8294f15387580ad" category="list-text">Desplácese hacia abajo dentro de la misma llamada API. Proporcione los valores de parámetros requeridos y haga clic en *Ejecutar* para emitir la llamada.</block>
   <block id="7b36f358be6830020f92c7a96bc9ebb7" category="section-title">27 de julio de 2023 (23,07)</block>
   <block id="32b0cbc34ea58967e6c353f6c878e408" category="paragraph">Esta versión incluye mejoras selectivas en la API de REST. Tanto Astra Control Service como Astra Control Center se han actualizado con la versión 23,07.</block>
@@ -1238,7 +1222,6 @@
   <block id="1d64e26fe87f8846d60010aa3270a37f" category="list-text"><block ref="1752f949f63eb1f41cea70be24a2a732" category="inline-link-rx"></block> 1.5.0 y posterior</block>
   <block id="e6ae92bcba1e3a36ef0b12b0f1ed5c53" category="section-title">Nuevo tipo de enlace de ejecución</block>
   <block id="00b87f63b5ab2f631053ae22c2cbadbd" category="paragraph">El nuevo tipo de gancho de ejecución *post-failover* está disponible con Astra Control Center.</block>
-  <block id="6184061dd3b1b99309800d9a0000c740" category="paragraph">La documentación de este sitio describe la API de REST DE Astra Control y las tecnologías de automatización relacionadas que se incluyen en los dos modelos de puesta en marcha de Astra Control, como se describe a continuación.</block>
   <block id="809951d75a5959408aaef7facffe73f1" category="admonition">A cada versión de Astra Control se le asigna un número de versión del formato *YY.MM*. Este valor identificaba la versión basada en el año (_YY_) y el mes (_MM_) que estaba disponible. Por ejemplo, Astra Control Center 23,07 se lanzó en julio de 2023.</block>
   <block id="685fab4e0f4afbe567f9410e426cf33b" category="list-text">Servicio Astra Control 23,07</block>
   <block id="20e97def7e9adb5021f4a28abe844ccf" category="list-text">Astra Control Center 23,07</block>
@@ -1248,4 +1231,25 @@
   <block id="119edfca8dd05a2365b25f221a07fa7d" category="list-text"><block ref="119edfca8dd05a2365b25f221a07fa7d" category="inline-link-rx"></block></block>
   <block id="43a62b176f718092748cfb8e6a9afa19" category="inline-link">Documentación de Astra Control Automation 23,04</block>
   <block id="da054b04f4f9b4f05d91fce1501f15ef" category="list-text"><block ref="da054b04f4f9b4f05d91fce1501f15ef" category="inline-link-rx"></block></block>
+  <block id="52009bb7ee17227f566cd26a02caee56" category="inline-link-macro"><block ref="52009bb7ee17227f566cd26a02caee56" category="inline-link-rx"></block></block>
+  <block id="a1a9afcf552a769c282769271829889a" category="paragraph"><block ref="a1a9afcf552a769c282769271829889a" category="inline-link-macro-rx"></block></block>
+  <block id="f99aa604031e5049799e73b5c3748a98" category="inline-link-macro"><block ref="f99aa604031e5049799e73b5c3748a98" category="inline-link-rx"></block></block>
+  <block id="5d545fe5152641e2ebe654e336e520e5" category="paragraph"><block ref="5d545fe5152641e2ebe654e336e520e5" category="inline-link-macro-rx"></block></block>
+  <block id="88e5eabd3917048b6927c42496b98f86" category="inline-link-macro"><block ref="88e5eabd3917048b6927c42496b98f86" category="inline-link-rx"></block></block>
+  <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
+  <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
+  <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="561b378328b0d2bb9add930467a2bffd" category="paragraph">Necesitará credenciales para iniciar sesión en la interfaz de usuario web de Astra para su puesta en marcha.  También debe identificar los tokens que desea revocar.</block>
+  <block id="f3cc9a8807405c26d51d9df37d490dd7" category="list-text">Servicio Astra Control:<block ref="0045c0d6f22ad59c53fc1e6d3b91c771" category="inline-link-rx"></block></block>
+  <block id="4bdd2ccefb2f03cc6285395d8c1ae399" category="summary">La documentación de este sitio describe la API de REST DE Astra Control y las tecnologías de automatización relacionadas que se incluyen con los dos modelos de puesta en marcha de Astra Control.</block>
+  <block id="f61369f881218faa68ada1128b5d5854" category="paragraph-title">Liberación del control de versiones</block>
+  <block id="0dde93985fcf355fdbe3950194c0dd60" category="paragraph">Las actualizaciones de Astra Control Service y Astra Control Center generalmente se producen al mismo tiempo. Sin embargo, en el pasado Astra Control Service contaba con una cadencia de lanzamiento acelerada. Como resultado, una o varias actualizaciones incrementales aparte de la versión más reciente de Astra Control Center.</block>
+  <block id="80eee0325102cbbe5624dd825f288da6" category="paragraph">Debido a que este sitio documenta la API REST para ambos modelos de implementación, es posible que haya algunas características disponibles solo con un modelo de implementación u otro. Cualquier diferencia significativa entre los dos se observa según sea necesario.</block>
+  <block id="d33e3df86964bc9c994984b08fd48e76" category="list-text"><block ref="d33e3df86964bc9c994984b08fd48e76" category="inline-link-macro-rx"></block></block>
+  <block id="5ef64ef4145885449a36757ad3925285" category="summary">Es necesario revisar todos los problemas conocidos de la versión actual de Astra Control y la API DE REST asociada. Los problemas conocidos identifican problemas por los que el uso correcto del producto puede resultar imposible.</block>
+  <block id="0158322c4aa7f21160a8bc5298e211b1" category="paragraph">Es necesario revisar todos los problemas conocidos de la versión actual de Astra Control y la API DE REST asociada. Los problemas conocidos identifican problemas por los que el uso correcto del producto puede resultar imposible. Consulte una de las siguientes páginas en función del modelo de puesta en marcha:</block>
+  <block id="90a5fcdce1500ecacc854f6c87061ce9" category="sidebar">Implementación de REST de Astra</block>
+  <block id="4beba69037bd14812e726a2a137a8c7f" category="sidebar">Diseño DEL RESTO DEL núcleo</block>
+  <block id="43659ebbefa72dddc0bf81f83ff3645d" category="sidebar">Resumen de recursos</block>
+  <block id="f8de52ebe15fa6f74d720087c5ea48fb" category="sidebar">Diseño del núcleo</block>
 </blocks>

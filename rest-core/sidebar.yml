@@ -1,6 +1,6 @@
 ---
 section: rest-core
-title: Implementación básica de REST
+title: Diseño del núcleo
 entries:
 - title: Servicios web REST
   url: "/rest-core/rest_web_services.html"
