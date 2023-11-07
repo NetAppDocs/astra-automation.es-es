@@ -317,7 +317,6 @@
   <block id="f42562a6ae551c35216254ce200afcc8" category="cell">Fuente de gancho</block>
   <block id="fba14cda608976c44a49d623666f37c7" category="cell">Los recursos de origen de enlace representan el código fuente real utilizado con un enlace de ejecución. Separar el código fuente del control de ejecución tiene varias ventajas, como permitir que se compartan las secuencias de comandos.</block>
   <block id="f156c7862a93e81ca10ba4bc4349824d" category="cell">Grupo LDAP</block>
-  <block id="dc488877c36bb584e674e32f8b4e1de4" category="cell">*22.11*</block>
   <block id="8a958fceac1f74e78832d8498767ce1f" category="cell">Puede enumerar los grupos dentro del servidor LDAP configurado. El acceso a los grupos LDAP es de solo lectura.</block>
   <block id="30b31a74662fc368bd562efd0f43adc2" category="cell">Usuario LDAP</block>
   <block id="0d0a6d61fee1311a1ba8a542e2bb5623" category="cell">Puede enumerar los usuarios dentro del servidor LDAP configurado. El acceso a los usuarios LDAP es de solo lectura.</block>
@@ -1122,7 +1121,6 @@
   <block id="9a5f09cf66e692efdae493ce4c9aa64f" category="sidebar">Preparación</block>
   <block id="a7f5f35426b927411fc9231b56382173" category="sidebar">Python</block>
   <block id="ea1c0b8e4018f75659e26eb720b206e5" category="sidebar">Use Python de forma nativa</block>
-  <block id="f21f22dde0e0692333a7a28cce456b08" category="sidebar">Toda la documentación de Astra</block>
   <block id="b0df0cbb0d80fcf4a587effd8b8f3f6a" category="sidebar">Configure el servidor LDAP</block>
   <block id="013a127f643228c21ab6c9baf558cef5" category="sidebar">Añadir un clúster</block>
   <block id="b99e07f4bea810f88b69ecfe1784ab28" category="sidebar">Enumerar nubes</block>
@@ -1151,7 +1149,6 @@
   <block id="8f5cc6430613f1c12f36965050bb7197" category="inline-link">Discordia</block>
   <block id="5f86a5c97c95f60e61c70ba77d7346ae" category="list-text"><block ref="5f86a5c97c95f60e61c70ba77d7346ae" category="inline-link-rx"></block></block>
   <block id="0b5b4445b358715641cec74fe5aa74a5" category="paragraph">Soporte de la comunidad para Astra Control y otros productos de NetApp.</block>
-  <block id="c216e952dc373af46e9e31e0b8bdcf89" category="sidebar">Automatización de Astra</block>
   <block id="8d5b3dceacc1264c4bb5aed273137b7a" category="paragraph">Los siguientes parámetros de consulta están disponibles para su uso con colecciones de recursos. Consulte <block ref="a72643cb6a22061c1930f2e30db11319" category="inline-link-macro-rx"></block> si quiere más información.</block>
   <block id="d9a8eedd670f58ed76d5ae881e6d4469" category="admonition">La API REST de Astra Control también utiliza el estándar *Detalles del problema para API de HTTP*. Consulte <block ref="e560597744bc7b2711ae89c683c4035f" category="inline-link-macro-rx"></block> si quiere más información.</block>
   <block id="b30ac06bf6c3102a84f420a5a1444360" category="paragraph">Debe codificar el archivo JSON en base64.</block>
@@ -1223,12 +1220,6 @@
   <block id="e6ae92bcba1e3a36ef0b12b0f1ed5c53" category="section-title">Nuevo tipo de enlace de ejecución</block>
   <block id="00b87f63b5ab2f631053ae22c2cbadbd" category="paragraph">El nuevo tipo de gancho de ejecución *post-failover* está disponible con Astra Control Center.</block>
   <block id="809951d75a5959408aaef7facffe73f1" category="admonition">A cada versión de Astra Control se le asigna un número de versión del formato *YY.MM*. Este valor identificaba la versión basada en el año (_YY_) y el mes (_MM_) que estaba disponible. Por ejemplo, Astra Control Center 23,07 se lanzó en julio de 2023.</block>
-  <block id="685fab4e0f4afbe567f9410e426cf33b" category="list-text">Servicio Astra Control 23,07</block>
-  <block id="20e97def7e9adb5021f4a28abe844ccf" category="list-text">Astra Control Center 23,07</block>
-  <block id="51ec83fd81ce58f9ea70187b74727aff" category="inline-link">Documentación de Astra Control Center 23,07</block>
-  <block id="b2ea0c38a745c6bfb4298aecb931d130" category="list-text"><block ref="b2ea0c38a745c6bfb4298aecb931d130" category="inline-link-rx"></block></block>
-  <block id="88f3464f5e943dd845d3ca23235e5791" category="inline-link">Documentación de Astra Control Service 23,07</block>
-  <block id="119edfca8dd05a2365b25f221a07fa7d" category="list-text"><block ref="119edfca8dd05a2365b25f221a07fa7d" category="inline-link-rx"></block></block>
   <block id="43a62b176f718092748cfb8e6a9afa19" category="inline-link">Documentación de Astra Control Automation 23,04</block>
   <block id="da054b04f4f9b4f05d91fce1501f15ef" category="list-text"><block ref="da054b04f4f9b4f05d91fce1501f15ef" category="inline-link-rx"></block></block>
   <block id="52009bb7ee17227f566cd26a02caee56" category="inline-link-macro"><block ref="52009bb7ee17227f566cd26a02caee56" category="inline-link-rx"></block></block>
@@ -1252,4 +1243,25 @@
   <block id="4beba69037bd14812e726a2a137a8c7f" category="sidebar">Diseño DEL RESTO DEL núcleo</block>
   <block id="43659ebbefa72dddc0bf81f83ff3645d" category="sidebar">Resumen de recursos</block>
   <block id="f8de52ebe15fa6f74d720087c5ea48fb" category="sidebar">Diseño del núcleo</block>
+  <block id="b2753ac117117258ce5ba22aebd3a8a8" category="cell">22,1</block>
+  <block id="c4340906de504057557c6bb8611b0ab5" category="cell">22,11</block>
+  <block id="ed5dea09095f671b801bee34ea28a319" category="cell">Permiso</block>
+  <block id="5a31da03b445627c9d11d99efb7cc803" category="cell">23,06</block>
+  <block id="22a15af82a20adf60996d549baa48d24" category="cell">Los recursos de permisos representan los permisos relacionados con las operaciones dentro del sistema. La API ofrece acceso de solo lectura a los permisos.</block>
+  <block id="8fe5430b97accfa7b33d3c5887f90718" category="cell">Los recursos de rol representan roles disponibles en el sistema. La API ofrece acceso de solo lectura a los roles.</block>
+  <block id="6881779f2ae76c74d15a56eaefcccd8b" category="section-title">7 de noviembre de 2023 (23,10)</block>
+  <block id="c5f7bfd0f88ba662f205c76fa84795d3" category="paragraph">Tanto Astra Control Service como Astra Control Center se han actualizado con la versión 23,10. Existen mejoras selectivas en la API de REST para admitir las nuevas funciones.</block>
+  <block id="59c699c319c0ae768cb1a82b07028dff" category="paragraph">Es posible habilitar las operaciones de backup y restauración para<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> back-ends de almacenamiento.</block>
+  <block id="615193f2c37d9fd054a61bf78b73ad01" category="section-title">Backups inmutables</block>
+  <block id="621ca655e0daef2645ca8111b3c531cc" category="paragraph">Astra Control ahora admite backups de solo lectura inalterables como capa de seguridad adicional frente al malware y otras amenazas.</block>
+  <block id="74e32fa10752727786230542db6f5350" category="section-title">Control mejorado de los ganchos de ejecución</block>
+  <block id="2f2999f047197765442c0c74117bb5be" category="paragraph">A partir de esta versión, la funcionalidad de los ganchos de ejecución se puede activar o desactivar para mayor seguridad (está desactivada de forma predeterminada). Si aún no has creado ganchos de ejecución para usarlos con Astra Control, debes habilitar la función de ganchos de ejecución para comenzar a crear ganchos. Si ha creado enlaces de ejecución antes de esta versión, la funcionalidad de enlaces de ejecución permanece activada y puede utilizar los enlaces como lo haría normalmente.</block>
+  <block id="64d97a20d86a4938bc2f0ca6487991bf" category="list-text">Servicio Astra Control 23,10</block>
+  <block id="4646da7b1b74b708dde12727beab50a2" category="list-text">Astra Control Center 23,10</block>
+  <block id="fa73c4158a31e3bf65319a4cd45bd936" category="inline-link">Documentación de Astra Control Center 23,10</block>
+  <block id="5dcdce741516a1f5d54bd302aa84737e" category="list-text"><block ref="5dcdce741516a1f5d54bd302aa84737e" category="inline-link-rx"></block></block>
+  <block id="7d2e6602b95dd5d4d056964dea6dea4c" category="inline-link">Documentación de Astra Control Service 23,10</block>
+  <block id="5ef5b3f51e13355494fcdf46ca82fde4" category="list-text"><block ref="5ef5b3f51e13355494fcdf46ca82fde4" category="inline-link-rx"></block></block>
+  <block id="319cbcbe823e54bc4431c0aeca14c9d6" category="inline-link">Documentación de Astra Control Automation 23,07</block>
+  <block id="bff628185da3389d42f4449fd249480c" category="list-text"><block ref="bff628185da3389d42f4449fd249480c" category="inline-link-rx"></block></block>
 </blocks>

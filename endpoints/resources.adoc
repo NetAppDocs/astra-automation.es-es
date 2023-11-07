@@ -68,10 +68,10 @@ Los principales extremos de recursos proporcionan los servicios básicos necesar
 | Fuente de gancho | 21.12 | Los recursos de origen de enlace representan el código fuente real utilizado con un enlace de ejecución. Separar el código fuente del control de ejecución tiene varias ventajas, como permitir que se compartan las secuencias de comandos. 
 
 
-| Grupo LDAP | *22.11* | Puede enumerar los grupos dentro del servidor LDAP configurado. El acceso a los grupos LDAP es de solo lectura. 
+| Grupo LDAP | 22,1 | Puede enumerar los grupos dentro del servidor LDAP configurado. El acceso a los grupos LDAP es de solo lectura. 
 
 
-| Usuario LDAP | *22.11* | Puede enumerar los usuarios dentro del servidor LDAP configurado. El acceso a los usuarios LDAP es de solo lectura. 
+| Usuario LDAP | 22,11 | Puede enumerar los usuarios dentro del servidor LDAP configurado. El acceso a los usuarios LDAP es de solo lectura. 
 
 
 | Licencia | 21.08 | Los recursos de licencia representan las licencias disponibles para una cuenta de Astra. 
@@ -83,6 +83,12 @@ Los principales extremos de recursos proporcionan los servicios básicos necesar
 | Paquete | 22.04 | Los recursos del paquete proporcionan registro y acceso a definiciones de paquetes. Los paquetes de software constan de varios componentes, incluidos archivos, imágenes y otros artefactos. 
 
 
+| Permiso | 23,06 | Los recursos de permisos representan los permisos relacionados con las operaciones dentro del sistema. La API ofrece acceso de solo lectura a los permisos. 
+
+
+| Función | 23,06 | Los recursos de rol representan roles disponibles en el sistema. La API ofrece acceso de solo lectura a los roles. 
+
+
 | Vinculación de roles | 21.04 | Los recursos de vinculación de roles representan las relaciones entre pares específicos de usuarios y cuentas. Además del vínculo entre los dos, se especifica un conjunto de permisos para cada uno mediante una función específica. 
 
 
@@ -92,7 +98,7 @@ Los principales extremos de recursos proporcionan los servicios básicos necesar
 | Suscripción | 21.08 | Los recursos de suscripción representan las suscripciones activas de una cuenta Astra. 
 
 
-| Tarea | *22.11* | Los recursos de la tarea proporcionan acceso de sólo lectura a la tarea administrada y se pueden utilizar para mostrar el estado de las tareas internas de ejecución prolongada. 
+| Tarea | 22,11 | Los recursos de la tarea proporcionan acceso de sólo lectura a la tarea administrada y se pueden utilizar para mostrar el estado de las tareas internas de ejecución prolongada. 
 
 
 | Token | 21.04 | Los recursos de token representan los tokens disponibles para acceder mediante programación a la API REST de Astra Control. 
@@ -142,7 +148,7 @@ Los extremos de recursos de topología proporcionan acceso a las aplicaciones no
 | Recurso | Liberar | Descripción 
 
 
-| Recurso de API | *22.11* | Los extremos de recursos de la API proporcionan acceso de solo lectura a los recursos de Kubernetes en un clúster gestionado específico. 
+| Recurso de API | 22,11 | Los extremos de recursos de la API proporcionan acceso de solo lectura a los recursos de Kubernetes en un clúster gestionado específico. 
 
 
 | APL | 21.04 | Los recursos de aplicaciones representan todas las aplicaciones de Kubernetes, incluidas las que no son gestionadas por Astra. 
