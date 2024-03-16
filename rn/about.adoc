@@ -17,16 +17,16 @@ summary: La documentación de este sitio describe la API de REST DE Astra Contro
 La documentación de este sitio describe la API de REST DE Astra Control y las tecnologías de automatización relacionadas que se incluyen con los dos modelos de puesta en marcha de Astra Control.
 
 .Liberación del control de versiones
-A cada versión de Astra Control se le asigna un número de versión del formato *YY.MM*. Este valor identificaba la versión basada en el año (_YY_) y el mes (_MM_) que estaba disponible. Por ejemplo, Astra Control Center 23,07 se lanzó en julio de 2023.
+A cada versión de Astra Control se le asigna un número de versión del formato *YY.MM*. Como regla general, este valor identifica la versión de Astra según el año (_YY_) y el mes (_MM_) que estuvo disponible. Por ejemplo, Astra Control Center 23,07 se lanzó en julio de 2023.
 
 .Cadencia de liberación
-Las actualizaciones de Astra Control Service y Astra Control Center generalmente se producen al mismo tiempo. Sin embargo, en el pasado Astra Control Service contaba con una cadencia de lanzamiento acelerada. Como resultado, una o varias actualizaciones incrementales aparte de la versión más reciente de Astra Control Center.
+Las actualizaciones de Astra Control Service y Astra Control Center generalmente se producen al mismo tiempo. Sin embargo, en el pasado, Astra Control Service ha tenido una cadencia de lanzamientos acelerada. Como resultado, se produjeron una o varias actualizaciones incrementales entre las principales versiones de Astra Control Center.
 
 .Implementaciones de Astra Control
 La documentación de este sitio se aplica a las siguientes versiones de Astra Control:
 
-* Servicio Astra Control 23,10
-* Astra Control Center 23,10
+* Servicio Astra Control 24,02
+* Astra Control Center 24,02
 
 
 Debido a que este sitio documenta la API REST para ambos modelos de implementación, es posible que haya algunas características disponibles solo con un modelo de implementación u otro. Cualquier diferencia significativa entre los dos se observa según sea necesario.
@@ -36,8 +36,8 @@ Consulte las páginas y sitios siguientes para obtener más información acerca 
 
 * link:../rn/whats_new.html["Novedades de la API REST de Astra Control"]
 * link:../endpoints/resources.html["Recursos DE REST y extremos"]
-* https://docs.netapp.com/us-en/astra-control-center/["Documentación de Astra Control Center 23,10"^]
-* https://docs.netapp.com/us-en/astra-control-service/["Documentación de Astra Control Service 23,10"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Documentación de Astra Control Center 24,02"^]
+* https://docs.netapp.com/us-en/astra-control-service/["Documentación de Astra Control Service 24,02"^]
 * link:../rn/earlier-versions.html["Versiones anteriores de la documentación de Astra Automation"]
 
 

@@ -1114,13 +1114,6 @@
   <block id="93168a8084b3e838d2932c4734bd234e" category="sidebar">Versiones anteriores</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Manos a la obra</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="sidebar">Descripción general</block>
-  <block id="547abae9d6ca9df339ec4543e220ab8e" category="sidebar">Primera llamada API</block>
-  <block id="b4ec6b7393a41bf5e5870f1ce48009e5" category="sidebar">Recursos Y colecciones PARA REST</block>
-  <block id="f38713c0367843938a57ef219a3bfbfc" category="sidebar">Resumen de recursos de Astra API</block>
-  <block id="e6b088db24ebe67ed0e9567d309387ec" category="sidebar">Flujos de trabajo</block>
-  <block id="9a5f09cf66e692efdae493ce4c9aa64f" category="sidebar">Preparación</block>
-  <block id="a7f5f35426b927411fc9231b56382173" category="sidebar">Python</block>
-  <block id="ea1c0b8e4018f75659e26eb720b206e5" category="sidebar">Use Python de forma nativa</block>
   <block id="b0df0cbb0d80fcf4a587effd8b8f3f6a" category="sidebar">Configure el servidor LDAP</block>
   <block id="013a127f643228c21ab6c9baf558cef5" category="sidebar">Añadir un clúster</block>
   <block id="b99e07f4bea810f88b69ecfe1784ab28" category="sidebar">Enumerar nubes</block>
@@ -1219,7 +1212,6 @@
   <block id="1d64e26fe87f8846d60010aa3270a37f" category="list-text"><block ref="1752f949f63eb1f41cea70be24a2a732" category="inline-link-rx"></block> 1.5.0 y posterior</block>
   <block id="e6ae92bcba1e3a36ef0b12b0f1ed5c53" category="section-title">Nuevo tipo de enlace de ejecución</block>
   <block id="00b87f63b5ab2f631053ae22c2cbadbd" category="paragraph">El nuevo tipo de gancho de ejecución *post-failover* está disponible con Astra Control Center.</block>
-  <block id="809951d75a5959408aaef7facffe73f1" category="admonition">A cada versión de Astra Control se le asigna un número de versión del formato *YY.MM*. Este valor identificaba la versión basada en el año (_YY_) y el mes (_MM_) que estaba disponible. Por ejemplo, Astra Control Center 23,07 se lanzó en julio de 2023.</block>
   <block id="43a62b176f718092748cfb8e6a9afa19" category="inline-link">Documentación de Astra Control Automation 23,04</block>
   <block id="da054b04f4f9b4f05d91fce1501f15ef" category="list-text"><block ref="da054b04f4f9b4f05d91fce1501f15ef" category="inline-link-rx"></block></block>
   <block id="52009bb7ee17227f566cd26a02caee56" category="inline-link-macro"><block ref="52009bb7ee17227f566cd26a02caee56" category="inline-link-rx"></block></block>
@@ -1234,13 +1226,11 @@
   <block id="f3cc9a8807405c26d51d9df37d490dd7" category="list-text">Servicio Astra Control:<block ref="0045c0d6f22ad59c53fc1e6d3b91c771" category="inline-link-rx"></block></block>
   <block id="4bdd2ccefb2f03cc6285395d8c1ae399" category="summary">La documentación de este sitio describe la API de REST DE Astra Control y las tecnologías de automatización relacionadas que se incluyen con los dos modelos de puesta en marcha de Astra Control.</block>
   <block id="f61369f881218faa68ada1128b5d5854" category="paragraph-title">Liberación del control de versiones</block>
-  <block id="0dde93985fcf355fdbe3950194c0dd60" category="paragraph">Las actualizaciones de Astra Control Service y Astra Control Center generalmente se producen al mismo tiempo. Sin embargo, en el pasado Astra Control Service contaba con una cadencia de lanzamiento acelerada. Como resultado, una o varias actualizaciones incrementales aparte de la versión más reciente de Astra Control Center.</block>
   <block id="80eee0325102cbbe5624dd825f288da6" category="paragraph">Debido a que este sitio documenta la API REST para ambos modelos de implementación, es posible que haya algunas características disponibles solo con un modelo de implementación u otro. Cualquier diferencia significativa entre los dos se observa según sea necesario.</block>
   <block id="d33e3df86964bc9c994984b08fd48e76" category="list-text"><block ref="d33e3df86964bc9c994984b08fd48e76" category="inline-link-macro-rx"></block></block>
   <block id="5ef64ef4145885449a36757ad3925285" category="summary">Es necesario revisar todos los problemas conocidos de la versión actual de Astra Control y la API DE REST asociada. Los problemas conocidos identifican problemas por los que el uso correcto del producto puede resultar imposible.</block>
   <block id="0158322c4aa7f21160a8bc5298e211b1" category="paragraph">Es necesario revisar todos los problemas conocidos de la versión actual de Astra Control y la API DE REST asociada. Los problemas conocidos identifican problemas por los que el uso correcto del producto puede resultar imposible. Consulte una de las siguientes páginas en función del modelo de puesta en marcha:</block>
   <block id="90a5fcdce1500ecacc854f6c87061ce9" category="sidebar">Implementación de REST de Astra</block>
-  <block id="4beba69037bd14812e726a2a137a8c7f" category="sidebar">Diseño DEL RESTO DEL núcleo</block>
   <block id="43659ebbefa72dddc0bf81f83ff3645d" category="sidebar">Resumen de recursos</block>
   <block id="f8de52ebe15fa6f74d720087c5ea48fb" category="sidebar">Diseño del núcleo</block>
   <block id="b2753ac117117258ce5ba22aebd3a8a8" category="cell">22,1</block>
@@ -1256,12 +1246,22 @@
   <block id="621ca655e0daef2645ca8111b3c531cc" category="paragraph">Astra Control ahora admite backups de solo lectura inalterables como capa de seguridad adicional frente al malware y otras amenazas.</block>
   <block id="74e32fa10752727786230542db6f5350" category="section-title">Control mejorado de los ganchos de ejecución</block>
   <block id="2f2999f047197765442c0c74117bb5be" category="paragraph">A partir de esta versión, la funcionalidad de los ganchos de ejecución se puede activar o desactivar para mayor seguridad (está desactivada de forma predeterminada). Si aún no has creado ganchos de ejecución para usarlos con Astra Control, debes habilitar la función de ganchos de ejecución para comenzar a crear ganchos. Si ha creado enlaces de ejecución antes de esta versión, la funcionalidad de enlaces de ejecución permanece activada y puede utilizar los enlaces como lo haría normalmente.</block>
-  <block id="64d97a20d86a4938bc2f0ca6487991bf" category="list-text">Servicio Astra Control 23,10</block>
-  <block id="4646da7b1b74b708dde12727beab50a2" category="list-text">Astra Control Center 23,10</block>
-  <block id="fa73c4158a31e3bf65319a4cd45bd936" category="inline-link">Documentación de Astra Control Center 23,10</block>
-  <block id="5dcdce741516a1f5d54bd302aa84737e" category="list-text"><block ref="5dcdce741516a1f5d54bd302aa84737e" category="inline-link-rx"></block></block>
-  <block id="7d2e6602b95dd5d4d056964dea6dea4c" category="inline-link">Documentación de Astra Control Service 23,10</block>
-  <block id="5ef5b3f51e13355494fcdf46ca82fde4" category="list-text"><block ref="5ef5b3f51e13355494fcdf46ca82fde4" category="inline-link-rx"></block></block>
   <block id="319cbcbe823e54bc4431c0aeca14c9d6" category="inline-link">Documentación de Astra Control Automation 23,07</block>
   <block id="bff628185da3389d42f4449fd249480c" category="list-text"><block ref="bff628185da3389d42f4449fd249480c" category="inline-link-rx"></block></block>
+  <block id="8053414eb52e1996818bee3317a4c80b" category="section-title">14 de marzo de 2024 (24,02)</block>
+  <block id="a5f2459676ba50b9da6c058ccbd5bc76" category="paragraph">Tanto Astra Control Service como Astra Control Center se han actualizado con la versión 24,02.</block>
+  <block id="35255425bea0e5bb9b43d5c6806d0df8" category="section-title">Correcciones de errores menores</block>
+  <block id="39424c31b4c5741354b6ec5bfd9f110e" category="paragraph">La versión 24,02 se centra principalmente en solucionar una serie de errores menores. No se han añadido nuevos tipos de recursos a la API de Astra Control.</block>
+  <block id="88273195e6bf6e2b8a0e13648e5047ae" category="section-title">Vista previa tecnológica: Flujos de trabajo declarativos de Kubernetes</block>
+  <block id="830f012ca90773e40cbe1216d249795b" category="paragraph">Astra Control Center 24,02 incluye una funcionalidad de Kubernetes declarativa que le permite realizar tareas de gestión de datos desde un recurso personalizado de Kubernetes nativo (CR). Esta función aún no está disponible en general. Consulte<block ref="b0515e8b7b46d83fe943d8f3ca4602ba" category="inline-link-rx"></block> para obtener más información si es necesario.</block>
+  <block id="5b6906a11af67ab437cebb35ce37666a" category="paragraph">A cada versión de Astra Control se le asigna un número de versión del formato *YY.MM*. Como regla general, este valor identifica la versión de Astra según el año (_YY_) y el mes (_MM_) que estuvo disponible. Por ejemplo, Astra Control Center 23,07 se lanzó en julio de 2023.</block>
+  <block id="60da41e76ad106913eecb1da9106bd42" category="paragraph">Las actualizaciones de Astra Control Service y Astra Control Center generalmente se producen al mismo tiempo. Sin embargo, en el pasado, Astra Control Service ha tenido una cadencia de lanzamientos acelerada. Como resultado, se produjeron una o varias actualizaciones incrementales entre las principales versiones de Astra Control Center.</block>
+  <block id="ee4417330da16f81921d54a408aae37b" category="list-text">Servicio Astra Control 24,02</block>
+  <block id="984b3f2546572ca2b1fd8de4013c1882" category="list-text">Astra Control Center 24,02</block>
+  <block id="5ab109fbab91ad9ade1835c318286e64" category="inline-link">Documentación de Astra Control Center 24,02</block>
+  <block id="9ec89e483777b281c0d114e1ed0c8c8f" category="list-text"><block ref="9ec89e483777b281c0d114e1ed0c8c8f" category="inline-link-rx"></block></block>
+  <block id="ee89a8c8a8c4124e1c47b50f7d6c8420" category="inline-link">Documentación de Astra Control Service 24,02</block>
+  <block id="ad688d9042062312f59460f99f7f7881" category="list-text"><block ref="ad688d9042062312f59460f99f7f7881" category="inline-link-rx"></block></block>
+  <block id="2ce5679e796a226301682da2e8eb77f6" category="inline-link">Documentación de Astra Control Automation 23,10</block>
+  <block id="b59949e755b5f42564828ce536cb3b96" category="list-text"><block ref="b59949e755b5f42564828ce536cb3b96" category="inline-link-rx"></block></block>
 </blocks>
