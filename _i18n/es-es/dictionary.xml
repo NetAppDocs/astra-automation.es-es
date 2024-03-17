@@ -1023,7 +1023,6 @@
   <block id="285e19f20beded7d215102b49d5c09a0" category="cell">503</block>
   <block id="9ed1d9418efab93ff8b4b1793913fabe" category="cell">Servicio no disponible</block>
   <block id="a6613dcc5c4d971acabeae88baf14cb7" category="cell">El servicio no está listo para atender la solicitud por algún motivo.</block>
-  <block id="1a0ca7f0a5aea880c24d544b4655d6ed" category="doc">Documentación de Astra Control Automation</block>
   <block id="e14d216616a4529ca008fe30d48b4bda" category="summary">Astra Control Center y Astra Control Service proporcionan una API de REST común a la que puede acceder directamente a través de un lenguaje de programación o utilidad como Curl. La API presenta varios aspectos destacados y beneficios importantes.</block>
   <block id="48f085a79b3bd49f8180067c06092213" category="doc">Descripción general de las funciones y beneficios</block>
   <block id="640575a1239211b2cdac8d24cbd8fe4e" category="paragraph">Astra Control Center y Astra Control Service proporcionan una API de REST común a la que puede acceder directamente a través de un lenguaje de programación o utilidad como Curl. A continuación se muestran los principales aspectos destacados y ventajas de la API.</block>
@@ -1264,4 +1263,5 @@
   <block id="ad688d9042062312f59460f99f7f7881" category="list-text"><block ref="ad688d9042062312f59460f99f7f7881" category="inline-link-rx"></block></block>
   <block id="2ce5679e796a226301682da2e8eb77f6" category="inline-link">Documentación de Astra Control Automation 23,10</block>
   <block id="b59949e755b5f42564828ce536cb3b96" category="list-text"><block ref="b59949e755b5f42564828ce536cb3b96" category="inline-link-rx"></block></block>
+  <block id="0b11ef934b0c996ff94917743f4e7c1c" category="doc">Documentación de Astra Control Automation 24,02</block>
 </blocks>

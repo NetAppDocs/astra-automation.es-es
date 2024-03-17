@@ -5,7 +5,7 @@ permalink: index.html
 lead: Astra Control is a NetApp software product that provides data lifecycle management for your Kubernetes applications. There are two deployment models available depending on your environment. Both Astra Control Center and Astra Control Service share the same REST API depending on the release. You can use the REST API and other related automation technologies to manage your Astra Control deployments. 
 summary: Astra Control es un producto de software de NetApp que proporciona gestión del ciclo de vida de los datos para sus aplicaciones de Kubernetes. Existen dos modelos de puesta en marcha disponibles en función de su entorno. Tanto Astra Control Center como Astra Control Service comparten la misma API de REST según la versión. Puede utilizar la API DE REST y otras tecnologías de automatización relacionadas para gestionar sus puestas en marcha de Astra Control. 
 ---
-= Documentación de Astra Control Automation
+= Documentación de Astra Control Automation 24,02
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
