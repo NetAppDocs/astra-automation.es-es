@@ -1,0 +1,66 @@
+---
+indexpage:
+  title: Documentación de Astra Control Automation 24,02
+  summary: Astra Control es un producto de software de NetApp que proporciona gestión
+    del ciclo de vida de los datos para sus aplicaciones de Kubernetes. Existen dos
+    modelos de puesta en marcha disponibles en función de su entorno. Tanto Astra
+    Control Center como Astra Control Service comparten la misma API de REST según
+    la versión. Puede utilizar la API DE REST y otras tecnologías de automatización
+    relacionadas para gestionar sus puestas en marcha de Astra Control.
+  keywords: astra, control, centre, service, data, management, rest, api, kubernetes,
+    deployment
+  lead: Astra Control es un producto de software de NetApp que proporciona gestión
+    del ciclo de vida de los datos para sus aplicaciones de Kubernetes. Existen dos
+    modelos de puesta en marcha disponibles en función de su entorno. Tanto Astra
+    Control Center como Astra Control Service comparten la misma API de REST según
+    la versión. Puede utilizar la API DE REST y otras tecnologías de automatización
+    relacionadas para gestionar sus puestas en marcha de Astra Control.
+  tiles:
+  - title: Manos a la obra
+    links:
+    - title: Descripción general
+      url: "/intro/overview.html"
+    - title: Antes de empezar
+      url: "/get-started/before_get_started.html"
+    - title: Obtenga un token de API
+      url: "/get-started/get_api_token.html"
+    - title: Primera llamada API
+      url: "/get-started/first_call.html"
+  - title: Diseño DEL RESTO DEL núcleo
+    links:
+    - title: Servicios web REST
+      url: "/rest-core/rest_web_services.html"
+    - title: Detalles de HTTP
+      url: "/rest-core/http_details.html"
+    - title: Formato de URL
+      url: "/rest-core/url_format.html"
+  - title: Consideraciones adicionales
+    links:
+    - title: Seguridad RBAC
+      url: "/additional/rbac.html"
+    - title: Trabajar con colecciones
+      url: "/additional/work_with_collections.html"
+    - title: Diagnóstico y soporte
+      url: "/additional/diagnostics_support.html"
+    - title: Revocar un token de API
+      url: "/additional/revoke_token.html"
+  - title: Recursos
+    links:
+    - title: Recursos Y colecciones PARA REST
+      url: "/rest-core/resources_collections.html"
+    - title: Resumen de recursos de Astra API
+      url: "/endpoints/resources.html"
+  - title: Flujos de trabajo
+    links:
+    - title: Preparación
+      url: "/get-started/prepare_to_use_workflows.html"
+    - title: Flujos de trabajo de infraestructura
+      url: "/workflows_infra/workflows_infra_before.html"
+    - title: Flujos de trabajo de gestión
+      url: "/workflows/workflows_before.html"
+  - title: Python
+    links:
+    - title: Kit de desarrollo de software Astra Control Python de NetApp
+      url: "/python/astra_toolkits.html"
+    - title: Use Python de forma nativa
+      url: "/python/python_before.html"
