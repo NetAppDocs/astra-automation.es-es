@@ -17,14 +17,19 @@ summary: Puede emitir un sencillo comando curl en la interfaz de línea de coman
 Puede emitir un sencillo comando curl en la interfaz de línea de comandos de su estación de trabajo para empezar a utilizar la API ASTRA Control REST y confirmar su disponibilidad.
 
 .Antes de empezar
-La utilidad Curl debe estar disponible en la estación de trabajo local. También debe tener un token de API y el identificador de cuenta asociado. Consulte link:get_api_token.html["Obtenga un token de API"] si quiere más información.
+La utilidad cURL debe estar disponible en la estación de trabajo local. También debe tener un token de API y el identificador de cuenta asociado. Consulte link:get_api_token.html["Obtenga un token de API"] para obtener más información.
 
 .Ejemplo de curl
-El siguiente comando Curl recupera una lista de usuarios de Astra. Proporcione el <ACCOUNT_ID> y el <API_TOKEN> adecuados según se indica.
+El siguiente comando curl recupera una lista de usuarios de Astra. Proporcione los $ACCOUNT_ID y $API_TOKEN adecuados como se indica.
 
 [source, curl]
 ----
-curl --location --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/core/v1/users' --header 'Content-Type: application/json' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request GET  \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/core/v1/users" \
+--include \
+--header "Content-Type: application/json" \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----
 .Ejemplo de resultado JSON
 [listing]

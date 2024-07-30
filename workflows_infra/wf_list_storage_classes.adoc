@@ -18,21 +18,24 @@ Puede enumerar las clases de almacenamiento disponibles.
 
 
 
-=== 1. Seleccione la nube
+== Paso 1: Seleccione la nube
 
 Realice el flujo de trabajo link:../workflows_infra/wf_list_clouds.html["Enumerar las nubes"] y seleccione el cloud en el que trabajará.
 
 
 
-=== 2. Seleccione el clúster
+== Paso 2: Seleccione el clúster
 
 Realice el flujo de trabajo link:../workflows_infra/wf_list_clusters.html["Enumere los clústeres"] y seleccione el clúster.
 
 
 
-=== 3. Enumere las clases de almacenamiento de un clúster específico
+== Paso 3: Enumere las clases de almacenamiento para un clúster específico
 
 Realice la siguiente llamada a la API DE REST para enumerar las clases de almacenamiento para un clúster y un cloud específicos.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="1,6"]
 |===
@@ -41,19 +44,17 @@ Realice la siguiente llamada a la API DE REST para enumerar las clases de almace
 
 | OBTENGA | /Accounts/{account_id}/topolog/v1/cloud/<CLOUD_ID>/Clusters/<CLUSTER_ID>/storageClasses 
 |===
-
-
-===== Ejemplo curl: Devuelve todos los datos de todas las clases de almacenamiento
-
+.Ejemplo curl: Devuelve todos los datos de todas las clases de almacenamiento
 [source, curl]
 ----
-curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/clouds/<CLOUD_ID>/clusters/<CLUSTER_ID>/storageClasses' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request GET \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/topology/v1/clouds/<CLOUD_ID>/clusters/<CLUSTER_ID>/storageClasses" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----
-
-
-===== Ejemplo de resultado JSON
-
-[source, json]
+.Ejemplo de resultado JSON
+[listing]
 ----
 {
     "items": [

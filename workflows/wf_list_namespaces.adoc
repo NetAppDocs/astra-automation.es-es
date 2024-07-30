@@ -16,11 +16,10 @@ summary: Puede enumerar los espacios de nombres disponibles.
 [role="lead"]
 Puede enumerar los espacios de nombres disponibles.
 
-
-
-=== 1. Enumere los espacios de nombres
-
 Realice la siguiente llamada a la API de REST para enumerar los espacios de nombres.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="1,6"]
 |===
@@ -29,27 +28,26 @@ Realice la siguiente llamada a la API de REST para enumerar los espacios de nomb
 
 | OBTENGA | /accounts/{account_id}/topolog/v1/namees 
 |===
-
-
-===== Ejemplo curl: Devuelve todos los datos de todos los espacios de nombres
-
+.Ejemplo curl: Devuelve todos los datos de todos los espacios de nombres
 [source, curl]
 ----
-curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/namespaces' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request GET \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/topology/v1/namespaces" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----
-
-
-===== Ejemplo de curl: Devuelve nombre, estado e ID de clúster para todos los espacios de nombres
-
+.Ejemplo de curl: Devuelve nombre, estado e ID de clúster para todos los espacios de nombres
 [source, curl]
 ----
-curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/namespaces?include=name,namespaceState,clusterID' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request GET \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/topology/v1/namespaces?include=name,namespaceState,clusterID" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----
-
-
-===== Ejemplo de resultado JSON
-
-[source, json]
+.Ejemplo de resultado JSON
+[listing]
 ----
 {
     "items": [

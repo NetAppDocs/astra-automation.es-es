@@ -30,6 +30,30 @@ Un _Workflow_ es una secuencia de uno o más pasos necesarios para llevar a cabo
 Los flujos de trabajo incluyen los pasos principales y los parámetros necesarios para realizar cada tarea. Proporcionan un punto de partida para personalizar el entorno de automatización.
 
 
+NOTE: Un flujo de trabajo sólo puede contener un paso. Estos flujos de trabajo de un solo paso tienen un formato ligeramente diferente al de los flujos de trabajo que contienen varios pasos. Por ejemplo, se elimina el nombre explícito del paso. La acción u operación debe ser clara en función del título del flujo de trabajo.
+
+
+
+== Categorías de flujo de trabajo
+
+Existen dos amplias categorías de flujos de trabajo de Astra disponibles en función de su modelo de puesta en marcha. Si utiliza Astra Control Center, debería empezar con los flujos de trabajo de la infraestructura y, a continuación, proceder a los flujos de trabajo de gestión. Cuando utilice Astra Control Service, normalmente puede dirigirse directamente a los flujos de trabajo de gestión.
+
+
+NOTE: Los ejemplos de cURL de los flujos de trabajo utilizan la URL para Astra Control Service. Debe cambiar la dirección URL cuando utilice el Centro de control Astra de las instalaciones según sea necesario para su entorno.
+
+
+
+=== Flujos de trabajo de infraestructura
+
+Estos flujos de trabajo hacen frente a la infraestructura Astra, que incluye credenciales, bloques y back-ends. Se necesitan con Astra Control Center, pero en la mayoría de los casos también se pueden utilizar con Astra Control Service. Los flujos de trabajo se centran en las tareas necesarias para establecer y mantener un clúster gestionado por Astra.
+
+
+
+=== Flujos de trabajo de gestión
+
+Puede usar estos flujos de trabajo después de configurar un clúster gestionado. Los flujos de trabajo de gestión se centran en la protección de las aplicaciones y en operaciones de soporte, como la realización de backups, la restauración y el clonado de una aplicación.
+
+
 
 == Parámetros de entrada comunes
 
@@ -69,6 +93,8 @@ El token de la API y otros valores de ID utilizados con los ejemplos curl son op
 * No se pierde ningún valor porque los parámetros originales no se pueden copiar y utilizar con una implementación real.
 
 
+Las variables se formatean para su uso en un entorno de shell Bash. Cada variable comienza con un signo de dólar y está encerrada entre comillas dobles según sea necesario. Esto los hace reconocibles a Bash. Las mayúsculas se utilizan sistemáticamente para los nombres.
+
 Aquí están algunas de las palabras clave reservadas comunes usadas en los ejemplos curl. Esta lista no es exhaustiva y se utilizan palabras clave adicionales según sea necesario. Su significado debe ser obvio basado en el contexto.
 
 [cols="25,15,60"]
@@ -76,31 +102,34 @@ Aquí están algunas de las palabras clave reservadas comunes usadas en los ejem
 | Palabra clave | Tipo | Descripción 
 
 
-| <ACCOUNT_ID> | Ruta | El valor UUIDv4 que identifica la cuenta en la que se ejecuta la operación API. 
+| $ACCOUNT_ID | Ruta | El valor UUIDv4 que identifica la cuenta en la que se ejecuta la operación API. 
 
 
-| <API_TOKEN> | Encabezado | El token del portador identifica y autoriza al llamante. 
+| $API_TOKEN | Encabezado | El token del portador identifica y autoriza al llamante. 
 
 
-| <APP_ID> | Ruta | El valor UUIDv4 que identifica la aplicación para la llamada API. 
+| $APP_ID | Ruta | El valor UUIDv4 que identifica la aplicación para la llamada API. 
 |===
 
 
-== Categorías de flujo de trabajo
+== Usando los ejemplos con Bash
 
-Existen dos amplias categorías de flujos de trabajo de Astra disponibles en función de su modelo de puesta en marcha. Si utiliza Astra Control Center, debería empezar con los flujos de trabajo de la infraestructura y, a continuación, proceder a los flujos de trabajo de gestión. Cuando utilice Astra Control Service, normalmente puede dirigirse directamente a los flujos de trabajo de gestión.
-
-
-NOTE: Los ejemplos de curl de los flujos de trabajo utilizan la dirección URL del servicio de control Astra. Debe cambiar la dirección URL cuando utilice el Centro de control Astra de las instalaciones según sea necesario para su entorno.
+Si utiliza los ejemplos de cURL de flujo de trabajo directamente, debe actualizar las variables que contienen con los valores adecuados para su entorno. Puede editar manualmente los ejemplos o confiar en el shell Bash para realizar la sustitución por usted, como se describe a continuación.
 
 
+NOTE: Una ventaja del uso de Bash es que puede establecer los valores de variable una vez en una sesión de shell en lugar de una vez por comando cURL.
 
-=== Flujos de trabajo de infraestructura
+.Pasos
+. Abra el shell Bash proporcionado con Linux o un sistema operativo similar.
+. Establezca los valores de variable incluidos en el ejemplo de cURL que desea ejecutar. Por ejemplo:
++
+`$API_TOKEN=SGgpXHeco6M8PLxzIlgbztA4k3_eX4UCa842hOXHBFA=`
 
-Estos flujos de trabajo hacen frente a la infraestructura Astra, que incluye credenciales, bloques y back-ends. Se necesitan con Astra Control Center, pero en la mayoría de los casos también se pueden utilizar con Astra Control Service. Los flujos de trabajo se centran en las tareas necesarias para establecer y mantener un clúster gestionado por Astra.
+. Copie el ejemplo cURL de la página de flujo de trabajo y péguelo en el terminal del shell.
+. Presione *ENTER* para realizar las siguientes tareas:
++
+.. Sustituya los valores de variable establecidos.
+.. Ejecute el comando cURL.
 
 
 
-=== Flujos de trabajo de gestión
-
-Puede utilizar estos flujos de trabajo después de tener un clúster gestionado. Los flujos de trabajo centran su atención en la protección de las aplicaciones y en operaciones de soporte como backup, restauración y clonado de una aplicación.

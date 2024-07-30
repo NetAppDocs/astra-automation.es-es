@@ -16,11 +16,10 @@ summary: Puede enumerar los clústeres de Kubernetes que gestiona actualmente As
 [role="lead"]
 Puede enumerar los clústeres de Kubernetes que gestiona actualmente Astra.
 
-
-
-=== 1. Enumere los clústeres administrados
-
 Realice la siguiente llamada de API de REST.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="1,6"]
 |===
@@ -29,11 +28,12 @@ Realice la siguiente llamada de API de REST.
 
 | OBTENGA | /Accounts/{account_id}/topolog/v1/managedClusters 
 |===
-
-
-===== Ejemplo curl: Devuelve todos los datos de todos los clústeres
-
+.Ejemplo curl: Devuelve todos los datos de todos los clústeres
 [source, curl]
 ----
-curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/managedClusters' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request GET \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/topology/v1/managedClusters" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----

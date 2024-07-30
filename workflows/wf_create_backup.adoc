@@ -18,15 +18,18 @@ Es posible crear un backup para una aplicación específica y luego usar el back
 
 
 
-=== Antes de empezar
+== Antes de empezar
 
 Debe tener el ID de la aplicación de la que desea realizar la copia de seguridad. Si es necesario, puede usar el flujo de trabajo link:wf_list_man_apps.html["Enumere las aplicaciones"] para localizar la aplicación.
 
 
 
-=== 1. Cree una copia de seguridad
+== Cree un backup
 
 Realice la siguiente llamada de API de REST.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -35,10 +38,7 @@ Realice la siguiente llamada de API de REST.
 
 | PUBLICAR | /Accounts/{account_id}/k8s/v1/apps/{app_id}/appbackups 
 |===
-
-
-===== Parámetros de entrada adicionales
-
+.Parámetros de entrada adicionales
 Además de los parámetros comunes con todas las llamadas API DE REST, en los ejemplos curl de este paso se incluyen los siguientes parámetros.
 
 [cols="25,10,10,55"]
@@ -51,10 +51,18 @@ Además de los parámetros comunes con todas las llamadas API DE REST, en los ej
 
 | JSON | Cuerpo | Sí | Proporciona los parámetros para la copia de seguridad. Vea el ejemplo siguiente. 
 |===
-
-
-===== Ejemplo de entrada JSON
-
+.Ejemplo curl: Cree una copia de seguridad para la aplicación
+[source, curl]
+----
+curl --request POST \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/k8s/v1/apps/$APP_ID/appBackups" \
+--include \
+--header "Content-Type: application/astra-appBackup+json" \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN" \
+--data  @JSONinput
+----
+.Ejemplo de entrada JSON
 [source, json]
 ----
 {
@@ -62,12 +70,4 @@ Además de los parámetros comunes con todas las llamadas API DE REST, en los ej
   "version": "1.1",
   "name": "backup-david-1"
 }
-----
-
-
-===== Ejemplo curl: Cree una copia de seguridad para la aplicación
-
-[source, curl]
-----
-curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v1/apps/<APP_ID>/appBackups' --header 'Content-Type: application/astra-appBackup+json' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --data @JSONinput
 ----

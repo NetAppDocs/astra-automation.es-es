@@ -18,15 +18,18 @@ Se puede crear un usuario con credenciales específicas y un rol predefinido. Ta
 
 
 
-=== 1. Seleccione un nombre de usuario
+== Paso 1: Seleccione un nombre de usuario
 
 Realice el flujo de trabajo link:../workflows_infra/wf_list_users.html["Enumere usuarios"] y seleccione un nombre disponible que no esté en uso actualmente.
 
 
 
-=== 2. Cree el usuario
+== Paso 2: Crear el usuario
 
 Realice la siguiente llamada de API de REST para crear un usuario. Una vez finalizada correctamente la llamada, el nuevo usuario aún no será utilizable.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -35,11 +38,18 @@ Realice la siguiente llamada de API de REST para crear un usuario. Una vez final
 
 | PUBLICAR | /accounts/{account_id}/core/v1/users 
 |===
-
-
-===== Ejemplo de entrada JSON
-
+.Ejemplo de curl
 [source, curl]
+----
+curl --request POST \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/core/v1/users" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN" \
+--data  @JSONinput
+----
+.Ejemplo de entrada JSON
+[source, json]
 ----
 {
   "type" :  "application/astra-user",
@@ -49,19 +59,8 @@ Realice la siguiente llamada de API de REST para crear un usuario. Una vez final
   "email" : "jwest@example.com"
 }
 ----
-
-
-===== Ejemplo de curl
-
-[source, curl]
-----
-curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/core/v1/users' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --data @JSONinput
-----
-
-
-===== Ejemplo de resultado JSON
-
-[source, curl]
+.Ejemplo de resultado JSON
+[listing]
 ----
 {
     "metadata": {
@@ -97,15 +96,18 @@ curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>
 ----
 
 
-=== 3. Seleccione opcionalmente los espacios de nombres permitidos
+== Paso 3: Opcionalmente, seleccione los espacios de nombres permitidos
 
 Realice el flujo de trabajo link:../workflows/wf_list_namespaces.html["Enumere los espacios de nombres"] y seleccione los espacios de nombres a los que desea restringir el acceso.
 
 
 
-=== 4. Enlazar el usuario a un rol
+== Paso 4: Vincular al usuario a un rol
 
 Ejecute la siguiente llamada API de REST para enlazar el usuario con un rol. En el ejemplo siguiente no se establece ninguna restricción en el acceso al espacio de nombres. Consulte link:../additional/rbac.html#enhanced-rbac-with-namespace-granularity["RBAC mejorado con granularidad de espacio de nombres"] si quiere más información.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -114,11 +116,18 @@ Ejecute la siguiente llamada API de REST para enlazar el usuario con un rol. En 
 
 | PUBLICAR | /Accounts/{account_id}/core/v1/roleBindings 
 |===
-
-
-===== Ejemplo de entrada JSON
-
+.Ejemplo de curl
 [source, curl]
+----
+curl --request POST \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/core/v1/roleBindings" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN" \
+--data  @JSONinput
+----
+.Ejemplo de entrada JSON
+[source, json]
 ----
 {
   "type" :  "application/astra-roleBinding",
@@ -131,20 +140,15 @@ Ejecute la siguiente llamada API de REST para enlazar el usuario con un rol. En 
 ----
 
 
-===== Ejemplo de curl
-
-[source, curl]
-----
-curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/core/v1/roleBindings' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --data @JSONinput
-----
-
-
-=== 5. Crear una credencial
+== Paso 5: Crear una credencial
 
 Realice la siguiente llamada a la API DE REST para crear una credencial y asociarla con el usuario. En este ejemplo se utiliza una contraseña que se proporciona como valor base64. La `name` La propiedad debe contener el ID del usuario devuelto en el paso anterior. La propiedad de entrada `change` también se debe codificar en base64 y determinar si el usuario debe cambiar su contraseña al iniciar sesión (`true` o. `false`).
 
 
 NOTE: Este paso solo es necesario con las implementaciones de Astra Control Center mediante autenticación local. No es necesario con las puestas en marcha de Astra Control Center con LDAP o con las puestas en marcha de Astra Control Service.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -153,11 +157,18 @@ NOTE: Este paso solo es necesario con las implementaciones de Astra Control Cent
 
 | PUBLICAR | /accounts/{account_id}/core/v1/credenciales 
 |===
-
-
-===== Ejemplo de entrada JSON
-
+.Ejemplo de curl
 [source, curl]
+----
+curl --request POST \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/core/v1/credentials" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN" \
+--data  @JSONinput
+----
+.Ejemplo de entrada JSON
+[source, json]
 ----
 {
   "type" :  "application/astra-credential",
@@ -170,12 +181,4 @@ NOTE: Este paso solo es necesario con las implementaciones de Astra Control Cent
   },
   "valid" : "true"
 }
-----
-
-
-===== Ejemplo de curl
-
-[source, curl]
-----
-curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/core/v1/credentials' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --data @JSONinput
 ----

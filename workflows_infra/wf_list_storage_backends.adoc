@@ -16,11 +16,10 @@ summary: Es posible enumerar los back-ends de almacenamiento disponibles.
 [role="lead"]
 Es posible enumerar los back-ends de almacenamiento disponibles.
 
-
-
-=== 1. Enumere los back-ends
-
 Realice la siguiente llamada de API de REST.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="1,6"]
 |===
@@ -29,19 +28,17 @@ Realice la siguiente llamada de API de REST.
 
 | OBTENGA | /Accounts/{account_id}/topolog/v1/storageBackends 
 |===
-
-
-===== Ejemplo de curl: Devuelve todos los datos de todos los back-ends de almacenamiento
-
+.Ejemplo de curl: Devuelve todos los datos de todos los back-ends de almacenamiento
 [source, curl]
 ----
-curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/storageBackends' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request GET \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/topology/v1/storageBackends" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----
-
-
-===== Ejemplo de resultado JSON
-
-[source, json]
+.Ejemplo de resultado JSON
+[listing]
 ----
 {
   "items": [

@@ -18,15 +18,18 @@ Puede recuperar todas las variables de recurso que describen una única aplicaci
 
 
 
-=== Antes de empezar
+== Antes de empezar
 
 Debe tener el ID de la aplicación que desea recuperar. Si es necesario, puede usar el flujo de trabajo link:wf_list_man_apps.html["Enumere las aplicaciones"] para localizar la aplicación.
 
 
 
-=== 1. Obtenga la aplicación
+== Paso 1: Obtener la aplicación
 
 Realice la siguiente llamada de API de REST.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -35,10 +38,7 @@ Realice la siguiente llamada de API de REST.
 
 | OBTENGA | /account/{account_id}/k8s/v2/apps/{app_id} 
 |===
-
-
-===== Parámetros de entrada adicionales
-
+.Parámetros de entrada adicionales
 Además de los parámetros comunes con todas las llamadas API DE REST, en los ejemplos curl de este paso se incluyen los siguientes parámetros.
 
 [cols="25,10,10,55"]
@@ -48,11 +48,12 @@ Además de los parámetros comunes con todas las llamadas API DE REST, en los ej
 
 | id de aplicación | Ruta | Sí | ID valor de la aplicación que se va a recuperar. 
 |===
-
-
-===== Ejemplo de curl: Devuelve todos los datos de la aplicación
-
+.Ejemplo de curl: Devuelve todos los datos de la aplicación
 [source, curl]
 ----
-curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v2/apps/<APP_ID>' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request GET \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/k8s/v2/apps/$APP_ID" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----

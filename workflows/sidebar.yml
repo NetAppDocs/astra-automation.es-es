@@ -2,7 +2,7 @@
 section: workflows
 title: Flujos de trabajo de gestión
 entries:
-- title: Antes de empezar
+- title: Prepárese para utilizar los flujos de trabajo de gestión
   url: "/workflows/workflows_before.html"
 - title: Control de aplicaciones
   entries:

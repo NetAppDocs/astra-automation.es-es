@@ -18,13 +18,13 @@ Es posible gestionar un clúster de Kubernetes para poder llevar a cabo la prote
 
 
 
-=== 1. Seleccione el clúster que desea gestionar
+== Paso 1: Seleccione el clúster que desea administrar
 
 Realice el flujo de trabajo link:../workflows_infra/wf_list_clusters.html["Enumere los clústeres"] y seleccione el clúster que desee. La propiedad `managedState` del clúster debe ser `unmanaged`.
 
 
 
-=== 2. Opcionalmente, seleccione la clase de almacenamiento
+== Paso 2: De manera opcional, seleccione la clase de almacenamiento
 
 Si lo desea, puede ejecutar el flujo de trabajo link:../workflows_infra/wf_list_storage_classes.html["Enumerar las clases de almacenamiento"] y seleccione la clase de almacenamiento que desee.
 
@@ -33,9 +33,12 @@ NOTE: Si no proporciona una clase de almacenamiento a la llamada para gestionar 
 
 
 
-=== 3. Gestione el clúster
+== Paso 3: Administre el clúster
 
 Realice la siguiente llamada API REST para gestionar el clúster.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="1,6"]
 |===
@@ -44,10 +47,17 @@ Realice la siguiente llamada API REST para gestionar el clúster.
 
 | PUBLICAR | /Accounts/{account_id}/topolog/v1/managedClusters 
 |===
-
-
-===== Ejemplo de entrada JSON
-
+.Ejemplo de curl
+[source, curl]
+----
+curl --request POST \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/topology/v1/managedClusters" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN" \
+--data  @JSONinput
+----
+.Ejemplo de entrada JSON
 [source, json]
 ----
 {
@@ -55,12 +65,4 @@ Realice la siguiente llamada API REST para gestionar el clúster.
   "version": "1.0",
   "id": "d0fdf455-4330-476d-bb5d-4d109714e07d"
 }
-----
-
-
-===== Ejemplo de curl
-
-[source, curl]
-----
-curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/managedClusters' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --data @JSONinput
 ----

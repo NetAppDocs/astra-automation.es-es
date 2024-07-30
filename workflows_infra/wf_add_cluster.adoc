@@ -21,21 +21,25 @@ NOTE: No es necesario añadir un clúster cuando se usa un servicio de Kubernete
 
 
 
-=== 1. Obtenga el archivo kubeconfig
+== Paso 1: Obtenga el archivo kubeconfig
 
 Necesita obtener una copia del archivo *kubconfig* de su administrador o servicio de Kubernetes.
 
 
 
-=== 2. Prepare el archivo kubeconfig
+== Paso 2: Preparar el archivo kubeconfig
 
 Antes de utilizar el archivo *kubeconfig*, debe realizar las siguientes operaciones:
 
-.Convierta el archivo del formato YAML a JSON
+. Convertir archivo de formato YAML a JSON:
++
 Si recibe el archivo kubeconfig con formato YAML, debe convertirlo a JSON.
 
-.Codifica JSON en base64
+. Codificar JSON en base64:
++
 Debe codificar el archivo JSON en base64.
+
+
 
 .Ejemplo
 Aquí hay un ejemplo de la conversión del archivo kubeconfig de YAML a JSON y luego codificarlo en base64:
@@ -44,7 +48,7 @@ Aquí hay un ejemplo de la conversión del archivo kubeconfig de YAML a JSON y l
 
 
 
-=== 3. Seleccione el cloud
+== Paso 3: Seleccione la nube
 
 Realice el flujo de trabajo link:../workflows_infra/wf_list_clouds.html["Enumerar las nubes"] y seleccione el cloud donde se añadirá el clúster.
 
@@ -53,9 +57,12 @@ NOTE: La única nube que puede seleccionar es la *nube privada*.
 
 
 
-=== 4. Crear una credencial
+== Paso 4: Crear una credencial
 
 Realice la siguiente llamada a la API DE REST para crear una credencial mediante el archivo kubeconfig.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -64,11 +71,18 @@ Realice la siguiente llamada a la API DE REST para crear una credencial mediante
 
 | PUBLICAR | /accounts/{account_id}/core/v1/credenciales 
 |===
-
-
-===== Ejemplo de entrada JSON
-
+.Ejemplo de curl
 [source, curl]
+----
+curl --request POST \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/core/v1/credentials" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN" \
+--data  @JSONinput
+----
+.Ejemplo de entrada JSON
+[source, json]
 ----
 {
   "type" :  "application/astra-credential",
@@ -83,17 +97,12 @@ Realice la siguiente llamada a la API DE REST para crear una credencial mediante
 ----
 
 
-===== Ejemplo de curl
-
-[source, curl]
-----
-curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/core/v1/credentials' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --data @JSONinput
-----
-
-
-=== 5. Añada el clúster
+== Paso 5: Añada el clúster
 
 Realice la siguiente llamada de API REST para añadir el clúster al cloud. El valor de `credentialID` El campo de entrada se obtiene de la llamada a la API DE REST en el paso anterior.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -102,23 +111,22 @@ Realice la siguiente llamada de API REST para añadir el clúster al cloud. El v
 
 | PUBLICAR | /accounts/{account_id}/topolog/v1/cloud/{cloud_id}/clusters 
 |===
-
-
-===== Ejemplo de entrada JSON
-
+.Ejemplo de curl
 [source, curl]
+----
+curl --request POST \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/topology/v1/clouds/<CLOUD_ID>/clusters" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN" \
+--data  @JSONinput
+----
+.Ejemplo de entrada JSON
+[source, json]
 ----
 {
   "type" :  "application/astra-cluster",
   "version" : "1.1",
   "credentialID": credential_id
 }
-----
-
-
-===== Ejemplo de curl
-
-[source, curl]
-----
-curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/clouds/<CLOUD_ID>/clusters' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --data @JSONinput
 ----

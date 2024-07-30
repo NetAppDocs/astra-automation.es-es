@@ -18,7 +18,7 @@ Es posible eliminar un backup asociado con una aplicación.
 
 
 
-=== Antes de empezar
+== Antes de empezar
 
 Debe tener lo siguiente:
 
@@ -28,12 +28,15 @@ Debe tener lo siguiente:
 
 
 
-=== 1. Eliminar la copia de seguridad
+== Elimine el backup
 
 Realice la siguiente llamada de API de REST.
 
 
 NOTE: Puede forzar la eliminación de una copia de seguridad fallida usando el encabezado de solicitud opcional como se describe a continuación.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -42,10 +45,7 @@ NOTE: Puede forzar la eliminación de una copia de seguridad fallida usando el e
 
 | ELIMINAR | /Accounts/{account_id}/k8s/v1/apps/{app_id}/appbackups/{appBackup_id} 
 |===
-
-
-===== Parámetros de entrada adicionales
-
+.Parámetros de entrada adicionales
 Además de los parámetros comunes con todas las llamadas API DE REST, en los ejemplos curl de este paso se incluyen los siguientes parámetros.
 
 [cols="25,10,10,55"]
@@ -61,19 +61,22 @@ Además de los parámetros comunes con todas las llamadas API DE REST, en los ej
 
 | forzar eliminación | Encabezado | No | Se utiliza para forzar la eliminación de una copia de seguridad fallida. 
 |===
-
-
-===== Ejemplo curl: Eliminar un único backup para la aplicación
-
+.Ejemplo curl: Eliminar un único backup para la aplicación
 [source, curl]
 ----
-curl --location -i --request DELETE 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v1/apps/<APP_ID>/appBackups/<BACKUP_ID>' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request DELETE \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/k8s/v1/apps/$APP_ID/appBackups/<BACKUP_ID>" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----
-
-
-===== Ejemplo de curl: Elimine una copia de seguridad única para la aplicación con la opción force
-
+.Ejemplo de curl: Elimine una copia de seguridad única para la aplicación con la opción force
 [source, curl]
 ----
-curl --location -i --request DELETE 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v1/apps/<APP_ID>/appBackups/<BACKUP_ID>' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --header 'Force-Delete: true'
+curl --request DELETE \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/k8s/v1/apps/$APP_ID/appBackups/<BACKUP_ID>" \
+--include \
+--header "Force-Delete: true" \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----

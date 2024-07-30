@@ -18,7 +18,7 @@ Puede eliminar una aplicación gestionada cuando ya no sea necesaria. Al quitar 
 
 
 
-=== Antes de empezar
+== Antes de empezar
 
 Debe tener el ID de la aplicación que desea anular la administración. Si es necesario, puede usar el flujo de trabajo link:wf_list_man_apps.html["Enumere las aplicaciones"] para localizar la aplicación.
 
@@ -26,9 +26,12 @@ Los backups y las instantáneas de la aplicación no se eliminan automáticament
 
 
 
-=== 1. No se ha administrado la aplicación
+== Anule la gestión de la aplicación
 
 Realice la siguiente llamada a la API DE REST para eliminar la aplicación.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -37,10 +40,7 @@ Realice la siguiente llamada a la API DE REST para eliminar la aplicación.
 
 | ELIMINAR | /account/{account_id}/k8s/v2/apps/{app_id} 
 |===
-
-
-===== Parámetros de entrada adicionales
-
+.Parámetros de entrada adicionales
 Además de los parámetros comunes con todas las llamadas API DE REST, en los ejemplos curl de este paso se incluyen los siguientes parámetros.
 
 [cols="25,10,10,55"]
@@ -50,11 +50,12 @@ Además de los parámetros comunes con todas las llamadas API DE REST, en los ej
 
 | id de aplicación | Ruta | Sí | Identifica la aplicación que se va a eliminar. 
 |===
-
-
-===== Ejemplo de curl: Eliminar una aplicación administrada
-
+.Ejemplo de curl: Eliminar una aplicación administrada
 [source, curl]
 ----
-curl --location -i --request DELETE 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v2/apps/<APP_ID>' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request DELETE \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/k8s/v2/apps/$APP_ID" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----

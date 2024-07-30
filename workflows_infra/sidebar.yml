@@ -2,7 +2,7 @@
 section: workflows_infra
 title: Flujos de trabajo de infraestructura
 entries:
-- title: Antes de empezar
+- title: Prepárese para usar los flujos de trabajo de infraestructura
   url: "/workflows_infra/workflows_infra_before.html"
 - title: Identidad y acceso
   entries:

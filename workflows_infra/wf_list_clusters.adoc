@@ -18,15 +18,18 @@ Puede mostrar los clústeres disponibles en un cloud específico.
 
 
 
-=== 1. Seleccione la nube
+== Paso 1: Seleccione la nube
 
 Realice el flujo de trabajo link:../workflows_infra/wf_list_clouds.html["Enumerar las nubes"] y seleccione el cloud que contiene los clústeres.
 
 
 
-=== 2. Enumere los clústeres
+== Paso 2: Enumere los clústeres
 
 Realice la siguiente llamada de API DE REST para enumerar los clústeres en un cloud específico.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="1,6"]
 |===
@@ -35,19 +38,17 @@ Realice la siguiente llamada de API DE REST para enumerar los clústeres en un c
 
 | OBTENGA | /accounts/{account_id}/topolog/v1/cloud/{cloud_id}/clusters 
 |===
-
-
-===== Ejemplo curl: Devuelve todos los datos de todos los clústeres
-
+.Ejemplo curl: Devuelve todos los datos de todos los clústeres
 [source, curl]
 ----
-curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/clouds/<CLOUD_ID>/clusters' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request GET \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/topology/v1/clouds/<CLOUD_ID>/clusters" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----
-
-
-===== Ejemplo de resultado JSON
-
-[source, json]
+.Ejemplo de resultado JSON
+[listing]
 ----
 {
     "items": [

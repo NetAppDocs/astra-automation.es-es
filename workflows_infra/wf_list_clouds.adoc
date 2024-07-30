@@ -16,11 +16,10 @@ summary: Puede enumerar las nubes definidas y disponibles una cuenta de Astra es
 [role="lead"]
 Puede enumerar las nubes definidas y disponibles una cuenta de Astra específica.
 
-
-
-=== 1. Enumere las nubes
-
 Realice las siguientes llamadas a la API DE REST para enumerar las nubes.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -29,11 +28,12 @@ Realice las siguientes llamadas a la API DE REST para enumerar las nubes.
 
 | OBTENGA | /accounts/{account_id}/topolog/v1/nubes 
 |===
-
-
-===== Ejemplo curl: Devuelve todos los datos de todos los clouds
-
+.Ejemplo curl: Devuelve todos los datos de todos los clouds
 [source, curl]
 ----
-curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/clouds' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request GET \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/topology/v1/clouds" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----

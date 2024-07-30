@@ -16,11 +16,10 @@ summary: Puede enumerar los bloques de S3 definidos para una cuenta de Astra esp
 [role="lead"]
 Puede enumerar los bloques de S3 definidos para una cuenta de Astra específica.
 
-
-
-=== 1. Enumere los cucharones
-
 Realice la siguiente llamada a la API de REST para enumerar los bloques.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -29,11 +28,12 @@ Realice la siguiente llamada a la API de REST para enumerar los bloques.
 
 | OBTENGA | /accounts/{account_id}/topolog/v1/buckets 
 |===
-
-
-===== Ejemplo de curl: Devuelve todos los datos de todos los bloques
-
+.Ejemplo de curl: Devuelve todos los datos de todos los bloques
 [source, curl]
 ----
-curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/topology/v1/buckets' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request GET \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/topology/v1/buckets" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----

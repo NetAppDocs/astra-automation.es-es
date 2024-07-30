@@ -18,15 +18,18 @@ Es posible enumerar los backups que se crearon para una aplicación específica.
 
 
 
-=== Antes de empezar
+== Antes de empezar
 
 Debe tener el ID de la aplicación para la que desea enumerar las copias de seguridad. Si es necesario, puede usar el flujo de trabajo link:wf_list_man_apps.html["Enumere las aplicaciones"] para localizar la aplicación.
 
 
 
-=== 1. Enumere las copias de seguridad
+== Enumere los backups
 
 Realice la siguiente llamada de API de REST.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="25,75"]
 |===
@@ -35,10 +38,7 @@ Realice la siguiente llamada de API de REST.
 
 | OBTENGA | /Accounts/{account_id}/k8s/v1/apps/{app_id}/appbackups 
 |===
-
-
-===== Parámetros de entrada adicionales
-
+.Parámetros de entrada adicionales
 Además de los parámetros comunes con todas las llamadas API DE REST, en los ejemplos curl de este paso se incluyen los siguientes parámetros.
 
 [cols="25,10,10,55"]
@@ -48,19 +48,17 @@ Además de los parámetros comunes con todas las llamadas API DE REST, en los ej
 
 | id de aplicación | Ruta | Sí | Identifica la aplicación gestionada que posee las copias de seguridad mostradas. 
 |===
-
-
-===== Ejemplo curl: Devuelve todos los backups de la aplicación
-
+.Ejemplo curl: Devuelve todos los backups de la aplicación
 [source, curl]
 ----
-curl --location -i --request GET 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v1/apps/<APP_ID>/appBackups' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>'
+curl --request POST \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/k8s/v1/apps/$APP_ID/appBackups" \
+--include  \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN"
 ----
-
-
-===== Ejemplo de resultado JSON
-
-[source, json]
+.Ejemplo de resultado JSON
+[listing]
 ----
 {
     "items": [

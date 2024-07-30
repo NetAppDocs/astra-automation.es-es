@@ -21,12 +21,15 @@ NOTE: Los pools de ANF dinámicos son una característica de las aplicaciones ge
 
 
 
-=== 1. Agregue el identificador de suscripción de Azure
+== Paso 1: Agregue el identificador de suscripción de Azure
 
 Realice la siguiente llamada de API de REST.
 
 
 NOTE: Debe actualizar el ejemplo de entrada JSON según corresponda para su entorno, incluido el ID de suscripción y el valor base64 para el principal de servicio.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="1,6"]
 |===
@@ -35,6 +38,17 @@ NOTE: Debe actualizar el ejemplo de entrada JSON según corresponda para su ento
 
 | PUBLICAR | /accounts/{account_id}/core/v1/credenciales 
 |===
+.Ejemplo de curl
+[source, curl]
+----
+curl --request POST \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/core/v1/credentials" \
+--include \
+--header "Content-Type: application/astra-credential+json"
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN" \
+--data  @JSONinput
+----
 .Ejemplo de entrada JSON
 [source, json]
 ----
@@ -65,25 +79,20 @@ NOTE: Debe actualizar el ejemplo de entrada JSON según corresponda para su ento
   }
 }
 ----
-.Ejemplo de curl
-[source, curl]
-----
-curl --location -i --request POST --data @JSONinput 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/core/v1/credentials' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --header 'Content-Type: application/astra-credential+json'
-----
 
 
-=== 2. Añadir un cubo si es necesario
+== Paso 2: Agregue un cubo si es necesario
 
 Si es necesario, debe agregar un depósito a la aplicación gestionada.
 
 
 
-=== 3. Haz una copia de seguridad de la aplicación administrada
+== Paso 3: Realice una copia de seguridad de la aplicación administrada
 
 Realice el flujo de trabajo link:../workflows/wf_create_backup.html["Cree una copia de seguridad para una aplicación"]. El pool de capacidad donde está presente el volumen persistente original se expandirá y se reducirá automáticamente.
 
 
 
-=== 4. Revise el registro de eventos
+== Paso 4: Revise el registro de eventos
 
 Los eventos de actividad se registran durante la copia de seguridad. Realice el flujo de trabajo link:../workflows/wf_list_notifications.html["Enumere las notificaciones"] para ver los mensajes.

@@ -18,15 +18,18 @@ Puede crear una política de protección de datos en función de una o varias pr
 
 
 
-=== 1. Seleccione la aplicación
+== Paso 1: Seleccione la aplicación
 
 Realice el flujo de trabajo link:../workflows/wf_list_man_apps.html["Enumere las aplicaciones"] y seleccione la aplicación deseada.
 
 
 
-=== 2. Crear la protección
+== Paso 2: Crear la protección
 
 Realice la siguiente llamada a la API DE REST para crear una política de protección para una aplicación específica.
+
+.Método HTTP y punto final
+Esta llamada a la API de REST utiliza el siguiente método y extremo.
 
 [cols="1,6"]
 |===
@@ -35,10 +38,17 @@ Realice la siguiente llamada a la API DE REST para crear una política de protec
 
 | PUBLICAR | /accounts/{account_id}/k8s/v1/apps/{app_id}/schedules 
 |===
-
-
-===== Ejemplo de entrada JSON
-
+.Ejemplo de curl
+[source, curl]
+----
+curl --request POST \
+--location "https://astra.netapp.io/accounts/$ACCOUNT_ID/k8s/v1/apps/$APP_ID/schedules" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $API_TOKEN" \
+--data  @JSONinput
+----
+.Ejemplo de entrada JSON
 [source, json]
 ----
 {
@@ -53,12 +63,4 @@ Realice la siguiente llamada a la API DE REST para crear una política de protec
   "snapshotRetention": "12",
   "backupRetention": "12"
 }
-----
-
-
-===== Ejemplo de curl
-
-[source, curl]
-----
-curl --location -i --request POST 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v1/apps/<APP_ID>/schedules' --header 'Accept: */*' --header 'Authorization: Bearer <API_TOKEN>' --data @JSONinput
 ----
