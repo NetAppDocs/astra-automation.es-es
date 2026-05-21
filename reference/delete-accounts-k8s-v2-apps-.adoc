@@ -1,0 +1,350 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/delete-accounts-k8s-v2-apps-.html 
+summary: Eliminar una aplicación 
+---
+= Eliminar una aplicación
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v2/apps/{app_id}`#
+
+Elimina el recurso App API especificado.
+
+*Efectos secundarios*
+
+* Si la aplicación sigue ejecutándose en un clúster, ya no se considera que esté bajo gestión y dejará de aparecer en /apps.
+* En primer lugar, la aplicación pasa al estado de borrado y luego elimina todas las programaciones asociadas, las instantáneas, las copias de seguridad y el estado almacenado de la aplicación.
+
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+
+
+| app_id | cadena | ruta | Verdadero  a| 
+ID de la colección de aplicaciones a listar
+
+|===
+
+
+== Respuesta
+
+[source]
+----
+Status: 204, Indicates if the app resource was deleted.
+----
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidParams | matriz[link:#invalidParams["invalidParams"]] | Falso  a| 
+Lista de parámetros de consulta no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 500, Internal server error
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/91",
+  "title": "Application not deleted",
+  "detail": "The application wasn't deleted because of an internal server issue.",
+  "status": "500"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 409, Conflict
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/112",
+  "title": "Application not ready",
+  "detail": "The application is currently unavailable.",
+  "status": "409"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/1",
+  "title": "Resource not found",
+  "detail": "The resource specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+====

@@ -1,0 +1,446 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/get-accounts-core-v1-rolebindings-.html 
+summary: Recuperar un enlace de rol 
+---
+= Recuperar un enlace de rol
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/roleBindings/{roleBinding_id}`#
+
+Devuelve el recurso de la API de vinculación de funciones almacenado en el cuerpo de la respuesta JSON. Si la solicitud se realiza contra el endpoint /accounts/{account_id}/core/v1/users/{user_id}/roleBindings, solo se permitirá leer los recursos de roleBinding cuyo ID de usuario coincida con el ID de usuario en la URL de la solicitud. Si la solicitud se realiza contra /accounts/{account_id}/core/v1/groups/{group_id}/roleBindings, solo se permitirá leer los recursos de roleBinding cuyo ID de grupo coincida con el ID de grupo en la URL de la solicitud.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+
+
+| roleBinding_id | cadena | ruta | Verdadero  a| 
+ID de la colección roleBinding que se va a listar
+
+|===
+
+
+== Respuesta
+
+[source]
+----
+Status: 200
+----
+Devuelve el recurso de la API de vinculación de funciones almacenado en el cuerpo de la respuesta JSON. Si la solicitud se realiza contra el endpoint /accounts/{account_id}/core/v1/users/{user_id}/roleBindings, solo se permitirá leer los recursos de roleBinding cuyo ID de usuario coincida con el ID de usuario en la URL de la solicitud. Si la solicitud se realiza contra /accounts/{account_id}/core/v1/groups/{group_id}/roleBindings, solo se permitirá leer los recursos de roleBinding cuyo ID de grupo coincida con el ID de grupo en la URL de la solicitud.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-roleBinding"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| principalType | cadena | Verdadero  a| 
+Cadena JSON que representa el tipo de entidad principal a la que está asociada esta vinculación. Los valores definidos son:
+
+* "usuario"
+* "group" para principalType "user", se requiere un ID de usuario no nulo. Para principalType "group", se requiere un ID de grupo no nulo.
+
+
+
+
+| userID | cadena | Verdadero  a| 
+Cadena JSON que contiene un ID de recurso de usuario. Los valores definidos son:
+
+* Cumple con el esquema de identificador de Astra. Si no se especifica en la creación, se utilizará un UUID nulo. En la creación solo se puede especificar userID o groupID.
+
+
+
+
+| groupID | cadena | Verdadero  a| 
+Cadena JSON que contiene un ID de recurso de grupo. Los valores definidos son:
+
+* Cumple con el esquema de identificador de Astra. Si no se especifica en la creación, se utilizará un UUID nulo. En la creación solo se puede especificar userID o groupID.
+
+
+
+
+| accountID | cadena | Verdadero  a| 
+Cadena JSON que contiene el ID de un recurso de cuenta. Para crear, esto debe coincidir con el ID de cuenta en el URI de solicitud. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| papel | cadena | Verdadero  a| 
+Cadena JSON que contiene uno de los cuatro roles definidos. Los valores definidos son:
+
+* "espectador"
+* "miembro"
+* "admin"
+* "propietario"
+
+
+
+
+| roleConstraints | array[string] | Falso  a| 
+Matriz JSON de cadenas JSON que especifica el ámbito de la asignación de funciones. Los valores definidos son:
+
+* Conforme a Astra Role Constraints Schema si no se especifica al crear, el valor se establecerá en una matriz de tamaño 1 que contenga la cadena "*", que representa "ámbito completo". Si no se especifica al actualizar, el valor se conservará sin modificación. Una matriz vacía representa "sin ámbito". Ejemplos:
+* 
++
+= Permitir el acceso a cualquier recurso: "roleConstraints": ["*"]
+
+* 
++
+= denegar el acceso a todos los recursos: "roleConstraints": []
+
+* 
++
+= Permitir el acceso únicamente a un recurso de espacio de nombres específico: "roleConstraints": [ "namespaces:id='6fa2f917-f730-41b8-9c15-17f531843b31'" ]
+
+* 
++
+= Permitir el acceso a un espacio de nombres específico y a todo lo que esté bajo él: "roleConstraints": [ "namespaces:id='6fa2f917-f730-41b8-9c15-17f531843b31'.*" ]
+
+* 
++
+= Permitir el acceso a todos los espacios de nombres etiquetados como "dev" en cualquier clúster en cualquier nube, y todo lo que está bajo ellos: "roleConstraints": [ "namespaces:kubernetesLabels='http://dev.example.com/appname=dev["dev.example.com/appname=dev'.*"]" ]
+
+* 
++
+= Permitir el acceso solo a todos los recursos de namespace: "roleConstraints": [ "namespaces:*" ]
+
+* 
++
+= Permitir el acceso a todos los recursos de espacios de nombres y a todo lo que esté bajo ellos: "roleConstraints": [ "namespaces:__.__" ]
+
+
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-roleBinding",
+  "version": "1.1",
+  "id": "a198f052-5cd7-59d3-9f27-9ea32a21fbca",
+  "principalType": "user",
+  "userID": "4c27d25a-9edb-4e85-9438-48dc8e917231",
+  "groupID": "00000000-0000-0000-0000-000000000000",
+  "accountID": "9fd87309-067f-48c9-a331-527796c14cf3",
+  "role": "viewer",
+  "roleConstraints": [
+    "*"
+  ],
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidParams | matriz[link:#invalidParams["invalidParams"]] | Falso  a| 
+Lista de parámetros de consulta no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadatos_update
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+====

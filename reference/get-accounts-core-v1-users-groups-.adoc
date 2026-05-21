@@ -1,0 +1,387 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: true 
+permalink: reference/get-accounts-core-v1-users-groups-.html 
+summary: Recuperar un grupo para un usuario 
+---
+= Recuperar un grupo para un usuario
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/users/{user_id}/groups/{group_id}`#
+
+Devuelve el recurso API de grupo almacenado en el cuerpo de respuesta JSON.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+
+
+| user_id | cadena | ruta | Verdadero  a| 
+ID del recurso de usuario contenedor
+
+
+
+| grupo_id | cadena | ruta | Verdadero  a| 
+ID de la colección de grupos a listar
+
+|===
+
+
+== Respuesta
+
+[source]
+----
+Status: 200, Returns the stored Group API resource in the JSON response body.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-group"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| nombre | cadena | Verdadero  a| 
+El nombre del recurso de grupo. Si no se especifica al crear, el valor se establecerá en
+
+* primer Common Name (CN) Relative Distinguished Names (RDN) si se encuentra en el authID,
+* authID, en caso contrario. Si no se especifica en la actualización, el valor se conservará sin modificaciones. Los valores definidos son:
+* Longitud mínima: 1
+* Longitud máxima: 2048
+
+
+
+
+| authProvider | cadena | Verdadero  a| 
+El proveedor de autenticación para el recurso de grupo. Los valores definidos son:
+
+* "ldap"
+
+
+
+
+| authID | cadena | Verdadero  a| 
+El nombre distintivo (DN) de un grupo LDAP. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 2048
+
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-group",
+  "version": "1.1",
+  "id": "77754011-b93f-515e-a145-5a343aecdece",
+  "name": "engineering-group",
+  "authProvider": "ldap",
+  "authID": "CN=Engineering,CN=groups,DC=example,DC=com",
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/12",
+  "title": "Invalid headers",
+  "detail": "The request headers are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 500, Internal server error
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/34",
+  "title": "Internal server error",
+  "detail": "The server was unable to process this request.",
+  "status": "500"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/1",
+  "title": "Resource not found",
+  "detail": "The resource specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadatos_update
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+====

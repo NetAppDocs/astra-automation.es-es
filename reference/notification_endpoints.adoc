@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/notification_endpoints.html 
+summary: 'Puntos finales de notificación de Astra API (ACC)' 
+---
+= Puntos finales de notificación de Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de Notificación proporciona acceso por usuario a eventos con un destino de notificación.

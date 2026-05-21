@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/token_endpoints.html 
+summary: 'Puntos finales de token de Astra API (ACC)' 
+---
+= Puntos finales de token de Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de tokens permite a los usuarios crear y gestionar tokens de acceso a la API.

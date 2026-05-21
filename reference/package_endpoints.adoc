@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/package_endpoints.html 
+summary: 'Puntos finales del paquete Astra API (ACC)' 
+---
+= Puntos finales del paquete Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de paquetes representa paquetes de software instalables.

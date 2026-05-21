@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/cloud_endpoints.html 
+summary: 'Puntos finales en la nube de Astra API (ACC)' 
+---
+= Puntos finales en la nube de Astra API (ACC)
+:allow-uri-read: 
+
+
+La Cloud API proporciona acceso a los recursos de la nube para permitir a los clientes conectarse a nubes específicas para gestionar clústeres y aplicaciones.

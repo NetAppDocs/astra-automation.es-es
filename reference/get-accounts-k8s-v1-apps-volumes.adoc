@@ -1,0 +1,612 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/get-accounts-k8s-v1-apps-volumes.html 
+summary: Listar los volúmenes de una app 
+---
+= Listar los volúmenes de una app
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/volumes`#
+
+Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+
+
+| app_id | cadena | ruta | Verdadero  a| 
+ID del recurso que contiene la aplicación
+
+
+
+| incluya | cadena | consulta | Falso  a| 
+Indica qué campos deben devolverse al listar una colección.
+
+Ejemplos de URL: "include=id", "include=id,name"
+
+Ejemplos OpenAPI: "id"
+
+* ejemplo: id,name
+
+
+
+
+| límite | cadena | consulta | Falso  a| 
+Indica el número máximo de recursos a devolver al listar una colección.
+
+Ejemplos de URL: "limit=2"
+
+Ejemplos OpenAPI: "2"
+
+|===
+
+
+== Respuesta
+
+[source]
+----
+Status: 200, Returns a JSON array of all matching resources in the collection. If individual fields are specified in the request, the items JSON array will contain the fields requested for each matching resource in the order specified.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| artículos | array[Cualquiera de: link:#volume_1_2_get_response_body["volume_1.2_get_response_body"], array[]] | Verdadero  a| 
+
+
+
+| metadatos | link:#type_astra_metadata_list["type_astra_metadata_list"] | Verdadero  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-volumes",
+  "version": "1.2",
+  "items": [
+    [
+      "24fe6e79-bf8d-45c9-96af-ef1d11fbd4a0",
+      "myVolume"
+    ],
+    [
+      "20a370f4-957f-446a-9126-08853d01933a",
+      "secondVol"
+    ],
+    [
+      "48e349a2-5bcd-4c59-896c-12b8240e634b",
+      "smallVol"
+    ]
+  ],
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidParams | matriz[link:#invalidParams["invalidParams"]] | Falso  a| 
+Lista de parámetros de consulta no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+additionalDetails
+
+[role="api-collapsible-fifth-title"]
+type_astra_stateDetail
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| additionalDetails | link:#additionalDetails["additionalDetails"] | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+tipo_astra_metadatos
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Cumple con el esquema de metadatos Astra
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Verdadero  a| 
+
+
+
+| CreationTimestamp | cadena | Verdadero  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Verdadero  a| 
+
+
+
+| CreatedBy | cadena | Verdadero  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+volume_1.2_get_response_body
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-volume"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+* "1,2"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| nombre | cadena | Verdadero  a| 
+Cadena JSON que contiene el nombre del volumen. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 255
+
+
+
+
+| estado | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica el estado operativo del volumen.
+
+
+
+| tamaño | cadena | Falso  a| 
+Cadena JSON que contiene el tamaño del volumen.
+
+
+
+| usado | número | Falso  a| 
+Número JSON que contiene el número de bytes de cuota utilizados por el volumen aprovisionado.
+
+
+
+| usedPercentage | número | Falso  a| 
+Número JSON que contiene el porcentaje de volumen utilizado.
+
+
+
+| total | número | Falso  a| 
+Número JSON que contiene el total de bytes de los volúmenes aprovisionados.
+
+
+
+| creationToken | cadena | Falso  a| 
+Cadena JSON que contiene el token de creación del volumen. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 255
+
+
+
+
+| snapshotPossible | cadena | Falso  a| 
+Cadena JSON que indica si el controlador puede realizar una instantánea del volumen. Los valores definidos son:
+
+* "true" - El controlador puede tomar una instantánea del volumen
+* "false" - El controlador no puede tomar una instantánea del volumen
+
+
+
+
+| storageClass | cadena | Falso  a| 
+Cadena JSON que contiene la clase de almacenamiento del volumen.
+
+* Los valores definidos son:
+* Longitud mínima: 1
+* Longitud máxima: 255
+
+
+
+
+| pvcName | cadena | Falso  a| 
+Cadena JSON que contiene el nombre PersistentVolumeClaim (PVC) del volumen.
+
+* Los valores definidos son:
+* Longitud mínima: 1
+* Longitud máxima: 255
+
+
+
+
+| internalName | cadena | Falso  a| 
+Cadena JSON que contiene el nombre interno del volumen en el clúster de almacenamiento de destino, si está disponible. Este nombre se obtiene del controlador CSI de Kubernetes.
+
+* Los valores definidos son:
+* Longitud mínima: 1
+* Longitud máxima: 255
+
+
+
+
+| appsUsing | array[string] | Verdadero  a| 
+Matriz JSON de cadenas JSON, cada una de las cuales contiene el ID de una aplicación que está utilizando el volumen. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| storageBackendID | cadena | Falso  a| 
+Cadena JSON que contiene el ID del backend de almacenamiento que proporciona el volumen. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| orquestador | cadena | Falso  a| 
+Cadena JSON que contiene el orquestador para este volumen. Se definirá para los volúmenes de Astra Data Store. Los valores definidos son:
+
+* "trident" - Trident ha aprovisionado este volumen
+* "vasa" - NetApp VASA Provider ha aprovisionado este volumen
+* "otro" - El volumen se ha aprovisionado manualmente o se desconoce el orquestador
+
+
+
+
+| serviceLevel | cadena | Falso  a| 
+Cadena JSON que contiene la política de calidad de servicio (QoS) definida para este volumen a nivel de backend de almacenamiento. Se definirá para los volúmenes de Astra Data Store.
+
+
+
+| exportPolicy | cadena | Falso  a| 
+Cadena JSON que contiene la política de exportación asociada a este volumen. Se definirá para los volúmenes de Astra Data Store.
+
+
+
+| nodeId | cadena | Falso  a| 
+Cadena JSON que contiene el ID del nodo que sirve al volumen. Se definirá para los volúmenes de Astra Data Store. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| healthState | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica el estado de salud del volumen. Se definirá para los volúmenes de Astra Data Store. Los valores definidos son:
+
+* "indeterminado" - No se puede determinar la salud del recurso (por ejemplo, por falta de conectividad)
+* "normal" - El recurso no tiene problemas conocidos y puede prestar servicios de acuerdo con la especificación de la interfaz
+* "advertencia" - El recurso tiene problemas conocidos que no le impiden prestar servicios de acuerdo con la especificación de la interfaz
+* "crítico" - El recurso tiene problemas conocidos que le impiden prestar servicios de acuerdo con la especificación de la interfaz
+
+
+
+
+| healthStateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Verdadero  a| 
+Matriz JSON de objetos JSON que enumera detalles adicionales sobre el estado de salud actual. Si no hay detalles disponibles, esta matriz estará vacía.
+
+* Artículos mínimos: 0
+
+
+
+
+| metadatos | link:#type_astra_metadata["tipo_astra_metadatos"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Cumple con el esquema de metadatos Astra
+
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadata_list
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| continuar | cadena | Falso  a| 
+
+
+
+| cuente | número | Falso  a| 
+
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+====

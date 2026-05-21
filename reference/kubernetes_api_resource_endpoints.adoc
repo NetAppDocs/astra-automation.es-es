@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/kubernetes_api_resource_endpoints.html 
+summary: 'Astra API (ACC) puntos finales de recursos de la API de kubernetes' 
+---
+= Astra API (ACC) puntos finales de recursos de la API de kubernetes
+:allow-uri-read: 
+
+
+La API de recursos de la API de Kubernetes proporciona acceso de solo lectura a los recursos de la API de Kubernetes para filtrar los que son compatibles con Astra en un clúster determinado.

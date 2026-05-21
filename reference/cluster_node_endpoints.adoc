@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/cluster_node_endpoints.html 
+summary: 'Puntos finales del nodo del clúster Astra API (ACC)' 
+---
+= Puntos finales del nodo del clúster Astra API (ACC)
+:allow-uri-read: 
+
+
+La API del nodo del clúster proporciona acceso a los nodos asociados a un clúster.

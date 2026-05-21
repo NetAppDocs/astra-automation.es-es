@@ -1,0 +1,549 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/get-accounts-k8s-v1-apps-appsnaps.html 
+summary: Enumera las instantáneas de la aplicación 
+---
+= Enumera las instantáneas de la aplicación
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/appSnaps`#
+
+Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+
+
+| app_id | cadena | ruta | Verdadero  a| 
+ID del recurso que contiene la aplicación
+
+
+
+| incluya | cadena | consulta | Falso  a| 
+Indica qué campos deben devolverse al listar una colección.
+
+Ejemplos de URL: "include=id", "include=id,name"
+
+Ejemplos OpenAPI: "id"
+
+* ejemplo: id,nombre,estado
+
+
+
+
+| límite | cadena | consulta | Falso  a| 
+Indica el número máximo de recursos a devolver al listar una colección.
+
+Ejemplos de URL: "limit=2"
+
+Ejemplos OpenAPI: "2"
+
+|===
+
+
+== Respuesta
+
+[source]
+----
+Status: 200, Returns a JSON array of all matching resources in the collection. If individual fields are specified in the request, the items JSON array will contain the fields requested for each matching resource in the order specified.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| artículos | array[Cualquiera de: link:#appSnap_1_3_get_response_body["appSnap_1.3_get_response_body"], array[]] | Verdadero  a| 
+
+
+
+| metadatos | link:#type_astra_metadata_list["type_astra_metadata_list"] | Verdadero  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-appSnaps",
+  "version": "1.3",
+  "items": [
+    [
+      "2b6dafc3-2172-4431-a482-6306b2703130",
+      "app-name-245",
+      "pending"
+    ],
+    [
+      "6fd9b31a-3924-4c9a-878b-175fa9538b8c",
+      "app-name-244",
+      "completed"
+    ]
+  ],
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidParams | matriz[link:#invalidParams["invalidParams"]] | Falso  a| 
+Lista de parámetros de consulta no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+additionalDetails
+
+[role="api-collapsible-fifth-title"]
+type_astra_stateDetail
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| additionalDetails | link:#additionalDetails["additionalDetails"] | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+tipo_astra_metadatos
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Se ajusta al esquema de metadatos de Astra Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Verdadero  a| 
+
+
+
+| CreationTimestamp | cadena | Verdadero  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Verdadero  a| 
+
+
+
+| CreatedBy | cadena | Verdadero  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+appSnap_1.3_get_response_body
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-appSnap"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+* "1,2"
+* "1,3"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| nombre | cadena | Verdadero  a| 
+Cadena JSON que contiene un nombre especificado por el usuario para la snapshot. Si no se especifica, o cuando las snapshots se inician mediante una programación, el sistema asigna un nombre a la snapshot. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+
+
+| bucketID | cadena | Falso  a| 
+Cadena JSON que contiene un ID de bucket opcional que indica dónde se almacenará la instantánea al crearla. Si no se especifica, se utiliza un bucket predeterminado en el clúster. Si no se especifica ningún bucket predeterminado en el clúster, se utilizará el bucket predeterminado de la nube correspondiente. Si el bucket predeterminado de la nube no está disponible, se devolverá un error al crearla. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| scheduleID | cadena | Falso  a| 
+Cadena JSON que contiene un ID de programación opcional que indica que la instantánea se inició mediante una programación y especifica qué programación inició la instantánea. Sólo está presente para instantáneas iniciadas mediante una programación. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| snapshotAppAsset | cadena | Falso  a| 
+Cadena JSON que contiene el ID del activo de la aplicación correspondiente a la instantánea. Este campo se devolverá cuando el estado de la instantánea de la aplicación sea "completed". Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| estado | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado operativo de la instantánea. Los valores definidos son:
+
+* "pending" - la instantánea de la aplicación está programada para la detección
+* "descubriendo" - La instantánea de la aplicación está en proceso de ser descubierta
+* "running" - La instantánea de la aplicación se ejecuta con normalidad
+* "completed" - La instantánea de la aplicación ha finalizado
+* "failed" - La instantánea de la aplicación se encuentra en un estado de fallo permanente
+* "removed" - La instantánea de la aplicación no está accesible actualmente
+* "borrando" - Se está borrando la instantánea de la aplicación
+* "desconocido" - No se puede determinar el estado de la instantánea de la aplicación
+
+
+
+
+| stateUnready | array[string] | Verdadero  a| 
+Matriz JSON de cadenas JSON, cada una de las cuales indica un motivo por el que una instantánea de aplicación no puede pasar a "en ejecución", o por el que ha pasado a "fallida". Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 127
+
+
+
+
+| stateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Falso  a| 
+Matriz JSON de objetos JSON que enumera detalles adicionales sobre el estado actual, incluyendo por qué se alcanzó el estado actual. Si no hay detalles disponibles, esta matriz estará vacía. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| hookState | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica el estado de cualquier gancho o ganchos de ejecución que se estén ejecutando como parte de una instantánea. Los valores definidos son:
+
+* "failed" - Uno o más hooks de ejecución han fallado
+* "éxito" - Había cero o más hooks aplicables y todos tuvieron éxito
+
+
+
+
+| hookStateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Falso  a| 
+Matriz JSON de objetos JSON que enumera detalles adicionales sobre por qué "hookState" pasó a "failed". Si no hay detalles disponibles, esta matriz estará vacía.
+
+* Elementos mínimos: 0
+
+
+
+
+| metadatos | link:#type_astra_metadata["tipo_astra_metadatos"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Se ajusta al esquema de metadatos de Astra Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas.
+
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadata_list
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| continuar | cadena | Falso  a| 
+
+
+
+| cuente | número | Falso  a| 
+
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+====

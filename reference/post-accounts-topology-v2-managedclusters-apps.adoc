@@ -1,0 +1,1141 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/post-accounts-topology-v2-managedclusters-apps.html 
+summary: Crear una nueva aplicación para un clúster gestionado 
+---
+= Crear una nueva aplicación para un clúster gestionado
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/topology/v2/managedClusters/{managedCluster_id}/apps`#
+
+Indica los valores deseados para el recurso App API que se va a crear.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+
+
+| managedCluster_id | cadena | ruta | Verdadero  a| 
+ID del recurso managedCluster que lo contiene
+
+|===
+
+
+== Cuerpo de la solicitud
+
+Indica los valores deseados para el recurso App API que se va a crear.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-app"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "2,0"
+* "2,1"
+* "2,2"
+
+
+
+
+| nombre | cadena | Verdadero  a| 
+Cadena JSON que contiene un nombre para la aplicación. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Esta cadena se valida internamente para prevenir ataques XSS, Unicode, directory traversal y SQL-injection.
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+
+
+| clusterScopedResources | array[link:#clusterScopedResources["clusterScopedResources"]] | Falso  a| 
+Matriz JSON de objetos JSON que describen los recursos con alcance de clúster que forman parte de esta app
+
+
+
+| namespaceScopedResources | array[link:#namespaceScopedResources["namespaceScopedResources"]] | Falso  a| 
+Matriz JSON de objetos JSON que describen los recursos que forman parte de esta app
+
+
+
+| namespaceMapping | array[link:#namespaceMapping["namespaceMapping"]] | Falso  a| 
+Matriz JSON de objetos JSON, cada uno de los cuales asigna un espacio de nombres de origen a un espacio de nombres de destino para una operación de clonación. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| storageClassMapping | array[link:#storageClassMapping["storageClassMapping"]] | Falso  a| 
+Matriz JSON de objetos JSON, cada uno de los cuales asigna una clase de almacenamiento de origen a una clase de almacenamiento de destino para una operación de restauración. Si no hay elementos o no están presentes, se usarán los nombres originales de las clases de almacenamiento de origen. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| clusterID | cadena | Falso  a| 
+Cadena JSON que contiene el ID del clúster en el que se está ejecutando la aplicación. No se devuelve si la aplicación no se está ejecutando actualmente. Cuando se especifica en create, clusterID indica en qué clúster se debe clonar la aplicación. Si el clúster especificado no existe, o si el clúster especificado no coincide con el clusterID especificado en el URI de solicitud, la clonación fallará. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| sourceAppID | cadena | Falso  a| 
+Cadena JSON que contiene el ID de una aplicación de origen. Solo se devuelve si la aplicación se clonó a partir de otra aplicación o se restauró a partir de una copia de seguridad o instantánea. Cuando se especifica al crear, el sourceAppID se utiliza junto con el sourceClusterID e indica qué aplicación en ejecución se clonará. Si la aplicación especificada no existe en el clúster de origen especificado, la clonación fallará. Solo se puede especificar uno de sourceAppID, backupID o snapshotID al crear una aplicación. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| sourceClusterID | cadena | Falso  a| 
+Cadena JSON que contiene el ID del clúster en el que se ejecutaba anteriormente la aplicación. Solo se devuelve si la aplicación se clonó desde otro clúster. Cuando se especifica en create, el sourceClusterID se utiliza junto con el sourceAppID e indica el clúster de origen de la aplicación que se va a clonar. Si el clúster de origen especificado no existe, la clonación fallará. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| backupID | cadena | Falso  a| 
+Cadena JSON que contiene el ID de la copia de seguridad desde la que se restauró la aplicación. Solo se devuelve si la aplicación se restauró desde una copia de seguridad. Cuando se especifica en create, backupID indica que una aplicación se clonará desde una copia de seguridad existente. Si la copia de seguridad especificada no existe, el clonado fallará. Solo se puede especificar uno de sourceAppID, backupID o snapshotID al crear una aplicación. Cuando se especifica en un replace, backupID indica la copia de seguridad de la aplicación desde la que se restaurará la aplicación en el mismo lugar. Si la copia de seguridad especificada no existe, la restauración fallará. Solo se puede especificar uno de backupID o snapshotID al actualizar una aplicación. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| snapshotID | cadena | Falso  a| 
+Cadena JSON que contiene el ID de la instantánea desde la que se restauró la aplicación. Solo se devuelve si la aplicación se restauró desde una instantánea. Cuando se especifica en create, snapshotID indica que una aplicación se clonará desde una instantánea existente. Si la instantánea especificada no existe, el clonado fallará. Solo se puede especificar uno de sourceAppID, backupID o snapshotID al crear una aplicación. Cuando se especifica en replace, snapshotID indica la instantánea de la aplicación desde la que se restaurará la aplicación. Si la instantánea especificada no existe, la restauración fallará. Solo se puede especificar uno de backupID o snapshotID al actualizar una aplicación. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| restoreFilter | link:#restoreFilter["restoreFilter"] | Falso  a| 
+Objeto JSON que contiene una lista de filtros que describen qué recursos se incluyen o excluyen de una operación de restauración selectiva. Incluir y excluir son mutuamente excluyentes, y una restauración selectiva solo puede usar un tipo de filtro.
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Falso  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de solicitud
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-app",
+  "version": "2.2",
+  "name": "jenkins",
+  "clusterID": "0f284377-e5dc-4dcd-bacd-3197f2b8a347",
+  "namespaceScopedResources": [
+    {
+      "namespace": "production"
+    }
+  ]
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 201, Returns the newly created app resource in the JSON response body.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-app"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "2,0"
+* "2,1"
+* "2,2"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| enlaces | array[link:#type_astra_link["type_astra_link"]] | Verdadero  a| 
+Enlaces que describen las operaciones compatibles con el recurso.
+
+
+
+| nombre | cadena | Verdadero  a| 
+Cadena JSON que contiene un nombre para la aplicación. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Esta cadena se valida internamente para prevenir ataques XSS, Unicode, directory traversal y SQL-injection.
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+
+
+| clusterScopedResources | array[link:#clusterScopedResources["clusterScopedResources"]] | Falso  a| 
+Matriz JSON de objetos JSON que describen los recursos con alcance de clúster que forman parte de esta app
+
+
+
+| namespaceScopedResources | array[link:#namespaceScopedResources["namespaceScopedResources"]] | Verdadero  a| 
+Matriz JSON de objetos JSON que describen los recursos que forman parte de esta app
+
+
+
+| lastResourceCollectionTimestamp | cadena | Falso  a| 
+Cadena JSON que contiene la fecha y hora en que se realizó la última recopilación de recursos. Este campo no está establecido si aún no se ha realizado ninguna recopilación de recursos para esta aplicación. Los valores definidos son:
+
+* Cumple con el esquema de fecha y hora ISO-8601
+
+
+
+
+| estado | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado operativo de la aplicación. Los valores definidos son:
+
+* "pendiente" - La aplicación está programada para el descubrimiento
+* "descubriendo" - La aplicación está en proceso de ser descubierta
+* "provisioning" - La aplicación está en proceso de aprovisionamiento
+* "ready" - La aplicación funciona con normalidad
+* "failed" - La aplicación se encuentra en un estado de fallo permanente
+* "restaurando" - la aplicación se está restaurando a partir de una copia de seguridad o instantánea
+* "no disponible" - La aplicación no es accesible actualmente
+* "desconocido" - No se puede determinar el estado de la aplicación
+* "borrando" - la aplicación está en proceso de borrado
+
+
+
+
+| stateTransitions | array[link:#type_astra_stateTransition["type_astra_stateTransition"]] | Falso  a| 
+Matriz JSON de objetos JSON, cada uno de los cuales representa el conjunto de transiciones de estado permitidas desde un estado definido dado. Cada objeto JSON contiene los campos "from" y "to", donde el valor "from" es el nombre de un estado y el valor "to" es una matriz de estados de destino permitidos.
+
+
+
+| stateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Verdadero  a| 
+Matriz JSON de objetos JSON que enumera detalles adicionales sobre el estado actual, incluyendo por qué se alcanzó el estado actual. Si no hay detalles disponibles, esta matriz estará vacía. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| protectionState | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado de protección de la aplicación. Los valores definidos son:
+
+* "protegida" - la aplicación tiene definida una política de protección y está en conformidad con esa política
+* "parcial" - La aplicación tiene definida una política de protección, pero no cumple con esa política
+* "none" - La aplicación no tiene definida una política de protección
+* "atRisk" - La clase de almacenamiento predeterminada en el clúster no admite instantáneas, la aplicación corre el riesgo de obtener un volumen no admitido
+
+
+
+
+| protectionStateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Verdadero  a| 
+Matriz JSON de objetos JSON que enumera detalles adicionales sobre el estado de protección actual, incluyendo por qué se alcanzó el estado actual. Si no hay detalles disponibles, esta matriz estará vacía. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| appDetectedType | cadena | Falso  a| 
+Cadena JSON que representa de forma única el tipo específico de aplicación que se detecta. Los valores definidos son:
+
+* "system" - La aplicación contiene un recurso que la identifica como parte del entorno de Kubernetes
+* "acc" - La aplicación contiene recursos que la identifican como una instancia de Astra Control Center
+
+
+
+
+| espacios de nombres | array[string] | Verdadero  a| 
+Matriz JSON de cadenas JSON que contiene los nombres de los espacios de nombres en los que se ejecuta la aplicación. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 253
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+
+
+| namespaceMapping | array[link:#namespaceMapping["namespaceMapping"]] | Falso  a| 
+Matriz JSON de objetos JSON, cada uno de los cuales asigna un espacio de nombres de origen a un espacio de nombres de destino para una operación de clonación. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| storageClassMapping | array[link:#storageClassMapping["storageClassMapping"]] | Falso  a| 
+Matriz JSON de objetos JSON, cada uno de los cuales asigna una clase de almacenamiento de origen a una clase de almacenamiento de destino para una operación de restauración. Si no hay elementos o no están presentes, se usarán los nombres originales de las clases de almacenamiento de origen. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| clusterName | cadena | Falso  a| 
+Cadena JSON que contiene el nombre del clúster en el que se está ejecutando la aplicación. No se devuelve si la aplicación no se está ejecutando actualmente.
+
+
+
+| clusterID | cadena | Falso  a| 
+Cadena JSON que contiene el ID del clúster en el que se está ejecutando la aplicación. No se devuelve si la aplicación no se está ejecutando actualmente. Cuando se especifica en create, clusterID indica en qué clúster se debe clonar la aplicación. Si el clúster especificado no existe, o si el clúster especificado no coincide con el clusterID especificado en el URI de solicitud, la clonación fallará. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| clusterType | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica el tipo de clúster. Los valores definidos son:
+
+* "gke" - Kubernetes alojado en Google Kubernetes Engine (GKE)
+* "aks" - Kubernetes alojado en Microsoft Azure Kubernetes Service (AKS)
+* "eks" - Kubernetes alojado en Amazon Elastic Kubernetes Service (Amazon EKS)
+* "openshift" - El clúster es de tipo OpenShift
+* "kubernetes" - El clúster es Kubernetes genérico
+
+
+
+
+| sourceAppID | cadena | Falso  a| 
+Cadena JSON que contiene el ID de una aplicación de origen. Solo se devuelve si la aplicación se clonó a partir de otra aplicación o se restauró a partir de una copia de seguridad o instantánea. Cuando se especifica al crear, el sourceAppID se utiliza junto con el sourceClusterID e indica qué aplicación en ejecución se clonará. Si la aplicación especificada no existe en el clúster de origen especificado, la clonación fallará. Solo se puede especificar uno de sourceAppID, backupID o snapshotID al crear una aplicación. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| sourceClusterName | cadena | Falso  a| 
+Cadena JSON que contiene el nombre del clúster en el que se ejecutaba anteriormente la aplicación. Solo se devuelve si la aplicación se clonó de otro clúster.
+
+
+
+| sourceClusterID | cadena | Falso  a| 
+Cadena JSON que contiene el ID del clúster en el que se ejecutaba anteriormente la aplicación. Solo se devuelve si la aplicación se clonó desde otro clúster. Cuando se especifica en create, el sourceClusterID se utiliza junto con el sourceAppID e indica el clúster de origen de la aplicación que se va a clonar. Si el clúster de origen especificado no existe, la clonación fallará. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| backupID | cadena | Falso  a| 
+Cadena JSON que contiene el ID de la copia de seguridad desde la que se restauró la aplicación. Solo se devuelve si la aplicación se restauró desde una copia de seguridad. Cuando se especifica en create, backupID indica que una aplicación se clonará desde una copia de seguridad existente. Si la copia de seguridad especificada no existe, el clonado fallará. Solo se puede especificar uno de sourceAppID, backupID o snapshotID al crear una aplicación. Cuando se especifica en un replace, backupID indica la copia de seguridad de la aplicación desde la que se restaurará la aplicación en el mismo lugar. Si la copia de seguridad especificada no existe, la restauración fallará. Solo se puede especificar uno de backupID o snapshotID al actualizar una aplicación. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| snapshotID | cadena | Falso  a| 
+Cadena JSON que contiene el ID de la instantánea desde la que se restauró la aplicación. Solo se devuelve si la aplicación se restauró desde una instantánea. Cuando se especifica en create, snapshotID indica que una aplicación se clonará desde una instantánea existente. Si la instantánea especificada no existe, el clonado fallará. Solo se puede especificar uno de sourceAppID, backupID o snapshotID al crear una aplicación. Cuando se especifica en replace, snapshotID indica la instantánea de la aplicación desde la que se restaurará la aplicación. Si la instantánea especificada no existe, la restauración fallará. Solo se puede especificar uno de backupID o snapshotID al actualizar una aplicación. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| replicationSourceAppID | cadena | Falso  a| 
+Cadena JSON que contiene el ID de la aplicación que se está replicando a esta aplicación. Solo se devuelve si la aplicación es actualmente el destino en una relación AppMirror y la relación no está en el estado failedOver. Cuando la relación está en el estado failedOver, este campo no se devuelve. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| restoreFilter | link:#restoreFilter["restoreFilter"] | Falso  a| 
+Objeto JSON que contiene una lista de filtros que describen qué recursos se incluyen o excluyen de una operación de restauración selectiva. Incluir y excluir son mutuamente excluyentes, y una restauración selectiva solo puede usar un tipo de filtro.
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-app",
+  "version": "2.2",
+  "id": "39c1c79f-efab-5357-88fb-20e628c4dd96",
+  "links": [],
+  "name": "jenkins",
+  "namespaceScopedResources": [
+    {
+      "namespace": "production",
+      "labelSelectors": []
+    }
+  ],
+  "state": "pending",
+  "stateDetails": [],
+  "protectionState": "none",
+  "protectionStateDetails": [],
+  "namespaces": [
+    "production"
+  ],
+  "clusterName": "GKE-22",
+  "clusterID": "0f284377-e5dc-4dcd-bacd-3197f2b8a347",
+  "clusterType": "kubernetes",
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 409, Conflict
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/10",
+  "title": "JSON resource conflict",
+  "detail": "The request body JSON contains a field that conflicts with an idempotent value.",
+  "status": "409"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+GVK
+
+Objeto JSON que contiene un grupo/versión/tipo de Kubernetes.
+
+* Este objeto se valida internamente con Astra /apiResources.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| grupo | cadena | Verdadero  a| 
+Cadena JSON que contiene un identificador de grupo asignado por Kubernetes.
+
+* Esta cadena se valida internamente con Astra /apiResources
+
+
+
+
+| tipo | cadena | Verdadero  a| 
+Cadena JSON que contiene un identificador de tipo asignado por Kubernetes.
+
+* Esta cadena se valida internamente con Astra /apiResources
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Cadena JSON que contiene un identificador de versión asignado por Kubernetes.
+
+* Esta cadena se valida internamente con Astra /apiResources
+
+
+|===
+[role="api-collapsible-fifth-title"]
+clusterScopedResources
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| GVK | link:#GVK["GVK"] | Verdadero  a| 
+Objeto JSON que contiene un grupo/versión/tipo de Kubernetes.
+
+* Este objeto se valida internamente con Astra /apiResources.
+
+
+
+
+| labelSelectors | array[string] | Falso  a| 
+Matriz JSON de cadenas JSON que representan un selector de etiquetas con alcance de clúster para los GroupVersionKinds (GVK) dentro del clúster. Si está vacía, se incluyen todas las instancias GVK en el clúster. Cada elemento de esta matriz es una cadena de selector de etiquetas de Kubernetes y sigue la misma gramática para esos valores. Ejemplos:
+
+* [ "app=mysql" ] -- Selecciona todos los recursos que tengan una etiqueta cuyo nombre sea app y cuyo valor sea mysql. Puedes encontrar más ejemplos aquí: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#set-based-requirement[]
+
+
+|===
+[role="api-collapsible-fifth-title"]
+namespaceScopedResources
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| espacio de nombres | cadena | Verdadero  a| 
+Cadena JSON que contiene el nombre de un espacio de nombres en el que está definida la aplicación. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 253
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+
+
+| labelSelectors | array[string] | Falso  a| 
+Matriz JSON de cadenas JSON que representan un selector de etiquetas dentro del espacio de nombres. Si está vacía, se incluyen todos los recursos del espacio de nombres. Cada elemento de esta matriz es una cadena de selector de etiquetas de Kubernetes y sigue la gramática para esos valores. Ejemplos:
+
+* [ "app=mysql" ] -- Selecciona todos los recursos que tengan una etiqueta cuyo nombre sea app y cuyo valor sea mysql
+* [ "app != mysql" ] -- Selecciona todos los recursos que tienen una etiqueta cuyo nombre es app y cuyo valor no es mysql
+* [ "app in (mysql, mariadb)" ] -- Selecciona todos los recursos que tienen una etiqueta cuyo nombre es app y valor es mysql o mariadb
+* [ "app notin (nginx, wordpress)" ] -- Selecciona todos los recursos que no tienen una etiqueta cuyo nombre es app y cuyos valores son nginx o wordpress
+* [ "app" ] -- Selecciona todos los recursos que tienen una etiqueta llamada app
+* [ "!app" ] -- Selecciona todos los recursos que no tienen una etiqueta llamada app Ten en cuenta que se pueden incluir varios operadores de selección en un único selector, separados por comas. En ese caso, los resultados de los operadores de selección individuales se combinan con AND:
+* [ "app=mysql,version=2" ] -- Seleccionar todos los recursos que tengan una etiqueta cuyo nombre sea app y cuyo valor sea mysql y una etiqueta cuyo nombre sea version y cuyo valor sea 2
+
+
+|===
+[role="api-collapsible-fifth-title"]
+namespaceMapping
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| fuente | cadena | Verdadero  a| 
+Cadena JSON que contiene el nombre del espacio de nombres en el clúster de origen. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 253
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+
+
+| destino | cadena | Verdadero  a| 
+Cadena JSON que contiene el nombre del espacio de nombres en el clúster de destino. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 253
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+|===
+[role="api-collapsible-fifth-title"]
+storageClassMapping
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| fuente | cadena | Verdadero  a| 
+Cadena JSON que contiene el nombre de la clase de almacenamiento de origen. También puede ser '*' para especificar todas las clases de almacenamiento de origen. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Se ajusta al esquema de etiquetas DNS 1123 si se utiliza el nombre de Storage Class
+* '*' para especificar todas las clases de almacenamiento
+
+
+
+
+| destino | cadena | Verdadero  a| 
+Cadena JSON que contiene el nombre de la clase de almacenamiento de destino. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+|===
+[role="api-collapsible-fifth-title"]
+GVKN
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| grupo | cadena | Falso  a| 
+Cadena JSON que contiene un identificador de grupo asignado por Kubernetes.
+
+* Esta cadena se valida internamente con Astra /apiResources
+
+
+
+
+| versión | cadena | Falso  a| 
+Cadena JSON que contiene un identificador de versión asignado por Kubernetes.
+
+* Esta cadena se valida internamente con Astra /apiResources
+
+
+
+
+| tipo | cadena | Falso  a| 
+Cadena JSON que contiene un identificador de tipo asignado por Kubernetes.
+
+* Esta cadena se valida internamente con Astra /apiResources
+
+
+
+
+| espacios de nombres | array[string] | Falso  a| 
+Matriz JSON de cadenas JSON que describen los espacios de nombres de los que incluir o excluir recursos. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+
+
+| nombres | array[string] | Falso  a| 
+Matriz JSON de cadenas JSON que describen los nombres de recursos Kubernetes que deben incluirse o excluirse de la restauración selectiva. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 253
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+
+
+| labelSelectors | array[string] | Falso  a| 
+Matriz JSON de cadenas JSON que describen los selectores de etiquetas de Kubernetes utilizados para incluir o excluir recursos de la restauración selectiva. Cada elemento de esta matriz es una cadena de selector de etiquetas de Kubernetes y sigue la misma gramática para esos valores. Ejemplos:
+
+* [ "app=mysql" ] -- Selecciona todos los recursos que tengan una etiqueta cuyo nombre sea app y cuyo valor sea mysql. Puedes encontrar más ejemplos aquí: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#set-based-requirement[]
+
+
+|===
+[role="api-collapsible-fifth-title"]
+restoreFilter
+
+Objeto JSON que contiene una lista de filtros que describen qué recursos se incluyen o excluyen de una operación de restauración selectiva. Incluir y excluir son mutuamente excluyentes, y una restauración selectiva solo puede usar un tipo de filtro.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| resourceSelectionCriteria | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica cómo los filtros de recursos seleccionan recursos. Los valores válidos son include o exclude.
+
+
+
+| GVKN | array[link:#GVKN["GVKN"]] | Verdadero  a| 
+Matriz JSON de objetos JSON que describen recursos para filtrar durante una restauración selectiva. Un recurso coincide con un único elemento de filtro GVKN si todos los campos de filtro especificados coinciden con el campo de recurso correspondiente. Los campos de filtro que son matrices (por ejemplo, espacios de nombres y nombres) coinciden si cualquiera de sus elementos coincide con el campo de recurso correspondiente. El campo labelSelectors requiere que todos los selectores coincidan. Un recurso que coincida con cualquier filtro de la matriz de objetos de filtro GVKN se incluye o excluye de la restauración en función del valor resourceSelectionCriteria. La especificación de objetos GVKN vacíos provoca un error de validación.
+
+|===
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadatos_update
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+targetSchema
+
+[role="api-collapsible-fifth-title"]
+aceptar-post
+
+[role="api-collapsible-fifth-title"]
+aceptar-put
+
+[role="api-collapsible-fifth-title"]
+pistas
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| estado | cadena | Falso  a| 
+
+
+
+| permitir | array[string] | Falso  a| 
+
+
+
+| aceptar-post | link:#accept-post["aceptar-post"] | Falso  a| 
+
+
+
+| permisos | array[string] | Falso  a| 
+
+
+
+| aceptar-put | link:#accept-put["aceptar-put"] | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_link
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| rel | cadena | Verdadero  a| 
+
+
+
+| href | cadena | Verdadero  a| 
+
+
+
+| tipo | cadena | Falso  a| 
+
+
+
+| targetSchema | link:#targetSchema["targetSchema"] | Falso  a| 
+
+
+
+| título | cadena | Falso  a| 
+
+
+
+| pistas | link:#hints["pistas"] | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+namespaceScopedResources
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| espacio de nombres | cadena | Verdadero  a| 
+Cadena JSON que contiene el nombre de un espacio de nombres en el que está definida la aplicación. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 253
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+
+
+| labelSelectors | array[string] | Verdadero  a| 
+Matriz JSON de cadenas JSON que representan un selector de etiquetas dentro del espacio de nombres. Si está vacía, se incluyen todos los recursos del espacio de nombres. Cada elemento de esta matriz es una cadena de selector de etiquetas de Kubernetes y sigue la gramática para esos valores. Ejemplos:
+
+* [ "app=mysql" ] -- Selecciona todos los recursos que tengan una etiqueta cuyo nombre sea app y cuyo valor sea mysql
+* [ "app != mysql" ] -- Selecciona todos los recursos que tienen una etiqueta cuyo nombre es app y cuyo valor no es mysql
+* [ "app in (mysql, mariadb)" ] -- Selecciona todos los recursos que tienen una etiqueta cuyo nombre es app y valor es mysql o mariadb
+* [ "app notin (nginx, wordpress)" ] -- Selecciona todos los recursos que no tienen una etiqueta cuyo nombre es app y cuyos valores son nginx o wordpress
+* [ "app" ] -- Selecciona todos los recursos que tienen una etiqueta llamada app
+* [ "!app" ] -- Selecciona todos los recursos que no tienen una etiqueta llamada app Ten en cuenta que se pueden incluir varios operadores de selección en un único selector, separados por comas. En ese caso, los resultados de los operadores de selección individuales se combinan con AND:
+* [ "app=mysql,version=2" ] -- Seleccionar todos los recursos que tengan una etiqueta cuyo nombre sea app y cuyo valor sea mysql y una etiqueta cuyo nombre sea version y cuyo valor sea 2
+
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_stateTransition
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| de | cadena | Verdadero  a| 
+
+
+
+| a | array[string] | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+additionalDetails
+
+[role="api-collapsible-fifth-title"]
+type_astra_stateDetail
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| additionalDetails | link:#additionalDetails["additionalDetails"] | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+restoreFilter
+
+Objeto JSON que contiene una lista de filtros que describen qué recursos se incluyen o excluyen de una operación de restauración selectiva. Incluir y excluir son mutuamente excluyentes, y una restauración selectiva solo puede usar un tipo de filtro.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| resourceSelectionCriteria | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica cómo los filtros de recursos seleccionan recursos. Los valores válidos son include o exclude.
+
+
+
+| GVKN | array[link:#GVKN["GVKN"]] | Falso  a| 
+Matriz JSON de objetos JSON que describen recursos para filtrar durante una restauración selectiva. Un recurso coincide con un único elemento de filtro GVKN si todos los campos de filtro especificados coinciden con el campo de recurso correspondiente. Los campos de filtro que son matrices (por ejemplo, espacios de nombres y nombres) coinciden si cualquiera de sus elementos coincide con el campo de recurso correspondiente. El campo labelSelectors requiere que todos los selectores coincidan. Un recurso que coincida con cualquier filtro de la matriz de objetos de filtro GVKN se incluye o excluye de la restauración en función del valor resourceSelectionCriteria. La especificación de objetos GVKN vacíos provoca un error de validación.
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidFields
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del campo no válido del cuerpo de la solicitud
+
+
+
+| motivo | cadena | Verdadero  a| 
+Motivo por el que el campo del cuerpo de la solicitud no es válido
+
+|===
+====

@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/setting_endpoints.html 
+summary: 'Configuración de endpoints de Astra API (ACC)' 
+---
+= Configuración de endpoints de Astra API (ACC)
+:allow-uri-read: 
+
+
+Un ajuste de cuenta es una colección de pares clave/valor que son importantes para una función conocida en una cuenta de Astra. La API de ajustes proporciona acceso a información importante sobre un ajuste de cuenta.

@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/feature_endpoints.html 
+summary: 'Puntos finales de las funciones de Astra API (ACC)' 
+---
+= Puntos finales de las funciones de Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de funciones proporciona acceso de solo lectura a los recursos de indicadores de funciones para determinar qué funciones están activadas o desactivadas en el sistema.

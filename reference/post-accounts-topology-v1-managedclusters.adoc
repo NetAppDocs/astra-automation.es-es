@@ -1,0 +1,846 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/post-accounts-topology-v1-managedclusters.html 
+summary: Crear un nuevo clúster gestionado 
+---
+= Crear un nuevo clúster gestionado
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/managedClusters`#
+
+Indica los valores deseados para el recurso de la API de Managed Cluster que se va a crear.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+|===
+
+
+== Cuerpo de la solicitud
+
+Indica los valores deseados para el recurso de la API de Managed Cluster que se va a crear.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-managedCluster"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+* "1,2"
+* "1,3"
+* "1,4"
+* "1,5"
+* "1,6"
+* "1,7"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| tridentManagedStateDesired | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica el estado de gestión deseado para Trident. Los valores definidos son:
+
+* "managed" - Gestiona Trident en este clúster
+* "unmanaged" - No gestionar Trident en este clúster
+
+
+
+
+| defaultStorageClass | cadena | Falso  a| 
+Cadena JSON que contiene un ID de clase de almacenamiento que corresponde a la clase de almacenamiento predeterminada, tal como se establece en Kubernetes. Los valores definidos son:
+
+* Se ajusta al esquema del identificador Astra. Si no se incluye, es que aún no se ha descubierto.
+
+
+
+
+| defaultBucketID | cadena | Falso  a| 
+Cadena JSON que contiene el ID de un bucket que se usará por defecto para persistir los metadatos de la aplicación para un clúster Neptune gestionado. Si no se especifica ningún bucket por defecto en el clúster, se usará el bucket por defecto de la nube correspondiente.
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Falso  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de solicitud
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-managedCluster",
+  "version": "1.7",
+  "id": "241e9d94-eb8b-5c25-ba20-9292baac2396",
+  "defaultStorageClass": "e280ff62-be35-4f31-a31b-a210a1ad1b33",
+  "tridentManagedStateDesired": "managed"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 201, Returns the newly created managedCluster resource in the JSON response body.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-managedCluster"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+* "1,2"
+* "1,3"
+* "1,4"
+* "1,5"
+* "1,6"
+* "1,7"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| nombre | cadena | Verdadero  a| 
+Cadena JSON que contiene un nombre para el clúster. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Esta cadena se valida internamente para prevenir ataques XSS, Unicode, directory traversal y SQL-injection.
+
+
+
+
+| estado | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado operativo del clúster. Los valores definidos son:
+
+* "pendiente" - El clúster está programado para ser descubierto
+* "descubriendo" - El clúster está en proceso de ser descubierto
+* "provisioning" - El cluster está en proceso de aprovisionamiento
+* "running" - El clúster funciona con normalidad
+* "failed" - El clúster está en un estado de fallo permanente
+* "eliminado" - El clúster no es accesible actualmente
+* "desconocido" - No se puede determinar el estado del clúster
+
+
+
+
+| restoreTargetSupported | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica la capacidad del clúster gestionado para ser _objetivo_ de operaciones de gestión de datos de aplicaciones. Los valores definidos son:
+
+* "true" - El clúster es un objetivo elegible para las operaciones de gestión de datos de la app.
+* "false" - El clúster _no_ es un objetivo elegible para las operaciones de gestión de datos de la app.
+
+
+
+
+| snapshotSupported | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica la capacidad del clúster gestionado para realizar operaciones de tipo copia de seguridad de gestión de datos de aplicaciones. Los valores definidos son:
+
+* "true" - El clúster es elegible para realizar operaciones de gestión de datos de la app.
+* "false" - El clúster _no_ es apto para realizar operaciones de gestión de datos de la app.
+
+
+
+
+| stateUnready | array[string] | Verdadero  a| 
+Matriz JSON de cadenas JSON, cada una de las cuales indica un motivo por el que el clúster no puede pasar al estado "en ejecución", cuando hay problemas mientras está en estado "en ejecución" o por el que ha pasado al estado "fallido" o "eliminado". Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 127
+
+
+
+
+| managedState | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado de gestión del clúster. Los valores definidos son:
+
+* "pendiente" - El clúster está programado para ser descubierto o añadido
+* "ineligible" - El clúster se encuentra en estado "en ejecución", no está bajo gestión y no es elegible para la gestión. La razón o las razones de esta inelegibilidad se proporcionan en el valor de la clave unready
+* "borrando" - El clúster está en proceso de ser eliminado
+* "no gestionado" - El clúster está en estado "en ejecución" o "fallido", no está bajo gestión y es elegible para ser gestionado
+* "gestionando" - El clúster se encuentra en estado "en ejecución" y está en proceso de ser gestionado
+* "managed" - El clúster se encuentra en estado "running", "failed" o "removed" y está bajo gestión
+
+
+
+
+| managedStateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Falso  a| 
+Matriz JSON de objetos JSON que enumera detalles adicionales sobre el estado actual, incluyendo por qué se alcanzó el estado actual. Si no hay detalles disponibles, esta matriz estará vacía. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| protectionState | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado de protección del clúster. Los valores definidos son:
+
+* "full" - La clase de almacenamiento predeterminada del clúster admite instantáneas
+* "parcial": el clúster solo tiene clases de almacenamiento que no admiten instantáneas
+* "atRisk" - La clase de almacenamiento predeterminada del clúster no admite instantáneas
+
+
+
+
+| protectionStateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Verdadero  a| 
+Matriz JSON de objetos JSON que enumera detalles adicionales sobre el estado de protección actual, incluyendo por qué se alcanzó el estado actual. Si no hay detalles disponibles, esta matriz estará vacía. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| managedStateUnready | array[string] | Verdadero  a| 
+Matriz JSON de cadenas JSON, cada una de las cuales indica una razón por la que el clúster no puede ser gestionado. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 127
+
+
+
+
+| managedTimestamp | cadena | Verdadero  a| 
+Cadena JSON que contiene la marca de tiempo que indica cuándo el clúster se puso bajo gestión. Los valores definidos son:
+
+* Conforme al esquema de fecha y hora ISO-8601 Esta clave solo se devuelve cuando un clúster tiene un managedState de "managed".
+
+
+
+
+| tridentVersion | cadena | Falso  a| 
+Cadena JSON que contiene la versión de Trident instalada en el clúster. Los valores definidos son:
+
+* Conforme al esquema de versiones de software
+
+
+
+
+| acpVersion | cadena | Falso  a| 
+Cadena JSON que contiene la versión de Astra Control Provisioner instalada en el clúster. Los valores definidos son:
+
+* Conforme al esquema de versiones de software
+
+
+
+
+| tridentManagedState | cadena | Falso  a| 
+Cadena JSON que contiene uno de un conjunto de valores enumerados que indican el estado de gestión de Trident en este clúster. Los valores definidos son:
+
+* "managed" - La instancia de Trident en el clúster es gestionada por Astra
+* "unmanaged" - La instancia de Trident en el clúster no está gestionada por Astra
+
+
+
+
+| tridentManagedStateDesired | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica el estado de gestión deseado para Trident. Los valores definidos son:
+
+* "managed" - Gestiona Trident en este clúster
+* "unmanaged" - No gestionar Trident en este clúster
+
+
+
+
+| tridentManagedStateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Falso  a| 
+Matriz JSON de objetos JSON que enumera detalles adicionales sobre por qué "state" pasó a "managed" o "unmanaged". + Si no hay detalles disponibles, esta matriz estará vacía.
+
+* Artículos mínimos: 0
+
+
+
+
+| tridentManagedStateAllowed | array[string] | Falso  a| 
+Estados que pueden solicitarse en un determinado tridentManagedState. Los siguientes estados pueden solicitarse en cada estado definido:
+
+* "managed": "gestionado"
+* "unmanaged": "no gestionado"
+
+
+
+
+| inUse | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica si el clúster tiene alguna aplicación gestionada y, por tanto, no se puede eliminar. Los valores definidos son:
+
+* "false" - El clúster no está gestionado, o está gestionado pero no tiene aplicaciones gestionadas asociadas con él
+* "true" - El clúster está gestionado y tiene aplicaciones gestionadas asociadas con él
+
+
+
+
+| accHost | cadena | Falso  a| 
+Cadena JSON que indica que este cluster aloja la instancia de Astra Control Center a la que se está accediendo actualmente. Los valores definidos son:
+
+* "true" - Este clúster aloja la instancia de Astra Control Center a la que se está accediendo actualmente.
+
+
+
+
+| clusterType | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el tipo de clúster. Los valores definidos son:
+
+* "gke" - Kubernetes alojado en Google Kubernetes Engine
+* "aks" - Kubernetes alojado en Microsoft Azure Kubernetes Service
+* "eks" - Kubernetes alojado en Amazon Elastic Kubernetes Service
+* "rke" - El clúster es de tipo Rancher
+* "tanzu" -El clúster es de tipo Tanzu Kubernetes Grid
+* "openshift" - El clúster es de tipo OpenShift
+* "anthos" - El clúster es de tipo GKE Anthos
+* "kubernetes" - El clúster es Kubernetes genérico
+
+
+
+
+| clusterVersion | cadena | Verdadero  a| 
+Cadena JSON que contiene la representación semántica de versiones del entorno de clúster. Para clústeres Kubernetes, esta es la versión de Kubernetes. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 31
+
+
+
+
+| clusterVersionString | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica la información de versionado ampliada para el entorno de clúster. Para los clústeres Kubernetes, esta es la versión completa de Kubernetes. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 31
+
+
+
+
+| clusterCreationTimestamp | cadena | Falso  a| 
+Cadena JSON que contiene la marca de tiempo que indica cuándo se creó originalmente el clúster. Los valores definidos son:
+
+* Cumple con el esquema de fecha y hora ISO-8601
+
+
+
+
+| espacios de nombres | array[string] | Falso  a| 
+Matriz JSON de cadenas JSON, cada una de las cuales indica un espacio de nombres dentro del clúster. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 253
+
+
+
+
+| defaultStorageClass | cadena | Falso  a| 
+Cadena JSON que contiene un ID de clase de almacenamiento que corresponde a la clase de almacenamiento predeterminada, tal como se establece en Kubernetes. Los valores definidos son:
+
+* Se ajusta al esquema del identificador Astra. Si no se incluye, es que aún no se ha descubierto.
+
+
+
+
+| cloudID | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el ID de la nube en la que se ejecuta el clúster. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| credentialID | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica el ID de la credencial que contiene el archivo kubeconfig para el clúster. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| ubicación | cadena | Falso  a| 
+Cadena JSON que contiene un valor proporcionado por la nube en la que se ejecuta el clúster, indicando la ubicación específica de la nube del clúster. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| isMultizonal | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor proporcionado por la nube en la que se ejecuta el clúster, indicando si el clúster abarca dos o más zonas de disponibilidad. Los valores definidos son:
+
+* "true" - El clúster abarca dos o más zonas de disponibilidad
+* "false" - El clúster se encuentra íntegramente dentro de una única zona de disponibilidad
+
+
+
+
+| privateRouteID | cadena | Falso  a| 
+Cadena JSON que contiene el locationID de los clústeres privados.
+
+* Longitud mínima: 1
+* Longitud máxima: 255
+
+
+
+
+| apiServiceID | cadena | Falso  a| 
+Cadena JSON que contiene el UUID del objeto de servicio api de Kubernetes (k8s). Se utiliza para identificar un clúster de forma exclusiva.
+
+
+
+| defaultBucketID | cadena | Falso  a| 
+Cadena JSON que contiene el ID de un bucket que se usará por defecto para persistir los metadatos de la aplicación para un clúster Neptune gestionado. Si no se especifica ningún bucket por defecto en el clúster, se usará el bucket por defecto de la nube correspondiente.
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-managedCluster",
+  "version": "1.7",
+  "id": "241e9d94-eb8b-5c25-ba20-9292baac2396",
+  "name": "GKE-22",
+  "state": "running",
+  "stateUnready": [],
+  "managedState": "managed",
+  "managedStateUnready": [],
+  "managedTimestamp": "2020-08-06T12:24:52.256624Z",
+  "protectionState": "full",
+  "protectionStateDetails": [],
+  "tridentVersion": "23.10.0",
+  "acpVersion": "23.10.0",
+  "tridentManagedState": "managed",
+  "tridentManagedStateDesired": "managed",
+  "tridentManagedStateDetails": [],
+  "inUse": "false",
+  "clusterType": "kubernetes",
+  "clusterVersion": "1.91.1",
+  "clusterVersionString": "1.19.1",
+  "clusterCreationTimestamp": "2020-08-06T12:24:52.256624Z",
+  "namespaces": [
+    "kube-system",
+    "kube-public",
+    "my-app-1"
+  ],
+  "defaultStorageClass": "e280ff62-be35-4f31-a31b-a210a1ad1b33",
+  "cloudID": "548bdc1f-f00e-4a23-a062-83265d224d46",
+  "credentialID": "055e365a-2215-40de-aecb-a4070a7e6f1e",
+  "location": "europe-west4",
+  "isMultizonal": "false",
+  "apiServiceID": "6bf33af2-872a-4553-a891-26b510c3edbe",
+  "defaultBucketID": "a549b757-2be1-494f-aafa-4ee399ca3f00",
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 409, Conflict
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidFields | array[link:#invalidFields["invalidFields"]] | Falso  a| 
+Lista de campos del cuerpo de la solicitud no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/10",
+  "title": "JSON resource conflict",
+  "detail": "The request body JSON contains a field that conflicts with an idempotent value.",
+  "status": "409"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadatos_update
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+additionalDetails
+
+[role="api-collapsible-fifth-title"]
+type_astra_stateDetail
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| additionalDetails | link:#additionalDetails["additionalDetails"] | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidFields
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del campo no válido del cuerpo de la solicitud
+
+
+
+| motivo | cadena | Verdadero  a| 
+Motivo por el que el campo del cuerpo de la solicitud no es válido
+
+|===
+====

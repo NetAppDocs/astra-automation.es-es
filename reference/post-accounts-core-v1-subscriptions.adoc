@@ -1,0 +1,734 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/post-accounts-core-v1-subscriptions.html 
+summary: Crear una nueva suscripción 
+---
+= Crear una nueva suscripción
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/subscriptions`#
+
+Indica los valores deseados para el recurso API de suscripción que se va a crear.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+|===
+
+
+== Cuerpo de la solicitud
+
+Indica los valores deseados para el recurso API de suscripción que se va a crear.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-subscription"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+* "1,2"
+
+
+
+
+| customerProfileID | cadena | Falso  a| 
+Cadena JSON que contiene el ID del perfil del cliente de http://authorize.net["Authorize.net"], que fue invocado por la interfaz de usuario, no está configurado para el periodo de prueba. Devuelve una cadena vacía durante la operación de lectura, si no está configurado. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 63
+
+
+
+
+| paymentFirstName | cadena | Falso  a| 
+Cadena JSON que contiene un nombre largo especificado por el usuario que se utiliza para la facturación de pagos. Se especifica solo cuando se vuelve a facturar la suscripción. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| paymentLastName | cadena | Falso  a| 
+Cadena JSON que contiene un apellido largo especificado por el usuario y utilizado para la facturación del pago. Se especifica solo cuando se está refacturando la suscripción. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| paymentAddress | link:#paymentAddress["paymentAddress"] | Falso  a| 
+Objeto JSON que contiene una colección de cadenas JSON que especifican una dirección de facturación. Se especifica solo cuando se está refacturando la suscripción. Si existe esta clave, estarán presentes las seis cadenas JSON contenidas. Si el usuario no ha proporcionado nada, la cadena estará vacía.
+
+
+
+| paymentProfileID | cadena | Falso  a| 
+Cadena JSON que contiene el ID del perfil de pago de http://Authorize.net["Authorize.net"] que fue invocado por la interfaz de usuario, no establecido para el periodo de prueba. Devuelve una cadena vacía durante la operación de lectura si no se establece. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 63
+
+
+
+
+| paymentExpiry | cadena | Falso  a| 
+Cadena JSON que contiene una marca de tiempo que indica cuándo caduca el método de pago. Esto se obtiene de authorize.net(http://authorize.net[] y lo establece la interfaz de usuario. Los valores definidos son:
+
+* Conforme al esquema de fecha y hora ISO-8601. Este campo no se devuelve para los periodos de prueba.
+
+
+
+
+| mercado | cadena | Falso  a| 
+Cadena JSON que indica el marketplace de una cuenta donde se registrarán los pagos. Valores definidos:
+
+* "netapp"
+* "azure"
+* "aws"
+* "gcp"
+
+
+
+
+| términos | cadena | Verdadero  a| 
+Cadena JSON que indica el nivel actual de la cuenta. Los valores definidos son:
+
+* "prueba"
+* "pagado"
+
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Falso  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de solicitud
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-subscription",
+  "version": "1.2",
+  "terms": "trial"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 201, Returns the newly created subscription resource in the JSON response body.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-subscription"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+* "1,2"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| customerProfileID | cadena | Verdadero  a| 
+Cadena JSON que contiene el ID del perfil del cliente de http://authorize.net["Authorize.net"], que fue invocado por la interfaz de usuario, no está configurado para el periodo de prueba. Devuelve una cadena vacía durante la operación de lectura, si no está configurado. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 63
+
+
+
+
+| paymentProfileID | cadena | Falso  a| 
+Cadena JSON que contiene el ID del perfil de pago de http://Authorize.net["Authorize.net"] que fue invocado por la interfaz de usuario, no establecido para el periodo de prueba. Devuelve una cadena vacía durante la operación de lectura si no se establece. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 63
+
+
+
+
+| paymentExpiry | cadena | Falso  a| 
+Cadena JSON que contiene una marca de tiempo que indica cuándo caduca el método de pago. Esto se obtiene de authorize.net(http://authorize.net[] y lo establece la interfaz de usuario. Los valores definidos son:
+
+* Conforme al esquema de fecha y hora ISO-8601. Este campo no se devuelve para los periodos de prueba.
+
+
+
+
+| purchaseOrderNumber | cadena | Falso  a| 
+Cadena JSON que contiene el número de orden de compra para el método de pago. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 31
+
+
+
+
+| mercado | cadena | Falso  a| 
+Cadena JSON que indica el marketplace de una cuenta donde se registrarán los pagos. Valores definidos:
+
+* "netapp"
+* "azure"
+* "aws"
+* "gcp"
+
+
+
+
+| licenciaSN | cadena | Falso  a| 
+Cadena JSON que contiene el número de serie de la licencia para el método de pago. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 31
+
+
+
+
+| términos | cadena | Verdadero  a| 
+Cadena JSON que indica el nivel actual de la cuenta. Los valores definidos son:
+
+* "prueba"
+* "pagado"
+
+
+
+
+| estado | cadena | Verdadero  a| 
+Cadena JSON que indica el estado actual de la suscripción. Los valores definidos son:
+
+* "activo"
+* "inactivo"
+
+
+
+
+| appLimit | número | Verdadero  a| 
+Número JSON que indica el límite de aplicación para esta suscripción. Un valor de -1 indica que no hay límite.
+
+
+
+| namespaceLimit | número | Verdadero  a| 
+Número JSON que indica el límite de espacio de nombres para esta suscripción. Un valor de -1 indica que no hay límite.
+
+
+
+| subscriptionPeriod | número | Verdadero  a| 
+Número JSON que indica el periodo de suscripción. Un valor de -1 indica que no hay límite. Unidad: días
+
+
+
+| gracePeriod | número | Verdadero  a| 
+Número JSON que indica el periodo de gracia después de que caduque la suscripción de prueba o se cancele una suscripción de pago. Unidad: días
+
+
+
+| reminderBeforePeriod | número | Verdadero  a| 
+Número JSON que indica el número de días antes de que finalice la suscripción de prueba cuando comenzarán las notificaciones al cliente. El valor se expresa en días con un valor de -1 que indica que no es aplicable.
+
+
+
+| onboardStatus | cadena | Verdadero  a| 
+Cadena JSON que indica el estado actual de la incorporación del cliente. Los valores válidos son "no iniciado", "en curso", "correcto", "fallido". Los valores definidos son:
+
+* "no iniciado"
+* "en curso"
+* "éxito"
+* "fallido"
+
+
+
+
+| costPerAppUnit | número | Verdadero  a| 
+Número JSON que indica el coste por unidad de aplicación. Para una versión de prueba, el valor es 0. Unidad: dólares estadounidenses
+
+
+
+| costPerNamespaceUnit | número | Verdadero  a| 
+Número JSON que indica el coste por unidad de espacio de nombres. Para una versión de prueba, el valor es 0. Unidad: dólares estadounidenses
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-subscription",
+  "version": "1.2",
+  "id": "40b4106f-b743-5d83-95c7-d539b2b45f63",
+  "customerProfileID": "2157047189",
+  "paymentProfileID": "E7CEB0A9F1BECA32A02493E1B31D5955",
+  "paymentExpiry": "2022-02-01T00:00:00Z",
+  "purchaseOrderNumber": "72384632",
+  "marketplace": "netapp",
+  "licenseSN": "278343",
+  "terms": "trial",
+  "status": "active",
+  "appLimit": 0,
+  "namespaceLimit": 10,
+  "subscriptionPeriod": 90,
+  "gracePeriod": 7,
+  "reminderBeforePeriod": 30,
+  "onboardStatus": "in progress",
+  "costPerAppUnit": 0,
+  "costPerNamespaceUnit": 0.005,
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidFields | array[link:#invalidFields["invalidFields"]] | Falso  a| 
+Lista de campos del cuerpo de la solicitud no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 409, Conflict
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidFields | array[link:#invalidFields["invalidFields"]] | Falso  a| 
+Lista de campos del cuerpo de la solicitud no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/10",
+  "title": "JSON resource conflict",
+  "detail": "The request body JSON contains a field that conflicts with an idempotent value.",
+  "status": "409"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+paymentAddress
+
+Objeto JSON que contiene una colección de cadenas JSON que especifican una dirección de facturación. Se especifica solo cuando se está refacturando la suscripción. Si existe esta clave, estarán presentes las seis cadenas JSON contenidas. Si el usuario no ha proporcionado nada, la cadena estará vacía.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| addressCountry | cadena | Verdadero  a| 
+Cadena JSON que contiene el nombre del país o el código de país asociado a la dirección postal, tal como se especifica en ISO 3166 Alpha-2. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 2
+
+
+
+
+| addressLocality | cadena | Verdadero  a| 
+Cadena JSON que contiene la localidad (por ejemplo, ciudad) asociada a la dirección postal. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 63
+
+
+
+
+| addressRegion | cadena | Verdadero  a| 
+Cadena JSON que contiene la región (por ejemplo, estado) asociada a la dirección postal. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 63
+
+
+
+
+| postalCode | cadena | Verdadero  a| 
+Cadena JSON que contiene el código postal asociado a la dirección postal. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 63
+
+
+
+
+| streetAddress1 | cadena | Verdadero  a| 
+Cadena JSON que contiene la dirección de la calle asociada a la dirección postal. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 63
+
+
+
+
+| streetAddress2 | cadena | Falso  a| 
+Cadena JSON que contiene información auxiliar opcional sobre la dirección, el apartado de correos y más. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 63
+
+
+|===
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadatos_update
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidFields
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del campo no válido del cuerpo de la solicitud
+
+
+
+| motivo | cadena | Verdadero  a| 
+Motivo por el que el campo del cuerpo de la solicitud no es válido
+
+|===
+====

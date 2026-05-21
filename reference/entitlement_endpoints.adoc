@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/entitlement_endpoints.html 
+summary: 'Puntos finales de asignación de derechos de Astra API (ACC)' 
+---
+= Puntos finales de asignación de derechos de Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de asignación de derechos representa qué funciones o capacidades están habilitadas por las licencias y suscripciones activas para una cuenta.

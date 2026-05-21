@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/execution_hook_endpoints.html 
+summary: 'Puntos finales del hook de ejecución de Astra API (ACC)' 
+---
+= Puntos finales del hook de ejecución de Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de ganchos de ejecución permite una gestión sencilla de los ganchos de ejecución. Los ganchos de ejecución contienen configuración adicional y referencias a un recurso fuente de ganchos.

@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/unread_notification_endpoints.html 
+summary: 'Puntos finales de notificación no leída de Astra API (ACC)' 
+---
+= Puntos finales de notificación no leída de Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de notificaciones no leídas proporciona información sobre las notificaciones que no han sido leídas por un usuario determinado y permite marcarlas como leídas.

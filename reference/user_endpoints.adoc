@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/user_endpoints.html 
+summary: 'Puntos finales de usuario de Astra API (ACC)' 
+---
+= Puntos finales de usuario de Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de usuario representa a los usuarios que pueden interactuar con el sistema.

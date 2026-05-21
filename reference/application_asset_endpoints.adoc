@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/application_asset_endpoints.html 
+summary: 'Puntos finales de activos de aplicación de Astra API (ACC)' 
+---
+= Puntos finales de activos de aplicación de Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de activos de aplicaciones proporciona acceso a colecciones internas de información de estado utilizadas para gestionar aplicaciones.

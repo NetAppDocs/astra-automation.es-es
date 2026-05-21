@@ -1,0 +1,544 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/get-accounts-topology-v1-namespaces-.html 
+summary: Recuperar un espacio de nombres 
+---
+= Recuperar un espacio de nombres
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/namespaces/{namespace_id}`#
+
+Devuelve el recurso de la API de espacio de nombres almacenado en el cuerpo de respuesta JSON.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+
+
+| namespace_id | cadena | ruta | Verdadero  a| 
+ID de la colección de espacios de nombres a listar
+
+|===
+
+
+== Respuesta
+
+[source]
+----
+Status: 200, Returns the stored Namespace API resource in the JSON response body.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-namespace"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+* "1,2"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| enlaces | array[link:#type_astra_link["type_astra_link"]] | Verdadero  a| 
+Enlaces que describen las operaciones compatibles con el recurso.
+
+
+
+| nombre | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el nombre del espacio de nombres. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 255
+
+
+
+
+| namespaceState | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado del espacio de nombres. Los valores definidos son:
+
+* "descubierto" - Se ha encontrado el espacio de nombres en el clúster
+* "eliminado" - El espacio de nombre se ha eliminado del clúster, o el clúster no se gestiona pero puede haber recursos que hagan referencia al espacio de nombre
+
+
+
+
+| namespaceStateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Verdadero  a| 
+Matriz JSON de objetos JSON que enumera detalles adicionales sobre por qué "state" pasó a "state a", "state b" o "state c". Si no hay detalles disponibles, esta matriz estará vacía. Los valores definidos son:
+
+* Elementos mínimos: 0
+
+
+
+
+| kubernetesLabels | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+Matriz JSON de objetos JSON, cada uno de los cuales contiene una etiqueta Kubernetes asociada al espacio de nombres. Los valores definidos son:
+
+* Cumple con el esquema de matriz de etiquetas de Kubernetes
+
+
+
+
+| kubernetesUID | cadena | Verdadero  a| 
+Cadena JSON que contiene el UID generado por Kubernetes del recurso del espacio de nombres
+
+
+
+| clusterID | cadena | Verdadero  a| 
+Cadena JSON que contiene un identificador único global del clúster que contiene el espacio de nombres. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| systemType | cadena | Falso  a| 
+Cadena JSON que denota que el espacio de nombres es un tipo de espacio de nombres del sistema. Este campo identifica qué tipo de espacio de nombres del sistema, si lo hay, es el espacio de nombres (versión 1.1 solamente). Los valores definidos son:
+
+* "kubernetes" - Un espacio de nombres genérico del sistema Kubernetes (K8s), por ejemplo, "kube-system"
+* "netapp" - espacio de nombres de un sistema NetApp, por ejemplo, "trident" o "netapp-monitoring"
+* "openshift" - Un espacio de nombres del sistema OpenShift, por ejemplo, "openshift-monitoring"
+* "rke" - Un espacio de nombres de Rancher, por ejemplo, "cattle-logging"
+* "otros" - Espacios de nombres comunes del sistema que no encajan necesariamente en otros lugares, por ejemplo, "ingress-nginx", "tekton-system"
+
+
+
+
+| metadatos | link:#type_astra_metadata["tipo_astra_metadatos"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Cumple con el esquema de metadatos Astra
+
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-namespace",
+  "version": "1.2",
+  "id": "214dc2eb-19a6-5444-b156-f4b6b551a81a",
+  "links": [
+    {
+      "rel": "canonical",
+      "href": "/accounts/0b311ae7-d89a-4a11-a52c-1349ca090415/topology/v1/namespaces/7d451d2f-196e-4234-aee9-7e2376047e63",
+      "type": "application/vnd.netapp.astra.namespace"
+    },
+    {
+      "rel": "collection",
+      "href": "/accounts/0b311ae7-d89a-4a11-a52c-1349ca090415/topology/v1/clouds/e0490197-872e-4de8-9287-b04a938e801f/clusters/0f284377-e5dc-4dcd-bacd-3197f2b8a347/namespaces",
+      "type": "application/vnd.netapp.astra.namespaces"
+    }
+  ],
+  "name": "kube-system",
+  "namespaceState": "discovered",
+  "namespaceStateDetails": [
+    {
+      "type": "https://astra.netapp.io/stateDetails/9",
+      "title": "Namespace Discovered",
+      "detail": "The namespace was discovered in the indicated managed cluster"
+    }
+  ],
+  "kubernetesLabels": [
+    {
+      "name": "app.kubernetes.io/environment",
+      "value": "dev"
+    }
+  ],
+  "clusterID": "0f284377-e5dc-4dcd-bacd-3197f2b8a347",
+  "kubernetesUID": "4f28c377-e5dc-4dcd-b7cd-319cf2b8a345",
+  "systemType": "kubernetes",
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidParams | matriz[link:#invalidParams["invalidParams"]] | Falso  a| 
+Lista de parámetros de consulta no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+targetSchema
+
+[role="api-collapsible-fifth-title"]
+aceptar-post
+
+[role="api-collapsible-fifth-title"]
+aceptar-put
+
+[role="api-collapsible-fifth-title"]
+pistas
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| estado | cadena | Falso  a| 
+
+
+
+| permitir | array[string] | Falso  a| 
+
+
+
+| aceptar-post | link:#accept-post["aceptar-post"] | Falso  a| 
+
+
+
+| permisos | array[string] | Falso  a| 
+
+
+
+| aceptar-put | link:#accept-put["aceptar-put"] | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_link
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| rel | cadena | Verdadero  a| 
+
+
+
+| href | cadena | Verdadero  a| 
+
+
+
+| tipo | cadena | Falso  a| 
+
+
+
+| targetSchema | link:#targetSchema["targetSchema"] | Falso  a| 
+
+
+
+| título | cadena | Falso  a| 
+
+
+
+| pistas | link:#hints["pistas"] | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+additionalDetails
+
+[role="api-collapsible-fifth-title"]
+type_astra_stateDetail
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| additionalDetails | link:#additionalDetails["additionalDetails"] | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+tipo_astra_metadatos
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Cumple con el esquema de metadatos Astra
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Verdadero  a| 
+
+
+
+| CreationTimestamp | cadena | Verdadero  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Verdadero  a| 
+
+
+
+| CreatedBy | cadena | Verdadero  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+====

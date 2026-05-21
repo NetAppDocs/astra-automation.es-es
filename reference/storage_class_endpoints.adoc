@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/storage_class_endpoints.html 
+summary: 'Puntos finales de la clase de almacenamiento Astra API (ACC)' 
+---
+= Puntos finales de la clase de almacenamiento Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de clases de almacenamiento describe las clases de almacenamiento conocidas en un clúster determinado.

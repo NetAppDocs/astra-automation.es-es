@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/schedule_endpoints.html 
+summary: 'Puntos finales de programación de Astra API (ACC)' 
+---
+= Puntos finales de programación de Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de programación permite definir varias operaciones programadas de protección de datos.

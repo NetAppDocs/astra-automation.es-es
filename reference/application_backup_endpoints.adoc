@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/application_backup_endpoints.html 
+summary: 'Puntos finales de backup de la aplicación Astra API (ACC)' 
+---
+= Puntos finales de backup de la aplicación Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de copia de seguridad de aplicaciones permite a un usuario crear y ver copias de seguridad de una aplicación gestionada.

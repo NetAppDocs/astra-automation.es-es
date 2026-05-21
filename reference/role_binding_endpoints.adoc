@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/role_binding_endpoints.html 
+summary: 'Puntos finales de binding de roles de Astra API (ACC)' 
+---
+= Puntos finales de binding de roles de Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de vinculación de roles describe las relaciones entre los pares usuario-cuenta, o grupo-cuenta, junto con los conjuntos de permisos que se les conceden (roles).

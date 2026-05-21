@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/volume_endpoints.html 
+summary: 'Puntos finales de volumen de Astra API (ACC)' 
+---
+= Puntos finales de volumen de Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de volumen proporciona visibilidad de los volúmenes de Kubernetes asociados a las aplicaciones.

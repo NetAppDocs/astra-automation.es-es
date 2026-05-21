@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: 'reference/astra_api_(acc)_overview.html' 
+summary: 'Descripción general de Astra API (ACC)' 
+---
+= Descripción general de Astra API (ACC)
+:allow-uri-read: 
+
+
+La documentación de referencia de la API de REST de Astra Control contiene los detalles de todas las llamadas a la API de REST, incluidos los endpoints, los métodos HTTP, los parámetros de entrada y las respuestas. Esta referencia completa resulta útil cuando desarrollas aplicaciones de automatización usando la API. La API de REST de Astra proporciona acceso CRUD (Create-Read-Update-Delete) a todos los recursos de Astra Control, excepto donde se indique para una categoría de recursos específica. Esta documentación de referencia aplica a la versión 24.02 de Astra Control REST API.

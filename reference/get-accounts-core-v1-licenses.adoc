@@ -1,0 +1,606 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/get-accounts-core-v1-licenses.html 
+summary: Listar todas las licencias 
+---
+= Listar todas las licencias
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/licenses`#
+
+Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+
+
+| incluya | cadena | consulta | Falso  a| 
+Indica qué campos deben devolverse al listar una colección.
+
+Ejemplos de URL: "include=id", "include=id,name"
+
+Ejemplos OpenAPI: "id"
+
+* ejemplo: id,producto
+
+
+
+
+| límite | cadena | consulta | Falso  a| 
+Indica el número máximo de recursos a devolver al listar una colección.
+
+Ejemplos de URL: "limit=2"
+
+Ejemplos OpenAPI: "2"
+
+
+
+| filtro | cadena | consulta | Falso  a| 
+Indica qué campos deben coincidir para devolver un recurso al listar una colección.
+
+Los operadores admitidos son:
+
+* eq - Igualdad
+* lt/gt - Menor que/Mayor que
+* lte/gte - Menor o igual que/Mayor o igual que
+
+
+Ejemplo de URL: "filter=field%20eq%20%27value%27"
+
+Ejemplos OpenAPI: "field eq 'value'"
+
+|===
+
+
+== Respuesta
+
+[source]
+----
+Status: 200, Returns a JSON array of all matching resources in the collection. If individual fields are specified in the request, the items JSON array will contain the fields requested for each matching resource in the order specified.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| artículos | array[Cualquiera de: link:#license_1_0_get_response_body["license_1.0_get_response_body"], array[]] | Verdadero  a| 
+
+
+
+| metadatos | link:#type_astra_metadata_list["type_astra_metadata_list"] | Verdadero  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-licenses",
+  "version": "1.0",
+  "items": [
+    [
+      "c8aa757a-5318-489f-8134-a2a1a6956a3e",
+      "Astra SDS"
+    ],
+    [
+      "0f7cc03d-9afc-4192-af7f-b29ab24f8f2a",
+      "Astra Enterprise"
+    ]
+  ],
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidParams | matriz[link:#invalidParams["invalidParams"]] | Falso  a| 
+Lista de parámetros de consulta no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+complementos
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| startDate | cadena | Falso  a| 
+Cadena JSON que contiene una marca de tiempo que indica cuándo este complemento se vuelve válido. Los valores definidos son:
+
+* Cumple con el esquema de fecha y hora ISO-8601
+
+
+
+
+| endDate | cadena | Falso  a| 
+Cadena JSON que contiene una marca de tiempo que indica cuándo deja de ser válido este complemento. Los valores definidos son:
+
+* Cumple con el esquema de fecha y hora ISO-8601
+
+
+
+
+| características | cadena | Falso  a| 
+Cadena JSON que contiene la lista de características asociadas a este complemento. Los valores definidos son:
+
+* Contenido de cadena no validado por el esquema.
+
+
+
+
+| capacidad | cadena | Falso  a| 
+Cadena JSON que contiene la capacidad extraída del complemento. Los valores definidos son:
+
+* Contenido de cadena no validado por el esquema
+
+
+
+
+| licenseProtocol | cadena | Falso  a| 
+Cadena JSON que contiene el protocolo de licencia asociado a este complemento. Los valores definidos son:
+
+* Contenido de cadena no validado por el esquema
+
+
+|===
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadatos_update
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+license_1.0_get_response_body
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-license"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| asignación | cadena | Falso  a| 
+Cadena JSON que contiene un ID que indica a qué se asigna la licencia. Solo está presente cuando se asigna la licencia. Para las licencias de Astra Control Center, este campo debe rellenarse con el ID de cuenta y debe coincidir con el ID de cuenta especificado en el POST URI. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| hostID | cadena | Falso  a| 
+Cadena JSON que contiene un identificador de host al que está vinculada una licencia. Solo está presente si la licencia está bloqueada por host. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| deviceCredentialID | cadena | Falso  a| 
+Cadena JSON que contiene el identificador de deviceCredential asociado con la API de credenciales. Solo está presente para las licencias de Astra Data Store. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| isEvaluation | cadena | Verdadero  a| 
+Cadena JSON que indica si la licencia es una licencia de evaluación. Los valores definidos son:
+
+* "true"
+* "false"
+
+
+
+
+| licenseProtocol | cadena | Verdadero  a| 
+Cadena JSON que contiene el protocolo de licencia extraído de la licencia. Los valores definidos son:
+
+* Contenido de cadena no validado por el esquema
+
+
+
+
+| licenseText | cadena | Verdadero  a| 
+Cadena JSON que contiene una representación codificada en base64 de la licencia JSON obtenida del sistema de licencias NetApp. Esto debe proporcionarse en el orden original a nivel de bytes para permitir la verificación de la firma. Los valores definidos son:
+
+* Conforme al esquema de datos codificados en base64
+
+
+
+
+| validFromTimestamp | cadena | Verdadero  a| 
+Cadena JSON que contiene una marca de tiempo que indica cuándo la licencia se vuelve válida. Los valores definidos son:
+
+* Cumple con el esquema de fecha y hora ISO-8601
+
+
+
+
+| validUntilTimestamp | cadena | Verdadero  a| 
+Cadena JSON que contiene una marca de tiempo que indica cuándo deja de ser válida la licencia. Los valores definidos son:
+
+* Cumple con el esquema de fecha y hora ISO-8601
+
+
+
+
+| producto | cadena | Verdadero  a| 
+Cadena JSON que contiene la cadena del producto extraída de la licencia. Los valores definidos son:
+
+* Contenido de cadena no validado por el esquema
+
+
+
+
+| productVersion | cadena | Verdadero  a| 
+Cadena JSON que contiene la cadena de versión extraída de la licencia. Los valores definidos son:
+
+* Contenido de cadena no validado por el esquema
+
+
+
+
+| productSN | cadena | Verdadero  a| 
+Cadena JSON que contiene el número de serie extraído de la licencia. Los valores definidos son:
+
+* Contenido de cadena no validado por el esquema
+
+
+
+
+| características | cadena | Verdadero  a| 
+Cadena JSON que contiene el valor del paquete extraído de la licencia. Los valores definidos son:
+
+* Contenido de cadena no validado por el esquema
+
+
+
+
+| capacidad | cadena | Verdadero  a| 
+Cadena JSON que contiene la capacidad extraída de la licencia.
+
+
+
+| capacity2 | cadena | Verdadero  a| 
+Cadena JSON que contiene la capacidad secundaria extraída de la licencia.
+
+
+
+| complementos | array[link:#addons["complementos"]] | Falso  a| 
+Matriz de objetos JSON que contiene la lista de add-ons de la licencia. Un add-on es un cambio en la licencia que se produce en una posible fecha futura.
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadata_list
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| continuar | cadena | Falso  a| 
+
+
+
+| cuente | número | Falso  a| 
+
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+====

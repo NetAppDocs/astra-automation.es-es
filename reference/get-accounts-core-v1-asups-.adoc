@@ -1,0 +1,460 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/get-accounts-core-v1-asups-.html 
+summary: Recuperar un recurso ASUP 
+---
+= Recuperar un recurso ASUP
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/asups/{asup_id}`#
+
+Devuelve el recurso ASUP API almacenado en el cuerpo de respuesta JSON. Si el paquete AutoSupport "creationState" es "completo" o "parcial", se puede descargar el paquete AutoSupport especificando una cabecera Accept que contenga "_/_" o "application/gzip".
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+
+
+| asup_id | cadena | ruta | Verdadero  a| 
+ID de la colección asup a listar
+
+|===
+
+
+== Respuesta
+
+[source]
+----
+Status: 200, Returns the stored ASUP API resource in the JSON response body. If the AutoSupport bundle "creationState" is "completed" or "partial", the AutoSupport bundle can be downloaded by specifying an Accept header containing "*/*" or "application/gzip".
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-asup"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| creationState | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado de creación del paquete AutoSupport. Para los estados "completo" y "parcial", el paquete puede descargarse realizando un GET del URI del recurso con una cabecera Accept que contenga "_/_" o "application/gzip". Los valores definidos son:
+
+* "running" - la generación del paquete de AutoSupport se está ejecutando normalmente.
+* "completed" - AutoSupport bundle generation ha finalizado.
+* "partial" - la generación del paquete AutoSupport se ha completado pero algunos datos no se han incluido en el paquete.
+* "failed": la generación del paquete de AutoSupport está en un estado de fallo permanente.
+
+
+
+
+| creationStateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Verdadero  a| 
+Matriz JSON de objetos JSON que enumera detalles adicionales sobre por qué "creationState" pasó a "partial" o "failed". Si no hay detalles disponibles, esta matriz estará vacía.
+
+* Elementos mínimos: 0
+
+
+
+
+| cargar | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica si se debe cargar el paquete AutoSupport después de la creación exitosa. Los valores definidos son:
+
+* "true" - Cargar el paquete AutoSupport.
+* "false" - No cargues el paquete AutoSupport.
+
+
+
+
+| uploadState | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica el estado de la carga del paquete AutoSupport si se ha solicitado. Los valores definidos son:
+
+* "pendiente" - la carga del paquete AutoSupport está programada para cuando finalice la creación del paquete AutoSupport ("creationState" está "en ejecución").
+* "blocked": la carga del paquete de AutoSupport no se intentó porque el paquete no se creó ("creationState" es "failed") o la carga fue bloqueada porque no hay licencia.
+* "running": la carga del paquete de AutoSupport se está ejecutando normalmente ("creationState" es "completed" o "partial").
+* "completed" - la carga del paquete de AutoSupport se ha completado.
+* "failed": la carga del paquete de AutoSupport está en un estado de fallo permanente.
+
+
+
+
+| uploadStateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Falso  a| 
+Matriz JSON de objetos JSON que enumera detalles adicionales sobre por qué "uploadState" pasó a "failed". Si no hay detalles disponibles, esta matriz estará vacía.
+
+* Elementos mínimos: 0
+
+
+
+
+| triggerType | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica qué desencadenó la creación del recurso ASUP. Los valores definidos son:
+
+* "manual" - El recurso ASUP y el paquete AutoSupport asociado se crearon manualmente.
+* "programado" - el recurso ASUP y el paquete AutoSupport asociado se crearon de acuerdo con un programa configurado.
+
+
+
+
+| dataWindowStart | cadena | Verdadero  a| 
+Cadena JSON que contiene una marca de tiempo que indica la hora de inicio de la ventana de recopilación de datos del paquete AutoSupport. Por defecto es 24 horas antes del valor clave "dataWindowEnd". Debe ocurrir antes del valor clave "dataWindowEnd". El máximo es 7 días antes de la hora actual de la solicitud. Los valores definidos son:
+
+* Cumple con el esquema de fecha y hora ISO-8601
+
+
+
+
+| dataWindowEnd | cadena | Verdadero  a| 
+Cadena JSON que contiene una marca de tiempo que indica la hora de finalización de la ventana de recopilación de datos del AutoSupport bundle. El valor predeterminado es la hora actual de la solicitud. Los valores definidos son:
+
+* Cumple con el esquema de fecha y hora ISO-8601
+
+
+
+
+| metadatos | link:#type_astra_metadata["tipo_astra_metadatos"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Se ajusta al esquema de metadatos de Astra Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas.
+
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-asup",
+  "version": "1.0",
+  "id": "9950003f-a1c7-5ca7-8930-06eec25f60aa",
+  "creationState": "completed",
+  "creationStateDetails": [],
+  "upload": "false",
+  "triggerType": "manual",
+  "dataWindowStart": "2020-08-05T12:24:00.000000Z",
+  "dataWindowEnd": "2020-08-06T12:24:52.000000Z",
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidParams | matriz[link:#invalidParams["invalidParams"]] | Falso  a| 
+Lista de parámetros de consulta no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+additionalDetails
+
+[role="api-collapsible-fifth-title"]
+type_astra_stateDetail
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| additionalDetails | link:#additionalDetails["additionalDetails"] | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+tipo_astra_metadatos
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Se ajusta al esquema de metadatos de Astra Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Verdadero  a| 
+
+
+
+| CreationTimestamp | cadena | Verdadero  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Verdadero  a| 
+
+
+
+| CreatedBy | cadena | Verdadero  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+====

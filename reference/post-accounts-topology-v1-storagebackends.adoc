@@ -1,0 +1,739 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/post-accounts-topology-v1-storagebackends.html 
+summary: Crear un nuevo backend de almacenamiento 
+---
+= Crear un nuevo backend de almacenamiento
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/storageBackends`#
+
+Indica los valores deseados para el recurso Storage Backend API que se va a crear.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+|===
+
+
+== Cuerpo de la solicitud
+
+Indica los valores deseados para el recurso Storage Backend API que se va a crear.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-storageBackend"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+* "1,2"
+* "1,3"
+
+
+
+
+| backendName | cadena | Falso  a| 
+Cadena JSON que contiene un nombre especificado por el usuario para el backend de almacenamiento. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| backendType | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el tipo de backend de almacenamiento que se está representando. Los valores definidos son:
+
+* "ontap" - El backend de almacenamiento representa un sistema NetApp ONTAP
+* enum: ["ontap"]
+* ejemplo: ONTAP
+
+
+
+
+| backendVersion | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica la versión del backend de almacenamiento que se está representando. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| backendCredentialsName | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica el nombre de uno o más recursos de credenciales utilizados para el backend de almacenamiento. Permite la rotación de credenciales cuando varios objetos de credenciales tienen el mismo nombre. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Falso  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de solicitud
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-storageBackend",
+  "version": "1.3",
+  "backendName": "st1-45",
+  "backendType": "ontap",
+  "backendCredentialsName": "st1-45-cred"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 201, Returns the newly created storageBackend resource in the JSON response body.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-storageBackend"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+* "1,2"
+* "1,3"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| backendName | cadena | Verdadero  a| 
+Cadena JSON que contiene un nombre especificado por el usuario para el backend de almacenamiento. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| backendType | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el tipo de backend de almacenamiento que se está representando. Los valores definidos son:
+
+* "ontap" - El backend de almacenamiento representa un sistema NetApp ONTAP
+* enum: ["ontap"]
+* ejemplo: ONTAP
+
+
+
+
+| backendVersion | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica la versión del backend de almacenamiento que se está representando. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| backendCredentialsName | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el nombre de uno o más recursos de credenciales utilizados para el backend de almacenamiento. Permite la rotación de credenciales cuando varios objetos de credenciales tienen el mismo nombre. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| configVersion | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica la configuración activa que utilizará el backend de almacenamiento. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| estado | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado operativo del backend de almacenamiento. Los valores definidos son:
+
+* "descubierto" - El backend de almacenamiento ha sido descubierto desde un cluster gestionado
+* "running" - El backend de almacenamiento está funcionando con normalidad
+* "desconocido" - No se puede determinar el estado del backend de almacenamiento
+* "failed" - El backend de almacenamiento está en un estado no disponible
+
+
+
+
+| stateDesired | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica el estado operativo deseado del backend de almacenamiento. Los valores definidos son:
+
+* "running" - El backend de almacenamiento estará en un estado de ejecución normal
+
+
+
+
+| stateUnready | array[string] | Verdadero  a| 
+Matriz JSON de cadenas JSON, cada una de las cuales indica un motivo por el que un backend de almacenamiento no puede pasar a "en ejecución", por el que ha pasado a "fallido" o "desconocido", y/o por el que corre el riesgo de pasar a "fallido". Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 127
+
+
+
+
+| managedState | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado de gestión del backend de almacenamiento. Los valores definidos son:
+
+* "pendiente" - El backend de almacenamiento está programado para ser descubierto o añadido
+* "no gestionado" - El backend de almacenamiento está en estado "descubierto", no está bajo gestión y es elegible para gestión
+* "managed" - El backend de almacenamiento se encuentra en estado "running" o "unknown" y está bajo gestión
+
+
+
+
+| managedStateUnready | array[string] | Verdadero  a| 
+Matriz JSON de cadenas JSON, cada una de las cuales indica un motivo por el que el backend de almacenamiento no puede gestionarse. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 127
+
+
+
+
+| healthState | cadena | Falso  a| 
+Cadena JSON que contiene un valor que indica el estado de salud del backend de almacenamiento. Los valores definidos son:
+
+* "indeterminado" - No se puede determinar la salud del recurso (por ejemplo, por falta de conectividad)
+* "normal" - El recurso no tiene problemas conocidos y puede prestar servicios de acuerdo con la especificación de la interfaz
+* "advertencia" - El recurso tiene problemas conocidos que no le impiden prestar servicios de acuerdo con la especificación de la interfaz
+* "crítico" - El recurso tiene problemas conocidos que le impiden prestar servicios de acuerdo con la especificación de la interfaz
+
+
+
+
+| healthStateUnready | array[string] | Falso  a| 
+Matriz JSON de cadenas JSON, cada una de las cuales indica un motivo por el que un backend de almacenamiento no se encuentra en un estado de salud normal. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 127
+
+
+
+
+| protectionState | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado de protección del backend de almacenamiento. "unknown" para ONTAP. Los valores definidos son:
+
+* "protected" - El backend de almacenamiento tiene definida una política de protección y está en conformidad con esa política
+* "parcial": el backend de almacenamiento tiene definida una política de protección pero no se ajusta a esa política
+* "none" - El backend de almacenamiento no está protegido
+* "desconocido" - No se puede determinar la conformidad de la política de protección del backend de almacenamiento
+* enum: ["protegido", "parcial", "ninguno", "desconocido"]
+* ejemplo: protegido
+
+
+
+
+| protectionStateUnready | array[string] | Verdadero  a| 
+Matriz JSON de cadenas JSON, cada una de las cuales indica una razón por la que una política de protección no es conforme. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 127
+
+
+
+
+| capacidades | link:#capabilities["capacidades"] | Verdadero  a| 
+Objeto JSON que contiene las capacidades de este Storage Backend.
+
+
+
+| ONTAP | link:#ontap["ONTAP"] | Falso  a| 
+Objeto JSON que contiene información específica relacionada con los clusters ONTAP.
+
+* additionalProperties: falso
+
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-storageBackend",
+  "version": "1.3",
+  "id": "04ad4237-3c89-5ca5-8a40-282ab5eb6428",
+  "backendName": "st1-45",
+  "backendType": "ontap",
+  "backendVersion": "9.8",
+  "backendCredentialsName": "st1-45-cred",
+  "state": "running",
+  "stateUnready": [],
+  "managedState": "managed",
+  "managedStateUnready": [],
+  "protectionState": "unknown",
+  "protectionStateUnready": [
+    "Waiting for storage backend discovery"
+  ],
+  "ontap": {
+    "authenticationStyle": "basic",
+    "backendManagementIP": "10.193.179.105",
+    "managementIPs": [
+      "10.193.188.110",
+      "10.193.179.105",
+      "10.193.179.106"
+    ]
+  },
+  "capabilities": {
+    "flexClone": "true",
+    "snapMirror": "true",
+    "s3": "true"
+  },
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidFields | array[link:#invalidFields["invalidFields"]] | Falso  a| 
+Lista de campos del cuerpo de la solicitud no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 409, Conflict
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidFields | array[link:#invalidFields["invalidFields"]] | Falso  a| 
+Lista de campos del cuerpo de la solicitud no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/10",
+  "title": "JSON resource conflict",
+  "detail": "The request body JSON contains a field that conflicts with an idempotent value.",
+  "status": "409"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadatos_update
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+capacidades
+
+Objeto JSON que contiene las capacidades de este Storage Backend.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| FlexClone | cadena | Verdadero  a| 
+Cadena JSON que indica si este backend de almacenamiento admite FlexClone.
+
+
+
+| SnapMirror | cadena | Verdadero  a| 
+Cadena JSON que indica si este backend de almacenamiento admite SnapMirror.
+
+
+
+| s3 | cadena | Verdadero  a| 
+Cadena JSON que indica si este Storage Backend soporta s3.
+
+|===
+[role="api-collapsible-fifth-title"]
+ONTAP
+
+Objeto JSON que contiene información específica relacionada con los clusters ONTAP.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| authenticationStyle | cadena | Verdadero  a| 
+Cadena JSON que indica si la autenticación de ONTAP se realiza mediante una combinación de nombre de usuario y contraseña o mediante un certificado. Los valores definidos son:
+
+* "basic" - Utiliza nombre de usuario/contraseña
+* "certificado" - Usa certificado
+* enum: ["basic", "certificate"]
+* ejemplo: básico
+
+
+
+
+| backendManagementIP | cadena | Falso  a| 
+Cadena JSON que contiene la dirección IP utilizada para conectarte a este cluster ONTAP.
+
+
+
+| managementIPs | array[string] | Falso  a| 
+Matriz JSON de cadenas JSON que contiene la lista de todas las posibles direcciones IP de gestión utilizadas para conectarse a este clúster ONTAP. Esto se utiliza para correlacionar los backends detectados a través de Trident y los backends de almacenamiento en Astra.
+
+* uniqueItems: 1
+
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidFields
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del campo no válido del cuerpo de la solicitud
+
+
+
+| motivo | cadena | Verdadero  a| 
+Motivo por el que el campo del cuerpo de la solicitud no es válido
+
+|===
+====

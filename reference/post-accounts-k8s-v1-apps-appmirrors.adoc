@@ -1,0 +1,876 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/post-accounts-k8s-v1-apps-appmirrors.html 
+summary: Crear un nuevo recurso AppMirror para una app 
+---
+= Crear un nuevo recurso AppMirror para una app
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/appMirrors`#
+
+Indica los valores deseados para el recurso API AppMirror que se va a crear.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+
+
+| app_id | cadena | ruta | Verdadero  a| 
+ID del recurso que contiene la aplicación
+
+|===
+
+
+== Cuerpo de la solicitud
+
+Indica los valores deseados para el recurso API AppMirror que se va a crear.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-appMirror"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+
+
+
+
+| sourceAppID | cadena | Verdadero  a| 
+Identificador de la aplicación de origen. Solo se actualiza al intercambiar el sourceAppID con el destinationAppID. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| destinationClusterID | cadena | Verdadero  a| 
+Identificador del clúster gestionado para alojar la aplicación de destino. Debe proporcionarse al crear porque determina en qué clúster se creará la aplicación de destino. Si se proporciona al actualizar, debe coincidir con el ID de clúster de la aplicación de destino, por lo que solo puede cambiar al intercambiar sourceAppID con destinationAppID. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| namespaceMapping | array[link:#namespaceMapping["namespaceMapping"]] | Falso  a| 
+El espacio o espacios de nombres que se utilizarán al crear la aplicación de destino, correspondientes a los espacios de nombres de la aplicación de origen. Cada objeto JSON contiene los campos "clusterID" y "namespaces", donde el valor "clusterID" es el ID de cadena JSON del clúster de origen o destino, y el valor "namespaces" es una matriz JSON de cadenas JSON. Debe haber exactamente un objeto JSON por cada clúster, y los namespaces se correlacionarán por índice. Si no se proporciona, se utilizará el mismo namespace del clúster de origen en el clúster de destino. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 2
+
+
+
+
+| storageClasses | array[link:#storageClasses["storageClasses"]] | Falso  a| 
+La clase de almacenamiento que se utilizará en el clúster de destino al crear nuevas Reclamaciones de Volumen Persistente (PVC). Cada objeto JSON contiene los campos "clusterID" y "storageClassName", donde el valor "clusterID" es el ID de cadena JSON del clúster de origen o clúster de destino, y el valor "storageClassName" es la clase de almacenamiento que se utilizará al crear PVC en ese clúster. Si no se proporciona o si falta el valor para un clúster, se utilizará la clase de almacenamiento predeterminada para ese clúster. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 2
+
+
+
+
+| stateDesired | cadena | Verdadero  a| 
+Estado deseado para la relación. En el momento de la creación, el único valor válido es "establecido". Los valores definidos son:
+
+* "establecido" - Se crea la relación.
+* "failedOver" - Se ha completado la conmutación por error de la aplicación al clúster de destino.
+* "deleted" - La relación se ha limpiado y eliminado correctamente.
+
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Falso  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de solicitud
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-appMirror",
+  "version": "1.1",
+  "sourceAppID": "efd639b6-fc92-4112-8841-0c0ab7890ae0",
+  "destinationClusterID": "c5d023a9-4061-4a8a-bfbf-3be11ff06226",
+  "stateDesired": "established"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 201, Returns the newly created appMirror resource in the JSON response body.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-appMirror"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+* "1,1"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| sourceAppID | cadena | Verdadero  a| 
+Identificador de la aplicación de origen. Solo se actualiza al intercambiar el sourceAppID con el destinationAppID. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| sourceClusterID | cadena | Verdadero  a| 
+Identificador del clúster gestionado que aloja la aplicación de origen. Este campo es de solo lectura y se determina en función del clúster de origen de la aplicación. Si se proporciona en una actualización, debe coincidir con el ID de clúster de la aplicación de origen, así que solo puede cambiar al intercambiar el sourceAppID con el destinationAppID. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| destinationAppID | cadena | Falso  a| 
+Identificador de la aplicación de destino. No se puede proporcionar al crear porque se generará un nuevo app ID como parte de la inicialización de la relación. Solo se puede actualizar al intercambiar sourceAppID con destinationAppID. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| destinationClusterID | cadena | Verdadero  a| 
+Identificador del clúster gestionado para alojar la aplicación de destino. Debe proporcionarse al crear porque determina en qué clúster se creará la aplicación de destino. Si se proporciona al actualizar, debe coincidir con el ID de clúster de la aplicación de destino, por lo que solo puede cambiar al intercambiar sourceAppID con destinationAppID. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| namespaceMapping | array[link:#namespaceMapping["namespaceMapping"]] | Falso  a| 
+El espacio o espacios de nombres que se utilizarán al crear la aplicación de destino, correspondientes a los espacios de nombres de la aplicación de origen. Cada objeto JSON contiene los campos "clusterID" y "namespaces", donde el valor "clusterID" es el ID de cadena JSON del clúster de origen o destino, y el valor "namespaces" es una matriz JSON de cadenas JSON. Debe haber exactamente un objeto JSON por cada clúster, y los namespaces se correlacionarán por índice. Si no se proporciona, se utilizará el mismo namespace del clúster de origen en el clúster de destino. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 2
+
+
+
+
+| storageClasses | array[link:#storageClasses["storageClasses"]] | Falso  a| 
+La clase de almacenamiento que se utilizará en el clúster de destino al crear nuevas Reclamaciones de Volumen Persistente (PVC). Cada objeto JSON contiene los campos "clusterID" y "storageClassName", donde el valor "clusterID" es el ID de cadena JSON del clúster de origen o clúster de destino, y el valor "storageClassName" es la clase de almacenamiento que se utilizará al crear PVC en ese clúster. Si no se proporciona o si falta el valor para un clúster, se utilizará la clase de almacenamiento predeterminada para ese clúster. Los valores definidos son:
+
+* Longitud mínima: 0
+* Longitud máxima: 2
+
+
+
+
+| estado | cadena | Verdadero  a| 
+El estado de la relación. Los valores definidos son:
+
+* "establecer" - Se está creando la relación.
+* "establecido" - Se crea la relación.
+* "failingOver" - La conmutación por error de la aplicación al clúster de destino está en curso.
+* "failedOver" - Se ha completado la conmutación por error de la aplicación al clúster de destino.
+* "borrando" - Se están limpiando los recursos creados por la relación.
+* "deleted" - La relación se limpió y eliminó.
+
+
+
+
+| stateTransitions | array[link:#type_astra_stateTransition["type_astra_stateTransition"]] | Falso  a| 
+Transiciones de estado permitidas. Las siguientes transiciones de estado son posibles para este recurso:
+
+* "estableciendo": "establecido", "borrando"
+* "established": "failingOver", "deleting"
+* "failingOver": "failedOver", "deleting"
+* "failedOver": "establishing", "deleting"
+* "borrar": "borrado"
+* "borrado":
+
+
+
+
+| stateDesired | cadena | Verdadero  a| 
+Estado deseado para la relación. En el momento de la creación, el único valor válido es "establecido". Los valores definidos son:
+
+* "establecido" - Se crea la relación.
+* "failedOver" - Se ha completado la conmutación por error de la aplicación al clúster de destino.
+* "deleted" - La relación se ha limpiado y eliminado correctamente.
+
+
+
+
+| stateAllowed | array[string] | Falso  a| 
+Estados que pueden solicitarse en un estado determinado. En cada estado definido pueden solicitarse los siguientes estados:
+
+* "establishing": "established", "deleted"
+* "establecido": "failedOver", "eliminado"
+* "failingOver": "failedOver", "deleted"
+* "failedOver": "established", "deleted"
+* "borrar": "borrado"
+* "deleted": "deleted"
+
+
+
+
+| stateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Verdadero  a| 
+Detalles adicionales sobre el estado actual, incluyendo por qué se alcanzó el estado actual. Si no hay detalles disponibles, esta matriz estará vacía. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| transferState | cadena | Falso  a| 
+Estado de la transferencia de instantáneas actual o más reciente. Los valores definidos son:
+
+* "transfiriendo" - Se ha creado una nueva instantánea y ahora se está replicando en el clúster de destino. Este estado también cubre las transferencias que han fallado en intentos anteriores y se están reintentando continuamente.
+* "idle" - actualmente no hay ninguna transferencia en curso.
+
+
+
+
+| transferStateTransitions | array[link:#type_astra_stateTransition["type_astra_stateTransition"]] | Falso  a| 
+Transiciones de estado permitidas desde un estado definido dado. Las siguientes transiciones de estado son posibles para este recurso:
+
+* "transferring": "idle"
+* "inactivo": "transfiriendo"
+
+
+
+
+| transferStateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Falso  a| 
+Detalles adicionales sobre el estado actual, incluyendo por qué se alcanzó el estado actual. Si no hay detalles disponibles, esta matriz estará vacía. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| healthState | cadena | Verdadero  a| 
+Estado de salud del recurso. Los valores definidos son:
+
+* "indeterminado" - No se puede determinar la salud del recurso (por ejemplo, por falta de conectividad)
+* "normal" - El recurso no tiene problemas conocidos y puede prestar servicios de acuerdo con la especificación de la interfaz
+* "advertencia" - El recurso tiene problemas conocidos que no le impiden prestar servicios de acuerdo con la especificación de la interfaz
+* "crítico" - El recurso tiene problemas conocidos que le impiden prestar servicios de acuerdo con la especificación de la interfaz
+
+
+
+
+| healthStateTransitions | array[link:#type_astra_stateTransition["type_astra_stateTransition"]] | Verdadero  a| 
+Transiciones de estado permitidas desde un estado definido dado. Las siguientes transiciones de estado son posibles para este recurso:
+
+* "indeterminate": "normal", "warning", "critical"
+* "normal": "indeterminado", "advertencia", "crítico"
+* "advertencia": "indeterminado", "normal", "crítico"
+* "crítico": "indeterminado", "normal", "advertencia"
+
+
+
+
+| healthStateDetails | array[link:#type_astra_stateDetail["type_astra_stateDetail"]] | Verdadero  a| 
+Detalles adicionales sobre el estado actual, incluyendo por qué se alcanzó el estado actual. Si no hay detalles disponibles, esta matriz estará vacía. Los valores definidos son:
+
+* Artículos mínimos: 0
+
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-appMirror",
+  "version": "1.1",
+  "id": "512c8dac-b7d4-5be9-836e-ee672965866a",
+  "sourceAppID": "efd639b6-fc92-4112-8841-0c0ab7890ae0",
+  "sourceClusterID": "5789e026-c2e2-41e9-ab00-9766bcfa8951",
+  "destinationAppID": "cd7b6d91-fc19-4983-a754-9a7bb4d80a7b",
+  "destinationClusterID": "c5d023a9-4061-4a8a-bfbf-3be11ff06226",
+  "state": "establishing",
+  "stateTransitions": [
+    {
+      "from": "establishing",
+      "to": [
+        "established",
+        "deleting"
+      ]
+    },
+    {
+      "from": "established",
+      "to": [
+        "failingOver",
+        "deleting"
+      ]
+    },
+    {
+      "from": "failingOver",
+      "to": [
+        "failedOver",
+        "deleting"
+      ]
+    },
+    {
+      "from": "failedOver",
+      "to": [
+        "establishing",
+        "deleting"
+      ]
+    },
+    {
+      "from": "deleting",
+      "to": [
+        "deleted"
+      ]
+    }
+  ],
+  "stateDesired": "established",
+  "stateAllowed": [
+    "deleted"
+  ],
+  "stateDetails": [
+    {
+      "type": "https://astra.netapp.io/stateDetails/3",
+      "title": "AppMirror is being established",
+      "detail": "The AppMirror relationship is in the process of being established."
+    }
+  ],
+  "healthState": "warning",
+  "healthStateTransitions": [
+    {
+      "from": "indeterminate",
+      "to": [
+        "normal",
+        "warning",
+        "critical"
+      ]
+    },
+    {
+      "from": "normal",
+      "to": [
+        "indeterminate",
+        "warning",
+        "critical"
+      ]
+    },
+    {
+      "from": "warning",
+      "to": [
+        "indeterminate",
+        "normal",
+        "critical"
+      ]
+    },
+    {
+      "from": "critical",
+      "to": [
+        "indeterminate",
+        "normal",
+        "warning"
+      ]
+    }
+  ],
+  "healthStateDetails": [
+    {
+      "type": "https://astra.netapp.io/stateDetails/4",
+      "title": "AppMirror not yet established",
+      "detail": "The AppMirror relationship is not protecting the app data yet because the relationship is in the process of being established."
+    }
+  ],
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidFields | array[link:#invalidFields["invalidFields"]] | Falso  a| 
+Lista de campos del cuerpo de la solicitud no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 409, Conflict
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/10",
+  "title": "JSON resource conflict",
+  "detail": "The request body JSON contains a field that conflicts with an idempotent value.",
+  "status": "409"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+namespaceMapping
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| clusterID | cadena | Falso  a| 
+Identificador del clúster para el que se especifican los espacios de nombres. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| espacios de nombres | array[string] | Falso  a| 
+Lista de espacios de nombres a utilizar en el clúster. Correlacionado con la otra lista de espacios de nombres del clúster por índice. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Cumple con el esquema de etiquetas DNS 1123
+
+
+
+
+| papel | cadena | Falso  a| 
+El rol inicial para esta definición de espacio de nombres. Este parámetro es opcional excepto cuando se utiliza una configuración de replicación del mismo clúster. Los valores definidos son:
+
+* "origen"
+* "destino"
+
+
+|===
+[role="api-collapsible-fifth-title"]
+storageClasses
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| clusterID | cadena | Falso  a| 
+Identificador del clúster para el que se especifica la clase de almacenamiento. Los valores definidos son:
+
+* Cumple con el esquema del identificador Astra
+
+
+
+
+| storageClassName | cadena | Falso  a| 
+Nombre de la clase de almacenamiento que se utilizará al crear PVC en el clúster especificado en "clusterID". Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 255
+
+
+
+
+| papel | cadena | Falso  a| 
+El rol inicial para esta definición de clase de almacenamiento. Este parámetro es opcional excepto cuando se utiliza una configuración de replicación del mismo clúster. Los valores definidos son:
+
+* "origen"
+* "destino"
+
+
+|===
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadatos_update
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_stateTransition
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| de | cadena | Verdadero  a| 
+
+
+
+| a | array[string] | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+additionalDetails
+
+[role="api-collapsible-fifth-title"]
+type_astra_stateDetail
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| additionalDetails | link:#additionalDetails["additionalDetails"] | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidFields
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del campo no válido del cuerpo de la solicitud
+
+
+
+| motivo | cadena | Verdadero  a| 
+Motivo por el que el campo del cuerpo de la solicitud no es válido
+
+|===
+====

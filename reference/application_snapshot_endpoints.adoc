@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/application_snapshot_endpoints.html 
+summary: 'Puntos finales de instantáneas de la aplicación Astra API (ACC)' 
+---
+= Puntos finales de instantáneas de la aplicación Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de instantáneas de aplicaciones permite a un usuario crear y ver instantáneas de una aplicación gestionada.

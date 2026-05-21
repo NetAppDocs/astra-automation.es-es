@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/account_endpoints.html 
+summary: 'Puntos finales de la cuenta Astra API (ACC)' 
+---
+= Puntos finales de la cuenta Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de cuentas representa inquilinos aislados en un sistema multitenant.

@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/app_endpoints.html 
+summary: 'Puntos finales de la aplicación Astra API (ACC)' 
+---
+= Puntos finales de la aplicación Astra API (ACC)
+:allow-uri-read: 
+
+
+La App API representa aplicaciones Kubernetes, incluyendo aquellas no gestionadas por Astra.

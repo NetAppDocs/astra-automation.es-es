@@ -1,0 +1,628 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/post-accounts.html 
+summary: Crear una nueva cuenta 
+---
+= Crear una nueva cuenta
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts`#
+
+Indica los valores deseados para el recurso Account API que se va a crear.
+
+
+
+== Cuerpo de la solicitud
+
+Indica los valores deseados para el recurso Account API que se va a crear.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-account"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+
+
+
+
+| nombre | cadena | Verdadero  a| 
+Cadena JSON que contiene un nombre para la cuenta. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Esta cadena se valida internamente para prevenir ataques XSS, Unicode, directory traversal y SQL-injection.
+
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Falso  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de solicitud
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-account",
+  "version": "1.0",
+  "name": "Testing 123"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 201, Returns the newly created account resource in the JSON response body.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-account"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| nombre | cadena | Verdadero  a| 
+Cadena JSON que contiene un nombre para la cuenta. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Esta cadena se valida internamente para prevenir ataques XSS, Unicode, directory traversal y SQL-injection.
+
+
+
+
+| estado | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado operativo de la cuenta. Los valores definidos son:
+
+* "pendiente" - Solo se pueden realizar cambios en los recursos de usuario y rol de la cuenta (valor por defecto)
+* "activo" - Se pueden realizar cambios en cualquier recurso de la cuenta
+* "deletePending" - Los usuarios no pueden iniciar sesión, las operaciones de protección de datos se suspenden, los cargos dejan de acumularse
+
+
+
+
+| isEnabled | cadena | Verdadero  a| 
+Cadena JSON que indica que la cuenta está habilitada. Los valores definidos son:
+
+* "false" - Los usuarios no pueden utilizar esta cuenta
+* "true" - Los usuarios pueden utilizar esta cuenta
+
+
+
+
+| enabledTimestamp | cadena | Falso  a| 
+Cadena JSON que contiene la marca de tiempo que indica cuándo se habilitó la cuenta por última vez. Si la cuenta nunca se ha habilitado, este campo está ausente. Los valores definidos son:
+
+* Cumple con el esquema de fecha y hora ISO-8601
+
+
+
+
+| accountContact | link:#accountContact["accountContact"] | Falso  a| 
+Objeto JSON que contiene información de contacto del usuario para crear un usuario propietario en el momento de la activación de la cuenta.
+
+
+
+| metadatos | link:#type_astra_metadata_update["type_astra_metadatos_update"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-account",
+  "version": "1.0",
+  "id": "666a3f38-d4fa-5b62-a391-a69029758d32",
+  "name": "fraught-pines",
+  "state": "pending",
+  "isEnabled": "false",
+  "enabledTimestamp": "2020-08-06T12:24:52.256624Z",
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidFields | array[link:#invalidFields["invalidFields"]] | Falso  a| 
+Lista de campos del cuerpo de la solicitud no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 409, Conflict
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidFields | array[link:#invalidFields["invalidFields"]] | Falso  a| 
+Lista de campos del cuerpo de la solicitud no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/10",
+  "title": "JSON resource conflict",
+  "detail": "The request body JSON contains a field that conflicts with an idempotent value.",
+  "status": "409"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+type_astra_metadatos_update
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Conforme al esquema de metadatos de Astra. Si no se especifica al crear, se creará un objeto de metadatos sin etiquetas. Si no se especifica al actualizar, las etiquetas del objeto de metadatos, creationTimestamp y createdBy, se conservarán sin modificaciones.
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Falso  a| 
+
+
+
+| CreationTimestamp | cadena | Falso  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Falso  a| 
+
+
+
+| CreatedBy | cadena | Falso  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+postalAddress
+
+Objeto JSON que contiene una colección de cadenas JSON que especifican una dirección. Si esta clave no existe, indica que no se ha proporcionado una dirección. Si esta clave existe, las seis cadenas JSON contenidas estarán presentes. Si no proporcionas nada, la cadena estará vacía.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| addressCountry | cadena | Verdadero  a| 
+Cadena JSON que contiene el nombre del país o el código de país asociado a la dirección postal, tal como se especifica en ISO 3166 Alpha-2. Los valores definidos son:
+
+* Longitud mínima: 2
+* Longitud máxima: 2
+
+
+
+
+| addressLocality | cadena | Verdadero  a| 
+Cadena JSON que contiene la localidad (por ejemplo, ciudad) asociada a la dirección postal. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| addressRegion | cadena | Verdadero  a| 
+Cadena JSON que contiene la región (por ejemplo, estado) asociada a la dirección postal. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| postalCode | cadena | Verdadero  a| 
+Cadena JSON que contiene el código postal asociado a la dirección postal. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 31
+
+
+
+
+| streetAddress1 | cadena | Verdadero  a| 
+Cadena JSON que contiene la dirección de la calle asociada a la dirección postal. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| streetAddress2 | cadena | Falso  a| 
+Cadena JSON que contiene información auxiliar opcional sobre la dirección, el apartado de correos y más. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+|===
+[role="api-collapsible-fifth-title"]
+accountContact
+
+Objeto JSON que contiene información de contacto del usuario para crear un usuario propietario en el momento de la activación de la cuenta.
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| firstName | cadena | Verdadero  a| 
+Cadena JSON que contiene un nombre largo especificado por el usuario. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Esta cadena se valida internamente para prevenir ataques XSS, Unicode, directory traversal y SQL-injection.
+
+
+
+
+| lastName | cadena | Verdadero  a| 
+Cadena JSON que contiene un apellido largo especificado por el usuario. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Esta cadena se valida internamente para prevenir ataques XSS, Unicode, directory traversal y SQL-injection.
+
+
+
+
+| companyName | cadena | Falso  a| 
+Cadena JSON que contiene el nombre de la empresa asociada al usuario. Si esta clave no existe, indica que no se ha proporcionado un nombre de empresa. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* Esta cadena se valida internamente para prevenir ataques XSS, Unicode, directory traversal y SQL-injection.
+
+
+
+
+| correo electrónico | cadena | Verdadero  a| 
+Cadenas JSON que contienen una dirección de correo electrónico especificada por el usuario. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| teléfono | cadena | Falso  a| 
+Cadena JSON que contiene el número de teléfono del usuario. Si esta clave no existe, indica que no se ha proporcionado un número de teléfono. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 31
+
+
+
+
+| postalAddress | link:#postalAddress["postalAddress"] | Verdadero  a| 
+Objeto JSON que contiene una colección de cadenas JSON que especifican una dirección. Si esta clave no existe, indica que no se ha proporcionado una dirección. Si esta clave existe, las seis cadenas JSON contenidas estarán presentes. Si no proporcionas nada, la cadena estará vacía.
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidFields
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del campo no válido del cuerpo de la solicitud
+
+
+
+| motivo | cadena | Verdadero  a| 
+Motivo por el que el campo del cuerpo de la solicitud no es válido
+
+|===
+====

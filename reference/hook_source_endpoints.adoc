@@ -1,0 +1,12 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/hook_source_endpoints.html 
+summary: 'Puntos finales de origen del hook Astra API (ACC)' 
+---
+= Puntos finales de origen del hook Astra API (ACC)
+:allow-uri-read: 
+
+
+La API de Hook Source permite una gestión sencilla de las fuentes de ganchos independiente de la gestión de los recursos de ganchos de ejecución. Por ejemplo, una única fuente de ganchos puede ser referenciada por varios ganchos de ejecución para evitar la duplicación de fuentes de ganchos y permitir que una sola llamada a la API actualice una fuente de ganchos, incluso si es utilizada por varios recursos de ganchos de ejecución.

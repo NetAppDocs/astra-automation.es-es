@@ -1,0 +1,529 @@
+---
+sidebar: sidebar 
+api: true 
+explorer: false 
+permalink: reference/get-accounts-topology-v1-clusters-clusternodes-.html 
+summary: Recuperar un nodo del clúster para un clúster 
+---
+= Recuperar un nodo del clúster para un clúster
+:allow-uri-read: 
+
+
+[.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/clusters/{cluster_id}/clusterNodes/{clusterNode_id}`#
+
+Devuelve el recurso de la API del nodo del clúster almacenado en el cuerpo de la respuesta JSON.
+
+
+
+== Parámetros
+
+[cols="5*"]
+|===
+| Nombre | Tipo | En | Obligatorio | Descripción 
+
+
+| account_id | cadena | ruta | Verdadero  a| 
+ID del recurso de cuenta que lo contiene
+
+* ejemplo: {{.Account}}
+
+
+
+
+| cluster_id | cadena | ruta | Verdadero  a| 
+ID del recurso de clúster que lo contiene
+
+
+
+| clusterNode_id | cadena | ruta | Verdadero  a| 
+ID de la colección clusterNode que se va a listar
+
+|===
+
+
+== Respuesta
+
+[source]
+----
+Status: 200, Returns the stored Cluster Node API resource in the JSON response body.
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+Tipo de medio del recurso. Los valores definidos son:
+
+* "application/astra-clusterNode"
+
+
+
+
+| versión | cadena | Verdadero  a| 
+Versión del recurso. Los valores definidos son:
+
+* "1,0"
+
+
+
+
+| id | cadena | Verdadero  a| 
+Identificador único global del recurso. Los valores definidos son:
+
+* Cumple con el esquema UUIDv4
+
+
+
+
+| nombre | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el nombre de Kubernetes para el nodo. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 254
+
+
+
+
+| papel | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el rol de Kubernetes para el nodo. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 254
+
+
+
+
+| etiquetas | array[link:#labels["etiquetas"]] | Verdadero  a| 
+Matriz JSON de objetos JSON, cada uno de los cuales contiene etiquetas Kubernetes asociadas al nodo. Si no hay detalles disponibles, esta matriz estará vacía.
+
+* Elementos mínimos: 0
+
+
+
+
+| creationTime | cadena | Verdadero  a| 
+Cadena JSON que contiene una marca de tiempo ISO 8601 que indica cuándo se creó el nodo. Los valores definidos son:
+
+* Cumple con el esquema de fecha y hora ISO-8601
+
+
+
+
+| IP externa | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica la dirección IP interna del nodo. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| internalIP | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica la dirección IP externa del nodo. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+
+
+
+
+| zona | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica la zona Kubernetes para el nodo. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 254
+
+
+
+
+| región | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica la región Kubernetes para el nodo. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 254
+
+
+
+
+| instanceType | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el tipo de instancia Kubernetes para el nodo. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 254
+
+
+
+
+| kernelVersion | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica la versión del kernel utilizada por el nodo. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 254
+
+
+
+
+| osImage | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica la imagen del sistema operativo utilizada por el nodo. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 254
+
+
+
+
+| numCpus | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el número de CPUs asignados al nodo. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 254
+
+
+
+
+| memoria | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica la cantidad de memoria asignada al nodo. Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 254
+
+
+
+
+| estado | cadena | Verdadero  a| 
+Cadena JSON que contiene un valor que indica el estado operativo del nodo. Los valores definidos son:
+
+* "running" - El nodo funciona con normalidad
+* "provisioning" - El nodo está en proceso de aprovisionamiento
+* "descubriendo" - aspectos del nodo están en proceso de ser descubiertos
+* "pendiente" - El nodo está programado para el descubrimiento
+* "failed" - El nodo está en estado de fallo
+* "desconocido" - No se puede determinar el estado del nodo
+
+
+
+
+| metadatos | link:#type_astra_metadata["tipo_astra_metadatos"] | Verdadero  a| 
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Cumple con el esquema de metadatos Astra
+
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "application/astra-clusterNode",
+  "version": "1.0",
+  "id": "5df0e09f-2c30-5b8a-b6b6-4fb4063525e4",
+  "name": "test-0",
+  "role": "node-role.kubernetes.io/worker",
+  "labels": [],
+  "creationTime": "2020-09-06T04:35:23.593845Z",
+  "externalIP": "192.168.12.44",
+  "internalIP": "10.0.1.1",
+  "zone": "us-west1-c",
+  "region": "us-east1",
+  "instanceType": "e2-medium",
+  "kernelVersion": "4.18.0-147.0.3.el8_1.x86_64",
+  "osImage": "Red Hat Enterprise Linux CoreOS 42.81.20191203.0",
+  "numCpus": "2",
+  "memory": "67108864Ki",
+  "state": "running",
+  "metadata": {
+    "labels": [],
+    "creationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "modificationTimestamp": "2022-10-06T20:58:16.305662Z",
+    "createdBy": "8f84cf09-8036-51e4-b579-bd30cb07b269"
+  }
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 401, Unauthorized
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/3",
+  "title": "Missing bearer token",
+  "detail": "The request is missing the required bearer token.",
+  "status": "401"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 400, Bad request
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+
+
+| invalidParams | matriz[link:#invalidParams["invalidParams"]] | Falso  a| 
+Lista de parámetros de consulta no válidos
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/5",
+  "title": "Invalid query parameters",
+  "detail": "The supplied query parameters are invalid.",
+  "status": "400"
+}
+----
+====
+
+
+== Respuesta
+
+[source]
+----
+Status: 403, Forbidden
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/11",
+  "title": "Operation not permitted",
+  "detail": "The requested operation isn't permitted.",
+  "status": "403"
+}
+----
+====
+
+
+== Error
+
+[source]
+----
+Status: 404, Not found
+----
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| tipo | cadena | Verdadero  a| 
+
+
+
+| título | cadena | Verdadero  a| 
+
+
+
+| detalle | cadena | Verdadero  a| 
+
+
+
+| estado | cadena | Verdadero  a| 
+
+
+
+| correlationID | cadena | Falso  a| 
+
+|===
+.Ejemplo de respuesta de error
+[%collapsible]
+====
+[source, json, subs="+macros"]
+----
+{
+  "type": "https://astra.netapp.io/problems/2",
+  "title": "Collection not found",
+  "detail": "The collection specified in the request URI wasn't found.",
+  "status": "404"
+}
+----
+====
+
+
+== Definiciones
+
+.Ver definiciones
+[%collapsible]
+====
+[role="api-collapsible-fifth-title"]
+etiquetas
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Cadena JSON que contiene el nombre de la etiqueta Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* La expresión regular definida es: "^([\S.]{1,253}\/)?([a-z0-9A-Z_.-]){1,63}$"
+
+
+
+
+| valor | cadena | Verdadero  a| 
+Cadena JSON que contiene el valor de la etiqueta Los valores definidos son:
+
+* Longitud mínima: 1
+* Longitud máxima: 63
+* La expresión regular definida es: "^([a-z0-9A-Z_.-]){1,63}$"
+
+
+|===
+[role="api-collapsible-fifth-title"]
+etiqueta_tipo_astra
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+
+
+
+| valor | cadena | Verdadero  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+tipo_astra_metadatos
+
+Metadatos especificados por el cliente y el servicio asociados con el recurso. Los valores definidos son:
+
+* Cumple con el esquema de metadatos Astra
+
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| etiquetas | array[link:#type_astra_label["etiqueta_tipo_astra"]] | Verdadero  a| 
+
+
+
+| CreationTimestamp | cadena | Verdadero  a| 
+
+
+
+| Modificación.Marca de hora | cadena | Verdadero  a| 
+
+
+
+| CreatedBy | cadena | Verdadero  a| 
+
+
+
+| modifiedBy | cadena | Falso  a| 
+
+|===
+[role="api-collapsible-fifth-title"]
+invalidParams
+
+[cols="4*"]
+|===
+| Nombre | Tipo | Obligatorio | Descripción 
+
+
+| nombre | cadena | Verdadero  a| 
+Nombre del parámetro de consulta no válido
+
+
+
+| motivo | cadena | Verdadero  a| 
+Razón por la que el parámetro de consulta no es válido
+
+|===
+====
