@@ -7,6 +7,7 @@ summary: Borrar una licencia
 ---
 = Borrar una licencia
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/licenses/{license_id}`#
@@ -20,6 +21,7 @@ Elimina el recurso License API especificado. La licencia de evaluación instalad
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -41,6 +43,7 @@ ID de la colección de licencias a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -49,6 +52,7 @@ Status: 204, Indicates if the license resource was deleted.
 ----
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -94,6 +98,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -144,6 +149,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -189,6 +195,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -234,11 +241,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

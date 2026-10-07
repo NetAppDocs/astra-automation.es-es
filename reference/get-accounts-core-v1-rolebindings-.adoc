@@ -7,6 +7,7 @@ summary: Recuperar un enlace de rol
 ---
 = Recuperar un enlace de rol
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/roleBindings/{roleBinding_id}`#
@@ -15,6 +16,7 @@ Devuelve el recurso de la API de vinculación de funciones almacenado en el cuer
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -36,6 +38,7 @@ ID de la colección roleBinding que se va a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -140,7 +143,7 @@ Matriz JSON de cadenas JSON que especifica el ámbito de la asignación de funci
 
 * 
 +
-= Permitir el acceso a todos los espacios de nombres etiquetados como "dev" en cualquier clúster en cualquier nube, y todo lo que está bajo ellos: "roleConstraints": [ "namespaces:kubernetesLabels='http://dev.example.com/appname=dev["dev.example.com/appname=dev'.*"]" ]
+= Permitir el acceso a todos los espacios de nombres etiquetados como "dev" en cualquier clúster de cualquier nube, así como a todo lo que se encuentre dentro de ellos: "roleConstraints": [ "namespaces:kubernetesLabels='dev.example.com/appname=dev'.*" ]
 
 * 
 +
@@ -189,6 +192,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -234,6 +238,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -284,6 +289,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -329,6 +335,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -374,11 +381,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -394,6 +403,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -426,6 +436,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

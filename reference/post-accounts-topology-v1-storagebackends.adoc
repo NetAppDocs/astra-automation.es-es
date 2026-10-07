@@ -7,6 +7,7 @@ summary: Crear un nuevo backend de almacenamiento
 ---
 = Crear un nuevo backend de almacenamiento
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/storageBackends`#
@@ -15,6 +16,7 @@ Indica los valores deseados para el recurso Storage Backend API que se va a crea
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -31,6 +33,7 @@ ID del recurso de cuenta que lo contiene
 |===
 
 
+[[request-body]]
 == Cuerpo de la solicitud
 
 Indica los valores deseados para el recurso Storage Backend API que se va a crear.
@@ -119,6 +122,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -358,6 +362,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -403,6 +408,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -453,6 +459,7 @@ Lista de campos del cuerpo de la solicitud no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -503,6 +510,7 @@ Lista de campos del cuerpo de la solicitud no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -548,6 +556,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -593,11 +602,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -613,6 +624,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -645,6 +657,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[capabilities]]
 [role="api-collapsible-fifth-title"]
 capacidades
 
@@ -669,6 +682,7 @@ Cadena JSON que indica si este backend de almacenamiento admite SnapMirror.
 Cadena JSON que indica si este Storage Backend soporta s3.
 
 |===
+[[ontap]]
 [role="api-collapsible-fifth-title"]
 ONTAP
 
@@ -702,6 +716,7 @@ Matriz JSON de cadenas JSON que contiene la lista de todas las posibles direccio
 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 
@@ -719,6 +734,7 @@ Nombre del parámetro de consulta no válido
 Razón por la que el parámetro de consulta no es válido
 
 |===
+[[invalidFields]]
 [role="api-collapsible-fifth-title"]
 invalidFields
 

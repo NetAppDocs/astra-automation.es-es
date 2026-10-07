@@ -7,6 +7,7 @@ summary: 'Puntos finales de la cuenta Astra API (ACC)'
 ---
 = Puntos finales de la cuenta Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de cuentas representa inquilinos aislados en un sistema multitenant.

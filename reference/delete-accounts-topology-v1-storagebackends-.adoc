@@ -7,6 +7,7 @@ summary: Eliminar un backend de almacenamiento
 ---
 = Eliminar un backend de almacenamiento
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/storageBackends/{storageBackend_id}`#
@@ -22,6 +23,7 @@ Elimina el recurso de la API Storage Backend especificado.
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -43,6 +45,7 @@ ID de la colección storageBackend que se va a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -51,6 +54,7 @@ Status: 204, Indicates if the storageBackend resource was deleted.
 ----
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -96,6 +100,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -146,6 +151,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -191,6 +197,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -236,11 +243,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

@@ -7,6 +7,7 @@ summary: 'Puntos finales del paquete Astra API (ACC)'
 ---
 = Puntos finales del paquete Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de paquetes representa paquetes de software instalables.

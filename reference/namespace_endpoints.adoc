@@ -7,6 +7,7 @@ summary: 'Puntos finales del espacio de nombres Astra API (ACC)'
 ---
 = Puntos finales del espacio de nombres Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de espacios de nombres proporciona acceso de solo lectura a los recursos de espacios de nombres para describir los espacios de nombres asociados a un clúster determinado.

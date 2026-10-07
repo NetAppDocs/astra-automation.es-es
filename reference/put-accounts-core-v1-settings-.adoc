@@ -7,6 +7,7 @@ summary: Modificar un ajuste
 ---
 = Modificar un ajuste
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-put]#PUT# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/settings/{setting_id}`#
@@ -15,6 +16,7 @@ Sustituye todo el recurso almacenado por el cuerpo de la solicitud JSON suminist
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -36,6 +38,7 @@ ID de la colección de ajustes a listar
 |===
 
 
+[[request-body]]
 == Cuerpo de la solicitud
 
 Sustituye todo el recurso almacenado por el cuerpo de la solicitud JSON suministrado, conservando los valores clave que no son modificables por el usuario.
@@ -140,6 +143,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -148,6 +152,7 @@ Status: 204, Indicates if the setting resource was updated.
 ----
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -193,6 +198,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -243,6 +249,7 @@ Lista de campos del cuerpo de la solicitud no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -293,6 +300,7 @@ Lista de campos del cuerpo de la solicitud no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -338,6 +346,7 @@ Status: 403, Forbidden
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -383,6 +392,7 @@ Status: 503, Service unavailable
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -428,24 +438,29 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[type_json]]
 [role="api-collapsible-fifth-title"]
 tipo_json
 
 Objeto JSON que contiene las claves y valores que componen la configuración actual para este ajuste. El contenido de este objeto debe ajustarse al esquema JSON contenido en el campo configSchema. Los valores por defecto son suministrados por el configmap. Después de que los valores por defecto sean modificados por el usuario, no serán sobrescritos.
 
+[[type_json]]
 [role="api-collapsible-fifth-title"]
 tipo_json
 
 Objeto JSON que contiene claves y valores que conforman la configuración solicitada para esta configuración. El contenido de este objeto debe ajustarse al esquema JSON contenido en el campo configSchema. El objeto no existe hasta que se especifica. Cuando se especifica, esto hace que el servicio de características notifique al servicio correspondiente para solicitar que se pueda aplicar la configuración deseada. El servicio correspondiente puede entonces realizar la validación y aplicar la configuración deseada a la configuración actual.
 
+[[properties]]
 [role="api-collapsible-fifth-title"]
 propiedades
 
+[[type_json_schema]]
 [role="api-collapsible-fifth-title"]
 type_json_schema
 
@@ -475,6 +490,7 @@ Objeto JSON que contiene el esquema JSON para la propiedad config en este recurs
 | obligatorio | array[string] | Verdadero  a| 
 
 |===
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -490,6 +506,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -522,6 +539,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 
@@ -539,6 +557,7 @@ Nombre del parámetro de consulta no válido
 Razón por la que el parámetro de consulta no es válido
 
 |===
+[[invalidFields]]
 [role="api-collapsible-fifth-title"]
 invalidFields
 

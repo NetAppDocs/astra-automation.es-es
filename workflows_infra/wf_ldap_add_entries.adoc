@@ -27,12 +27,14 @@ NOTE: Las credenciales LDAP tienen el formato de nombre de usuario como direcci�
 
 
 
+[[add-and-bind-an-individual-user]]
 == Agregar y enlazar un usuario individual
 
 Puede asignar una función a cada usuario Astra que se utilice después de la autenticación LDAP. Esto resulta apropiado cuando hay un número reducido de usuarios y cada uno puede tener características administrativas diferentes.
 
 
 
+[[step-1-add-a-user]]
 === Paso 1: Agregar un usuario
 
 Realice la siguiente llamada a la API DE REST para añadir un usuario a Astra e indicar que LDAP es el proveedor de autenticación.
@@ -123,6 +125,7 @@ Si la `email` El valor no es único, se produce un error y se devuelve un códig
 ----
 
 
+[[step-2-add-a-role-binding-for-the-user]]
 === Paso 2: Agregue un enlace de rol para el usuario
 
 Ejecute la siguiente llamada API de REST para enlazar el usuario con un rol específico. Debe tener creado el UUID del usuario en el paso anterior.
@@ -193,12 +196,14 @@ Tenga en cuenta lo siguiente sobre los parámetros de respuesta:
 
 
 
+[[add-and-bind-a-group]]
 == Agregar y enlazar un grupo
 
 Puede asignar una función a un grupo Astra que se utilice después de la autenticación LDAP. Resulta apropiado cuando hay un gran número de usuarios y cada uno puede tener características administrativas similares.
 
 
 
+[[step-1-add-a-group]]
 === Paso 1: Agregar un grupo
 
 Realice la siguiente llamada a la API DE REST para agregar un grupo a Astra e indicar que LDAP es el proveedor de autenticación.
@@ -265,6 +270,7 @@ Tenga en cuenta lo siguiente acerca de los parámetros de entrada:
 ----
 
 
+[[step-2-add-a-role-binding-for-the-group]]
 === Paso 2: Agregue un enlace de rol para el grupo
 
 Realice la siguiente llamada de API de REST para enlazar el grupo con un rol específico. Debe haber creado el UUID del grupo en el paso anterior. Los usuarios que sean miembros del grupo podrán iniciar sesión en Astra después de que LDAP realice la autenticación.

@@ -21,6 +21,7 @@ NOTE: Conceptualmente UN RESTO *recurso* es similar a un *objeto* tal y como se 
 
 
 
+[[attributes-of-the-astra-resources]]
 == Atributos de los recursos de Astra
 
 La API REST de Astra Control cumple los principios de diseño RESTful. Cada instancia de recurso de Astra se crea según un tipo de recurso bien definido. Un conjunto de instancias de recursos del mismo tipo se denomina *colección*. Las llamadas API actúan sobre recursos individuales o colecciones de recursos.
@@ -58,6 +59,7 @@ NOTE: El identificador de recurso es la clave principal utilizada para las colec
 
 
 
+[[common-structure-for-astra-resources]]
 == Estructura común para los recursos de Astra
 
 Cada recurso de Astra Control se define mediante una estructura común.

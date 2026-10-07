@@ -7,6 +7,7 @@ summary: Recuperar un activo de aplicación de una copia de seguridad de una apl
 ---
 = Recuperar un activo de aplicación de una copia de seguridad de una aplicación
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/appBackups/{appBackup_id}/appAssets/{appAsset_id}`#
@@ -15,6 +16,7 @@ Devuelve el recurso de la API de Application Asset almacenado en el cuerpo de re
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -41,6 +43,7 @@ ID de la colección appAsset que se va a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -185,6 +188,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -230,6 +234,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -280,6 +285,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -325,6 +331,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -370,11 +377,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[GVK]]
 [role="api-collapsible-fifth-title"]
 GVK
 
@@ -411,11 +420,13 @@ Cadena JSON que contiene un identificador de versión asignado por Kubernetes. L
 
 
 |===
+[[type_json]]
 [role="api-collapsible-fifth-title"]
 tipo_json
 
 Objeto JSON que contiene todo el contenido de la definición del recurso Kubernetes.
 
+[[labels]]
 [role="api-collapsible-fifth-title"]
 etiquetas
 
@@ -443,6 +454,7 @@ Cadena JSON que contiene el valor de la etiqueta Los valores definidos son:
 
 
 |===
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -458,6 +470,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata]]
 [role="api-collapsible-fifth-title"]
 tipo_astra_metadatos
 
@@ -490,6 +503,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

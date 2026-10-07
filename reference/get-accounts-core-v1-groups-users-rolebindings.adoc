@@ -7,6 +7,7 @@ summary: Enumera las vinculaciones de roles para un usuario en un grupo
 ---
 = Enumera las vinculaciones de roles para un usuario en un grupo
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/groups/{group_id}/users/{user_id}/roleBindings`#
@@ -15,6 +16,7 @@ Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -114,6 +116,7 @@ Ejemplos OpenAPI: "+++<continue token="" from="" collection="" metadata="">+++"+
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -168,6 +171,7 @@ Status: 200, Returns a JSON array of all matching resources in the collection. I
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -213,6 +217,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -263,6 +268,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -308,6 +314,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -353,11 +360,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -373,6 +382,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -405,6 +415,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[roleBinding_1_1_get_response_body]]
 [role="api-collapsible-fifth-title"]
 roleBinding_1.1_get_response_body
 
@@ -504,7 +515,7 @@ Matriz JSON de cadenas JSON que especifica el ámbito de la asignación de funci
 
 * 
 +
-= Permitir el acceso a todos los espacios de nombres etiquetados como "dev" en cualquier clúster en cualquier nube, y todo lo que está bajo ellos: "roleConstraints": [ "namespaces:kubernetesLabels='http://dev.example.com/appname=dev["dev.example.com/appname=dev'.*"]" ]
+= Permitir el acceso a todos los espacios de nombres etiquetados como "dev" en cualquier clúster de cualquier nube, así como a todo lo que se encuentre dentro de ellos: "roleConstraints": [ "namespaces:kubernetesLabels='dev.example.com/appname=dev'.*" ]
 
 * 
 +
@@ -525,6 +536,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 
 
 |===
+[[type_astra_metadata_list]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadata_list
 
@@ -560,6 +572,7 @@ type_astra_metadata_list
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

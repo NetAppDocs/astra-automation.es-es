@@ -18,12 +18,14 @@ Es posible enumerar los backups que se crearon para una aplicación específica.
 
 
 
+[[before-you-begin]]
 == Antes de empezar
 
 Debe tener el ID de la aplicación para la que desea enumerar las copias de seguridad. Si es necesario, puede usar el flujo de trabajo link:wf_list_man_apps.html["Enumere las aplicaciones"] para localizar la aplicación.
 
 
 
+[[list-the-backups]]
 == Enumere los backups
 
 Realice la siguiente llamada de API de REST.

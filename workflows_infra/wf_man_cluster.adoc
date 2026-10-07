@@ -18,12 +18,14 @@ Es posible gestionar un clúster de Kubernetes para poder llevar a cabo la prote
 
 
 
+[[step-1-select-the-cluster-to-manage]]
 == Paso 1: Seleccione el clúster que desea administrar
 
 Realice el flujo de trabajo link:../workflows_infra/wf_list_clusters.html["Enumere los clústeres"] y seleccione el clúster que desee. La propiedad `managedState` del clúster debe ser `unmanaged`.
 
 
 
+[[step-2-optionally-select-the-storage-class]]
 == Paso 2: De manera opcional, seleccione la clase de almacenamiento
 
 Si lo desea, puede ejecutar el flujo de trabajo link:../workflows_infra/wf_list_storage_classes.html["Enumerar las clases de almacenamiento"] y seleccione la clase de almacenamiento que desee.
@@ -33,6 +35,7 @@ NOTE: Si no proporciona una clase de almacenamiento a la llamada para gestionar 
 
 
 
+[[step-3-manage-the-cluster]]
 == Paso 3: Administre el clúster
 
 Realice la siguiente llamada API REST para gestionar el clúster.

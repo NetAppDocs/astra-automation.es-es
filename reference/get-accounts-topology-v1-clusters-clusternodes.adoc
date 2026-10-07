@@ -7,6 +7,7 @@ summary: Enumera los nodos del clúster de un clúster
 ---
 = Enumera los nodos del clúster de un clúster
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/clusters/{cluster_id}/clusterNodes`#
@@ -15,6 +16,7 @@ Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -57,6 +59,7 @@ Ejemplos OpenAPI: "2"
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -112,6 +115,7 @@ Status: 200, Returns a JSON array of all matching resources in the collection. I
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -157,6 +161,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -207,6 +212,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -252,6 +258,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -297,11 +304,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[labels]]
 [role="api-collapsible-fifth-title"]
 etiquetas
 
@@ -329,6 +338,7 @@ Cadena JSON que contiene el valor de la etiqueta Los valores definidos son:
 
 
 |===
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -344,6 +354,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata]]
 [role="api-collapsible-fifth-title"]
 tipo_astra_metadatos
 
@@ -376,6 +387,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[clusterNode_1_0_get_response_body]]
 [role="api-collapsible-fifth-title"]
 clusterNode_1.0_get_response_body
 
@@ -543,6 +555,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 
 
 |===
+[[type_astra_metadata_list]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadata_list
 
@@ -578,6 +591,7 @@ type_astra_metadata_list
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

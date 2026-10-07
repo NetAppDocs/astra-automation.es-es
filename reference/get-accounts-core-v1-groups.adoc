@@ -7,6 +7,7 @@ summary: Listar todos los grupos
 ---
 = Listar todos los grupos
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/groups`#
@@ -15,6 +16,7 @@ Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -104,6 +106,7 @@ Ejemplos OpenAPI: "+++<continue token="" from="" collection="" metadata="">+++"+
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -158,6 +161,7 @@ Status: 200, Returns a JSON array of all matching resources in the collection. I
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -208,6 +212,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -253,6 +258,7 @@ Status: 500, Internal server error
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -298,11 +304,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -318,6 +326,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -350,6 +359,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[group_1_1_get_response_body]]
 [role="api-collapsible-fifth-title"]
 group_1.1_get_response_body
 
@@ -418,6 +428,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 
 
 |===
+[[type_astra_metadata_list]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadata_list
 
@@ -453,6 +464,7 @@ type_astra_metadata_list
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

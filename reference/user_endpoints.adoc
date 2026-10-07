@@ -7,6 +7,7 @@ summary: 'Puntos finales de usuario de Astra API (ACC)'
 ---
 = Puntos finales de usuario de Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de usuario representa a los usuarios que pueden interactuar con el sistema.

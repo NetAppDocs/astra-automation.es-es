@@ -21,6 +21,7 @@ NOTE: El formato de la ruta y la dirección URL completa que se utiliza para acc
 
 
 
+[[summary-of-astra-control-rest-resources]]
 == Resumen de recursos DE ASTRA Control REST
 
 Los extremos de recursos principales proporcionados en la API REST de Astra Control se organizan en tres categorías. Se puede tener acceso a cada recurso con el conjunto completo de operaciones CRUD (crear, leer, actualizar, eliminar) excepto donde se indique.
@@ -29,6 +30,7 @@ La columna *Release* indica la versión Astra cuando se introdujo el recurso por
 
 
 
+[[core-resources]]
 === Recursos básicos
 
 Los principales extremos de recursos proporcionan los servicios básicos necesarios para establecer y mantener el entorno de tiempo de ejecución de Astra.
@@ -114,6 +116,7 @@ Los principales extremos de recursos proporcionan los servicios básicos necesar
 |===
 
 
+[[managed-application-resources]]
 === Recursos de aplicaciones gestionados
 
 Los extremos de recursos de la aplicación gestionada proporcionan acceso a las aplicaciones de Kubernetes gestionadas.
@@ -139,6 +142,7 @@ Los extremos de recursos de la aplicación gestionada proporcionan acceso a las 
 |===
 
 
+[[topology-resources]]
 === Recursos de topología
 
 Los extremos de recursos de topología proporcionan acceso a las aplicaciones no administradas y a los recursos de almacenamiento.
@@ -185,6 +189,7 @@ Los extremos de recursos de topología proporcionan acceso a las aplicaciones no
 |===
 
 
+[[additional-resources-and-endpoints]]
 == Recursos adicionales y extremos
 
 Existen varios recursos y puntos finales adicionales que puede utilizar para dar soporte a una implementación de Astra.

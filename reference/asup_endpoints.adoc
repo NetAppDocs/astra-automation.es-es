@@ -7,6 +7,7 @@ summary: 'Puntos finales ASUP de Astra API (ACC)'
 ---
 = Puntos finales ASUP de Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API ASUP proporciona acceso a los recursos ASUP para crear y, opcionalmente, cargar los paquetes AutoSupport.

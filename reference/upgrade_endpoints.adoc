@@ -7,6 +7,7 @@ summary: 'Puntos finales de actualización de Astra API (ACC)'
 ---
 = Puntos finales de actualización de Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de la aplicación de actualización proporciona acceso a los componentes de software susceptibles de actualización y permite iniciar actualizaciones. La disponibilidad de las actualizaciones se determina en función de los paquetes registrados en la API de paquetes.

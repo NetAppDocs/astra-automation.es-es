@@ -18,6 +18,7 @@ Puede eliminar una aplicación gestionada cuando ya no sea necesaria. Al quitar 
 
 
 
+[[before-you-begin]]
 == Antes de empezar
 
 Debe tener el ID de la aplicación que desea anular la administración. Si es necesario, puede usar el flujo de trabajo link:wf_list_man_apps.html["Enumere las aplicaciones"] para localizar la aplicación.
@@ -26,6 +27,7 @@ Los backups y las instantáneas de la aplicación no se eliminan automáticament
 
 
 
+[[unmanage-the-app]]
 == Anule la gestión de la aplicación
 
 Realice la siguiente llamada a la API DE REST para eliminar la aplicación.

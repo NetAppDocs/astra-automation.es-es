@@ -7,6 +7,7 @@ summary: 'Puntos finales de bucket de Astra API (ACC)'
 ---
 = Puntos finales de bucket de Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de Bucket proporciona acceso a los buckets utilizados para almacenar las copias de seguridad de las aplicaciones en Astra.

@@ -18,6 +18,7 @@ Necesita obtener un token de API Astra para utilizar la API REST de Astra Contro
 
 
 
+[[overview]]
 == Descripción general
 
 Un identificador de API identifica a la persona que llama a Astra y debe incluirse con cada llamada de API DE REST.
@@ -36,6 +37,7 @@ Un identificador de API identifica a la persona que llama a Astra y debe incluir
 
 
 
+[[create-an-astra-api-token]]
 == Cree un token de API Astra
 
 En los siguientes pasos se describe cómo crear un token de API de Astra.

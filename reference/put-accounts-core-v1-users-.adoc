@@ -7,6 +7,7 @@ summary: Modificar un usuario
 ---
 = Modificar un usuario
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-put]#PUT# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/users/{user_id}`#
@@ -15,6 +16,7 @@ Sustituye todo el recurso almacenado por el cuerpo de la solicitud JSON suminist
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -36,6 +38,7 @@ ID de la colección de usuarios a listar
 |===
 
 
+[[request-body]]
 == Cuerpo de la solicitud
 
 Sustituye todo el recurso almacenado por el cuerpo de la solicitud JSON suministrado, conservando los valores clave que no son modificables por el usuario.
@@ -200,6 +203,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -208,6 +212,7 @@ Status: 204, Indicates if the user resource was updated.
 ----
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -253,6 +258,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -303,6 +309,7 @@ Lista de campos del cuerpo de la solicitud no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -353,6 +360,7 @@ Lista de campos del cuerpo de la solicitud no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -398,6 +406,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -443,11 +452,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[postalAddress]]
 [role="api-collapsible-fifth-title"]
 postalAddress
 
@@ -511,6 +522,7 @@ Cadena JSON que contiene información auxiliar opcional sobre la dirección, apa
 
 
 |===
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -526,6 +538,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -558,6 +571,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 
@@ -575,6 +589,7 @@ Nombre del parámetro de consulta no válido
 Razón por la que el parámetro de consulta no es válido
 
 |===
+[[invalidFields]]
 [role="api-collapsible-fifth-title"]
 invalidFields
 

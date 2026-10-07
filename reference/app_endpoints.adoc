@@ -7,6 +7,7 @@ summary: 'Puntos finales de la aplicación Astra API (ACC)'
 ---
 = Puntos finales de la aplicación Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La App API representa aplicaciones Kubernetes, incluyendo aquellas no gestionadas por Astra.

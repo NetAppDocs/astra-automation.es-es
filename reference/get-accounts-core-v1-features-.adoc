@@ -7,6 +7,7 @@ summary: Recuperar una función
 ---
 = Recuperar una función
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/features/{feature_id}`#
@@ -15,6 +16,7 @@ Devuelve el recurso de la API de funciones almacenado en el cuerpo de respuesta 
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -36,6 +38,7 @@ ID de la colección de características a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -120,6 +123,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -165,6 +169,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -215,6 +220,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -260,6 +266,7 @@ Status: 403, Forbidden
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -305,6 +312,7 @@ Status: 503, Service unavailable
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -350,11 +358,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -370,6 +380,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata]]
 [role="api-collapsible-fifth-title"]
 tipo_astra_metadatos
 
@@ -402,6 +413,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

@@ -7,6 +7,7 @@ summary: Crear un nuevo AppMirror recurso
 ---
 = Crear un nuevo AppMirror recurso
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/appMirrors`#
@@ -15,6 +16,7 @@ Indica los valores deseados para el recurso API AppMirror que se va a crear.
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -31,6 +33,7 @@ ID del recurso de cuenta que lo contiene
 |===
 
 
+[[request-body]]
 == Cuerpo de la solicitud
 
 Indica los valores deseados para el recurso API AppMirror que se va a crear.
@@ -124,6 +127,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -444,6 +448,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -489,6 +494,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -539,6 +545,7 @@ Lista de campos del cuerpo de la solicitud no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -584,6 +591,7 @@ Status: 409, Conflict
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -629,6 +637,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -674,11 +683,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[namespaceMapping]]
 [role="api-collapsible-fifth-title"]
 namespaceMapping
 
@@ -713,6 +724,7 @@ El rol inicial para esta definición de espacio de nombres. Este parámetro es o
 
 
 |===
+[[storageClasses]]
 [role="api-collapsible-fifth-title"]
 storageClasses
 
@@ -746,6 +758,7 @@ El rol inicial para esta definición de clase de almacenamiento. Este parámetro
 
 
 |===
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -761,6 +774,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -793,6 +807,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[type_astra_stateTransition]]
 [role="api-collapsible-fifth-title"]
 type_astra_stateTransition
 
@@ -808,9 +823,11 @@ type_astra_stateTransition
 | a | array[string] | Verdadero  a| 
 
 |===
+[[additionalDetails]]
 [role="api-collapsible-fifth-title"]
 additionalDetails
 
+[[type_astra_stateDetail]]
 [role="api-collapsible-fifth-title"]
 type_astra_stateDetail
 
@@ -834,6 +851,7 @@ type_astra_stateDetail
 | additionalDetails | link:#additionalDetails["additionalDetails"] | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 
@@ -851,6 +869,7 @@ Nombre del parámetro de consulta no válido
 Razón por la que el parámetro de consulta no es válido
 
 |===
+[[invalidFields]]
 [role="api-collapsible-fifth-title"]
 invalidFields
 

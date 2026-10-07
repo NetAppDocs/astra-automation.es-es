@@ -7,6 +7,7 @@ summary: Eliminar una instantánea de aplicación
 ---
 = Eliminar una instantánea de aplicación
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/appSnaps/{appSnap_id}`#
@@ -21,6 +22,7 @@ Elimina el recurso API de Application Snapshot especificado.
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -47,6 +49,7 @@ ID de la colección appSnap que se va a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -55,6 +58,7 @@ Status: 204, Indicates if the appSnap resource was deleted.
 ----
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -100,6 +104,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -150,6 +155,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -195,6 +201,7 @@ Status: 403, Forbidden
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -240,6 +247,7 @@ Status: 409, Conflict
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -285,11 +293,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

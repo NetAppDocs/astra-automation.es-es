@@ -18,6 +18,7 @@ Debe estar familiarizado con la organización y el formato de los flujos de trab
 
 
 
+[[introduction]]
 == Introducción
 
 Un _Workflow_ es una secuencia de uno o más pasos necesarios para llevar a cabo una tarea o un objetivo administrativos específicos. Cada paso de un flujo de trabajo de Astra Control es uno de los siguientes:
@@ -34,6 +35,7 @@ NOTE: Un flujo de trabajo sólo puede contener un paso. Estos flujos de trabajo 
 
 
 
+[[workflow-categories]]
 == Categorías de flujo de trabajo
 
 Existen dos amplias categorías de flujos de trabajo de Astra disponibles en función de su modelo de puesta en marcha. Si utiliza Astra Control Center, debería empezar con los flujos de trabajo de la infraestructura y, a continuación, proceder a los flujos de trabajo de gestión. Cuando utilice Astra Control Service, normalmente puede dirigirse directamente a los flujos de trabajo de gestión.
@@ -43,18 +45,21 @@ NOTE: Los ejemplos de cURL de los flujos de trabajo utilizan la URL para Astra C
 
 
 
+[[infrastructure-workflows]]
 === Flujos de trabajo de infraestructura
 
 Estos flujos de trabajo hacen frente a la infraestructura Astra, que incluye credenciales, bloques y back-ends. Se necesitan con Astra Control Center, pero en la mayoría de los casos también se pueden utilizar con Astra Control Service. Los flujos de trabajo se centran en las tareas necesarias para establecer y mantener un clúster gestionado por Astra.
 
 
 
+[[management-workflows]]
 === Flujos de trabajo de gestión
 
 Puede usar estos flujos de trabajo después de configurar un clúster gestionado. Los flujos de trabajo de gestión se centran en la protección de las aplicaciones y en operaciones de soporte, como la realización de backups, la restauración y el clonado de una aplicación.
 
 
 
+[[common-input-parameters]]
 == Parámetros de entrada comunes
 
 Los parámetros de entrada descritos a continuación son comunes a todas las muestras de curl utilizadas para ilustrar una llamada a la API DE REST.
@@ -64,6 +69,7 @@ NOTE: Debido a que estos parámetros de entrada son universalmente necesarios, n
 
 
 
+[[path-parameters]]
 === Parámetros de ruta
 
 La ruta de extremo utilizada con cada llamada de API DE REST incluye los siguientes parámetros. Consulte también link:../rest-core/url_format.html["Formato de URL"] si quiere más información.
@@ -73,6 +79,7 @@ ID de cuenta:: Este es el valor UUIDv4 que identifica la cuenta Astra en la que 
 
 
 
+[[request-headers]]
 === Solicitar encabezados
 
 Existen varios encabezados de solicitud que puede necesitar incluir en función de la llamada a la API DE REST.
@@ -84,6 +91,7 @@ Acepte:: Puede declarar el tipo de medio específico del contenido que espera en
 
 
 
+[[presentation-of-tokens-and-identifiers]]
 == Presentación de tokens e identificadores
 
 El token de la API y otros valores de ID utilizados con los ejemplos curl son opacos sin significado discernible. Para mejorar la legibilidad de las muestras, no se utilizan los valores de identificador y token reales. Más bien, se utilizan palabras clave reservadas más pequeñas que tiene varias ventajas:
@@ -112,6 +120,7 @@ Aquí están algunas de las palabras clave reservadas comunes usadas en los ejem
 |===
 
 
+[[using-the-examples-with-bash]]
 == Usando los ejemplos con Bash
 
 Si utiliza los ejemplos de cURL de flujo de trabajo directamente, debe actualizar las variables que contienen con los valores adecuados para su entorno. Puede editar manualmente los ejemplos o confiar en el shell Bash para realizar la sustitución por usted, como se describe a continuación.

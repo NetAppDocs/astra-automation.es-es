@@ -7,6 +7,7 @@ summary: Recuperar un grupo para un usuario
 ---
 = Recuperar un grupo para un usuario
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/users/{user_id}/groups/{group_id}`#
@@ -15,6 +16,7 @@ Devuelve el recurso API de grupo almacenado en el cuerpo de respuesta JSON.
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -41,6 +43,7 @@ ID de la colección de grupos a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -135,6 +138,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -180,6 +184,7 @@ Status: 403, Forbidden
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -225,6 +230,7 @@ Status: 400, Bad request
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -270,6 +276,7 @@ Status: 500, Internal server error
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -315,11 +322,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -335,6 +344,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -367,6 +377,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

@@ -7,6 +7,7 @@ summary: 'Puntos finales de grupo de Astra API (ACC)'
 ---
 = Puntos finales de grupo de Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de grupo proporciona acceso a los recursos de grupo de Astra.

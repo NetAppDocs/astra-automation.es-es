@@ -18,6 +18,7 @@ La API REST de Astra admite el control de acceso basado en roles (RBAC) para oto
 
 
 
+[[astra-roles]]
 == Funciones de Astra
 
 Cada usuario de Astra se asigna a una sola función que determina las acciones que se pueden realizar. Los roles se organizan en una jerarquía tal y como se describe en la tabla siguiente.
@@ -40,6 +41,7 @@ Cada usuario de Astra se asigna a una sola función que determina las acciones q
 |===
 
 
+[[enhanced-rbac-with-namespace-granularity]]
 == RBAC mejorado con granularidad de espacio de nombres
 
 

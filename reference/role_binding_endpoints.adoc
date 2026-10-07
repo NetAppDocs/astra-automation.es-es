@@ -7,6 +7,7 @@ summary: 'Puntos finales de binding de roles de Astra API (ACC)'
 ---
 = Puntos finales de binding de roles de Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de vinculación de roles describe las relaciones entre los pares usuario-cuenta, o grupo-cuenta, junto con los conjuntos de permisos que se les conceden (roles).

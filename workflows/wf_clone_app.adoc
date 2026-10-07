@@ -18,6 +18,7 @@ Puede crear una nueva aplicación clonando una aplicación existente.
 
 
 
+[[before-you-begin]]
 == Antes de empezar
 
 Tenga en cuenta lo siguiente acerca de este flujo de trabajo:
@@ -32,12 +33,14 @@ NOTE: Para clonar una aplicación en un clúster diferente, debe actualizar el `
 
 
 
+[[step-1-select-the-app-to-clone]]
 == Paso 1: Seleccione la aplicación para clonar
 
 Realice el flujo de trabajo link:wf_list_man_apps.html["Enumere las aplicaciones"] y seleccione la aplicación que desea clonar. Se necesitan varios valores de recursos para la llamada DE REST utilizada para clonar la aplicación.
 
 
 
+[[step-2-clone-the-app]]
 == Paso 2: Clonar la aplicación
 
 Realice la siguiente llamada a la API DE REST para clonar la aplicación.

@@ -7,6 +7,7 @@ summary: 'Puntos finales de notificación de Astra API (ACC)'
 ---
 = Puntos finales de notificación de Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de Notificación proporciona acceso por usuario a eventos con un destino de notificación.

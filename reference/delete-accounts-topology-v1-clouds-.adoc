@@ -7,6 +7,7 @@ summary: Borrar una nube
 ---
 = Borrar una nube
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/clouds/{cloud_id}`#
@@ -15,6 +16,7 @@ Elimina la instancia de nube solicitada y todos los clústeres y volúmenes no g
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -36,6 +38,7 @@ ID de la colección de cloud que quieres listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -44,6 +47,7 @@ Status: 204, Indicates if the cloud resource was deleted.
 ----
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -89,6 +93,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -139,6 +144,7 @@ Lista de campos del cuerpo de la solicitud no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -184,6 +190,7 @@ Status: 403, Forbidden
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -229,6 +236,7 @@ Status: 409, Conflict
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -274,11 +282,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 
@@ -296,6 +306,7 @@ Nombre del parámetro de consulta no válido
 Razón por la que el parámetro de consulta no es válido
 
 |===
+[[invalidFields]]
 [role="api-collapsible-fifth-title"]
 invalidFields
 

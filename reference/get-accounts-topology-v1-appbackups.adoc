@@ -7,6 +7,7 @@ summary: Lista todas las copias de seguridad de aplicaciones
 ---
 = Lista todas las copias de seguridad de aplicaciones
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/appBackups`#
@@ -15,6 +16,7 @@ Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -52,6 +54,7 @@ Ejemplos OpenAPI: "2"
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -101,6 +104,7 @@ Status: 200, Returns a JSON array of all matching resources in the collection. I
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -146,6 +150,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -196,6 +201,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -241,6 +247,7 @@ Status: 403, Forbidden
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -286,6 +293,7 @@ Status: 500, Internal server error
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -331,14 +339,17 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[additionalDetails]]
 [role="api-collapsible-fifth-title"]
 additionalDetails
 
+[[type_astra_stateDetail]]
 [role="api-collapsible-fifth-title"]
 type_astra_stateDetail
 
@@ -362,6 +373,7 @@ type_astra_stateDetail
 | additionalDetails | link:#additionalDetails["additionalDetails"] | Falso  a| 
 
 |===
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -377,6 +389,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata]]
 [role="api-collapsible-fifth-title"]
 tipo_astra_metadatos
 
@@ -409,6 +422,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[appBackup_1_2_get_response_body]]
 [role="api-collapsible-fifth-title"]
 appBackup_1.2_get_response_body
 
@@ -556,6 +570,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 
 
 |===
+[[type_astra_metadata_list]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadata_list
 
@@ -591,6 +606,7 @@ type_astra_metadata_list
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

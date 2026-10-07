@@ -7,6 +7,7 @@ summary: Recuperar un backend de almacenamiento
 ---
 = Recuperar un backend de almacenamiento
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/storageBackends/{storageBackend_id}`#
@@ -15,6 +16,7 @@ Devuelve el recurso almacenado de la API Storage Backend en el cuerpo de la resp
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -36,6 +38,7 @@ ID de la colección storageBackend que se va a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -275,6 +278,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -320,6 +324,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -370,6 +375,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -415,6 +421,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -460,11 +467,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[capabilities]]
 [role="api-collapsible-fifth-title"]
 capacidades
 
@@ -489,6 +498,7 @@ Cadena JSON que indica si este backend de almacenamiento admite SnapMirror.
 Cadena JSON que indica si este Storage Backend soporta s3.
 
 |===
+[[ontap]]
 [role="api-collapsible-fifth-title"]
 ONTAP
 
@@ -522,6 +532,7 @@ Matriz JSON de cadenas JSON que contiene la lista de todas las posibles direccio
 
 
 |===
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -537,6 +548,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -569,6 +581,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

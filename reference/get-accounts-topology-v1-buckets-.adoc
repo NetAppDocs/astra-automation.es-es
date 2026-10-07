@@ -7,6 +7,7 @@ summary: Recupera un bucket
 ---
 = Recupera un bucket
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/buckets/{bucket_id}`#
@@ -15,6 +16,7 @@ Devuelve el recurso almacenado de la API de Bucket en el cuerpo de respuesta JSO
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -36,6 +38,7 @@ ID de la colección de cubos a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -183,6 +186,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -228,6 +232,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -278,6 +283,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -323,6 +329,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -368,14 +375,17 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[additionalDetails]]
 [role="api-collapsible-fifth-title"]
 additionalDetails
 
+[[type_astra_stateDetail]]
 [role="api-collapsible-fifth-title"]
 type_astra_stateDetail
 
@@ -399,6 +409,7 @@ type_astra_stateDetail
 | additionalDetails | link:#additionalDetails["additionalDetails"] | Falso  a| 
 
 |===
+[[s3]]
 [role="api-collapsible-fifth-title"]
 s3
 
@@ -426,6 +437,7 @@ Cadena JSON que contiene el nombre del bucket S3. Los valores definidos son:
 
 
 |===
+[[gcp]]
 [role="api-collapsible-fifth-title"]
 gcp
 
@@ -444,6 +456,7 @@ Cadena JSON que contiene el nombre del bucket de Google Cloud de respaldo. Los v
 
 
 |===
+[[azure]]
 [role="api-collapsible-fifth-title"]
 azure
 
@@ -471,6 +484,7 @@ Cadena JSON que contiene el nombre del blob Azure de respaldo. Los valores defin
 
 
 |===
+[[bucketParameters]]
 [role="api-collapsible-fifth-title"]
 bucketParameters
 
@@ -495,6 +509,7 @@ Objeto JSON que proporciona los parámetros del protocolo de Google Cloud.
 Objeto JSON que proporciona los parámetros del protocolo Azure.
 
 |===
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -510,6 +525,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -542,6 +558,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

@@ -7,6 +7,7 @@ summary: Crear un nuevo vínculo de rol
 ---
 = Crear un nuevo vínculo de rol
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/roleBindings`#
@@ -15,6 +16,7 @@ Indica los valores deseados para el recurso API de Role Binding que se va a crea
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -31,6 +33,7 @@ ID del recurso de cuenta que lo contiene
 |===
 
 
+[[request-body]]
 == Cuerpo de la solicitud
 
 Indica los valores deseados para el recurso API de Role Binding que se va a crear.
@@ -114,7 +117,7 @@ Matriz JSON de cadenas JSON que especifica el ámbito de la asignación de funci
 
 * 
 +
-= Permitir el acceso a todos los espacios de nombres etiquetados como "dev" en cualquier clúster en cualquier nube, y todo lo que está bajo ellos: "roleConstraints": [ "namespaces:kubernetesLabels='http://dev.example.com/appname=dev["dev.example.com/appname=dev'.*"]" ]
+= Permitir el acceso a todos los espacios de nombres etiquetados como "dev" en cualquier clúster de cualquier nube, así como a todo lo que se encuentre dentro de ellos: "roleConstraints": [ "namespaces:kubernetesLabels='dev.example.com/appname=dev'.*" ]
 
 * 
 +
@@ -154,6 +157,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -256,7 +260,7 @@ Matriz JSON de cadenas JSON que especifica el ámbito de la asignación de funci
 
 * 
 +
-= Permitir el acceso a todos los espacios de nombres etiquetados como "dev" en cualquier clúster en cualquier nube, y todo lo que está bajo ellos: "roleConstraints": [ "namespaces:kubernetesLabels='http://dev.example.com/appname=dev["dev.example.com/appname=dev'.*"]" ]
+= Permitir el acceso a todos los espacios de nombres etiquetados como "dev" en cualquier clúster de cualquier nube, así como a todo lo que se encuentre dentro de ellos: "roleConstraints": [ "namespaces:kubernetesLabels='dev.example.com/appname=dev'.*" ]
 
 * 
 +
@@ -305,6 +309,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -350,6 +355,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -400,6 +406,7 @@ Lista de campos del cuerpo de la solicitud no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -450,6 +457,7 @@ Lista de campos del cuerpo de la solicitud no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -495,6 +503,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -540,11 +549,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -560,6 +571,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -592,6 +604,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 
@@ -609,6 +622,7 @@ Nombre del parámetro de consulta no válido
 Razón por la que el parámetro de consulta no es válido
 
 |===
+[[invalidFields]]
 [role="api-collapsible-fifth-title"]
 invalidFields
 

@@ -7,6 +7,7 @@ summary: Modificar una aplicación
 ---
 = Modificar una aplicación
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-put]#PUT# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v2/apps/{app_id}`#
@@ -15,6 +16,7 @@ Sustituye todo el recurso almacenado por el cuerpo de la solicitud JSON suminist
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -44,6 +46,7 @@ Indicador que permite sobrescribir destructivamente. Inclúyelo solo cuando soli
 |===
 
 
+[[request-body]]
 == Cuerpo de la solicitud
 
 Sustituye todo el recurso almacenado por el cuerpo de la solicitud JSON suministrado, conservando los valores clave que no son modificables por el usuario.
@@ -287,6 +290,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -295,6 +299,7 @@ Status: 204, Indicates if the app resource was updated.
 ----
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -340,6 +345,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -385,6 +391,7 @@ Status: 400, Bad request
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -430,6 +437,7 @@ Status: 409, Conflict
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -475,6 +483,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -520,11 +529,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[GVK]]
 [role="api-collapsible-fifth-title"]
 GVK
 
@@ -561,6 +572,7 @@ Cadena JSON que contiene un identificador de versión asignado por Kubernetes.
 
 
 |===
+[[clusterScopedResources]]
 [role="api-collapsible-fifth-title"]
 clusterScopedResources
 
@@ -584,6 +596,7 @@ Matriz JSON de cadenas JSON que representan un selector de etiquetas con alcance
 
 
 |===
+[[namespaceScopedResources]]
 [role="api-collapsible-fifth-title"]
 namespaceScopedResources
 
@@ -615,6 +628,7 @@ Matriz JSON de cadenas JSON que representan un selector de etiquetas dentro del 
 
 
 |===
+[[type_astra_stateTransition]]
 [role="api-collapsible-fifth-title"]
 type_astra_stateTransition
 
@@ -630,9 +644,11 @@ type_astra_stateTransition
 | a | array[string] | Verdadero  a| 
 
 |===
+[[additionalDetails]]
 [role="api-collapsible-fifth-title"]
 additionalDetails
 
+[[type_astra_stateDetail]]
 [role="api-collapsible-fifth-title"]
 type_astra_stateDetail
 
@@ -656,6 +672,7 @@ type_astra_stateDetail
 | additionalDetails | link:#additionalDetails["additionalDetails"] | Falso  a| 
 
 |===
+[[namespaceMapping]]
 [role="api-collapsible-fifth-title"]
 namespaceMapping
 
@@ -683,6 +700,7 @@ Cadena JSON que contiene el nombre del espacio de nombres en el clúster de dest
 
 
 |===
+[[storageClassMapping]]
 [role="api-collapsible-fifth-title"]
 storageClassMapping
 
@@ -711,6 +729,7 @@ Cadena JSON que contiene el nombre de la clase de almacenamiento de destino. Los
 
 
 |===
+[[GVKN]]
 [role="api-collapsible-fifth-title"]
 GVKN
 
@@ -770,6 +789,7 @@ Matriz JSON de cadenas JSON que describen los selectores de etiquetas de Kuberne
 
 
 |===
+[[restoreFilter]]
 [role="api-collapsible-fifth-title"]
 restoreFilter
 
@@ -789,6 +809,7 @@ Cadena JSON que contiene un valor que indica cómo los filtros de recursos selec
 Matriz JSON de objetos JSON que describen recursos para filtrar durante una restauración selectiva. Un recurso coincide con un único elemento de filtro GVKN si todos los campos de filtro especificados coinciden con el campo de recurso correspondiente. Los campos de filtro que son matrices (por ejemplo, espacios de nombres y nombres) coinciden si cualquiera de sus elementos coincide con el campo de recurso correspondiente. El campo labelSelectors requiere que todos los selectores coincidan. Un recurso que coincida con cualquier filtro de la matriz de objetos de filtro GVKN se incluye o excluye de la restauración en función del valor resourceSelectionCriteria. La especificación de objetos GVKN vacíos provoca un error de validación.
 
 |===
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -804,6 +825,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -836,6 +858,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 
@@ -853,6 +876,7 @@ Nombre del parámetro de consulta no válido
 Razón por la que el parámetro de consulta no es válido
 
 |===
+[[invalidFields]]
 [role="api-collapsible-fifth-title"]
 invalidFields
 

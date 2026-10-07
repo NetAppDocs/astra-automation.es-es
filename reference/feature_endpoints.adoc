@@ -7,6 +7,7 @@ summary: 'Puntos finales de las funciones de Astra API (ACC)'
 ---
 = Puntos finales de las funciones de Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de funciones proporciona acceso de solo lectura a los recursos de indicadores de funciones para determinar qué funciones están activadas o desactivadas en el sistema.

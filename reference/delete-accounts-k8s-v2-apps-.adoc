@@ -7,6 +7,7 @@ summary: Eliminar una aplicación
 ---
 = Eliminar una aplicación
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v2/apps/{app_id}`#
@@ -21,6 +22,7 @@ Elimina el recurso App API especificado.
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -42,6 +44,7 @@ ID de la colección de aplicaciones a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -50,6 +53,7 @@ Status: 204, Indicates if the app resource was deleted.
 ----
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -95,6 +99,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -145,6 +150,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -190,6 +196,7 @@ Status: 403, Forbidden
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -235,6 +242,7 @@ Status: 500, Internal server error
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -280,6 +288,7 @@ Status: 409, Conflict
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -325,11 +334,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

@@ -7,6 +7,7 @@ summary: 'Puntos finales de almacenamiento de Astra API (ACC)'
 ---
 = Puntos finales de almacenamiento de Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de backend de almacenamiento proporciona acceso a representaciones de proveedores de servicios de almacenamiento (backends de almacenamiento) que pueden ser usados por clústeres y aplicaciones gestionados.

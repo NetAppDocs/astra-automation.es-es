@@ -18,36 +18,42 @@ Es posible que no pueda eliminar una aplicación gestionada si tiene una copia d
 
 
 
+[[step-1-select-the-app-to-delete]]
 == Paso 1: Seleccione la aplicación que desea eliminar
 
 Realice el flujo de trabajo link:wf_list_man_apps.html["Enumere las aplicaciones"] y seleccione la aplicación que desea eliminar.
 
 
 
+[[step-2-list-the-existing-backups-for-the-app]]
 == Paso 2: Enumere las copias de seguridad existentes para la aplicación
 
 Realice el flujo de trabajo link:wf_list_backups.html["Enumere los backups"].
 
 
 
+[[step-3-delete-all-the-backups]]
 == Paso 3: Elimine todas las copias de seguridad
 
 Elimine todos los backups de aplicaciones realizando el flujo de trabajo link:wf_delete_backup.html["Eliminar una copia de seguridad"] para cada backup de la lista.
 
 
 
+[[step-4-list-the-existing-snapshots-for-the-app]]
 == Paso 4: Enumere las instantáneas existentes para la aplicación
 
 Realice el flujo de trabajo link:wf_list_snapshots.html["Enumere las instantáneas"].
 
 
 
+[[step-5-delete-all-the-snapshots]]
 == Paso 5: Eliminar todas las instantáneas
 
 Realice el flujo de trabajo link:wf_delete_snapshot.html["Eliminar una copia de Snapshot"] de cada instantánea de la lista.
 
 
 
+[[step-6-remove-the-application]]
 == Paso 6: Eliminar la aplicación
 
 Realice el flujo de trabajo link:wf_unmanage_app.html["Desgestionar una aplicación"] para eliminar la aplicación.

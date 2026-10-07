@@ -18,6 +18,7 @@ Es posible eliminar un backup asociado con una aplicación.
 
 
 
+[[before-you-begin]]
 == Antes de empezar
 
 Debe tener lo siguiente:
@@ -28,6 +29,7 @@ Debe tener lo siguiente:
 
 
 
+[[delete-the-backup]]
 == Elimine el backup
 
 Realice la siguiente llamada de API de REST.

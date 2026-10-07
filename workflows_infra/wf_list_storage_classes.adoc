@@ -18,18 +18,21 @@ Puede enumerar las clases de almacenamiento disponibles.
 
 
 
+[[step-1-select-the-cloud]]
 == Paso 1: Seleccione la nube
 
 Realice el flujo de trabajo link:../workflows_infra/wf_list_clouds.html["Enumerar las nubes"] y seleccione el cloud en el que trabajará.
 
 
 
+[[step-2-select-the-cluster]]
 == Paso 2: Seleccione el clúster
 
 Realice el flujo de trabajo link:../workflows_infra/wf_list_clusters.html["Enumere los clústeres"] y seleccione el clúster.
 
 
 
+[[step-3-list-the-storage-classes-for-a-specific-cluster]]
 == Paso 3: Enumere las clases de almacenamiento para un clúster específico
 
 Realice la siguiente llamada a la API DE REST para enumerar las clases de almacenamiento para un clúster y un cloud específicos.

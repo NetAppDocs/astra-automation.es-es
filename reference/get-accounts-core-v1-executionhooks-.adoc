@@ -7,6 +7,7 @@ summary: Recuperar un gancho de ejecución
 ---
 = Recuperar un gancho de ejecución
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/executionHooks/{executionHook_id}`#
@@ -15,6 +16,7 @@ Devuelve el recurso de la API de Execution Hook almacenado en el cuerpo de respu
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -36,6 +38,7 @@ ID de la colección executionHook que se va a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -268,6 +271,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -313,6 +317,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -363,6 +368,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -408,6 +414,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -453,11 +460,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[matchingCriteria]]
 [role="api-collapsible-fifth-title"]
 matchingCriteria
 
@@ -475,6 +484,7 @@ Cadena JSON que identifica el tipo de criterio de coincidencia.
 Cadena JSON que contiene una expresión regular para el tipo de coincidencia dado. Sintaxis de la expresión regular: https://github.com/google/re2/wiki/Syntax[]
 
 |===
+[[type_k8s_label]]
 [role="api-collapsible-fifth-title"]
 type_k8s_label
 
@@ -490,6 +500,7 @@ type_k8s_label
 | valor | cadena | Verdadero  a| 
 
 |===
+[[matchingContainers]]
 [role="api-collapsible-fifth-title"]
 matchingContainers
 
@@ -522,6 +533,7 @@ Cadena JSON del nombre del contenedor coincidente.
 Cadena JSON del nombre del espacio de nombres del pod del contenedor coincidente.
 
 |===
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -537,6 +549,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -569,6 +582,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

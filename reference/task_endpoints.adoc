@@ -7,6 +7,7 @@ summary: 'Puntos finales de tarea de Astra API (ACC)'
 ---
 = Puntos finales de tarea de Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La Task App API proporciona acceso a recursos de tareas gestionados para representar tareas de larga duración.

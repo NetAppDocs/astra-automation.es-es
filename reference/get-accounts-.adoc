@@ -7,6 +7,7 @@ summary: Recuperar una cuenta
 ---
 = Recuperar una cuenta
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}`#
@@ -15,6 +16,7 @@ Devuelve el recurso almacenado Account API en el cuerpo de respuesta JSON.
 
 
 
+[[parameters]]
 == Parámetros
 
 [cols="5*"]
@@ -31,6 +33,7 @@ ID de la colección de cuentas a listar
 |===
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -139,6 +142,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -184,6 +188,7 @@ Status: 401, Unauthorized
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -234,6 +239,7 @@ Lista de parámetros de consulta no válidos
 ====
 
 
+[[response]]
 == Respuesta
 
 [source]
@@ -279,6 +285,7 @@ Status: 403, Forbidden
 ====
 
 
+[[error]]
 == Error
 
 [source]
@@ -324,11 +331,13 @@ Status: 404, Not found
 ====
 
 
+[[definitions]]
 == Definiciones
 
 .Ver definiciones
 [%collapsible]
 ====
+[[postalAddress]]
 [role="api-collapsible-fifth-title"]
 postalAddress
 
@@ -392,6 +401,7 @@ Cadena JSON que contiene información auxiliar opcional sobre la dirección, el 
 
 
 |===
+[[accountContact]]
 [role="api-collapsible-fifth-title"]
 accountContact
 
@@ -454,6 +464,7 @@ Cadena JSON que contiene el número de teléfono del usuario. Si esta clave no e
 Objeto JSON que contiene una colección de cadenas JSON que especifican una dirección. Si esta clave no existe, indica que no se ha proporcionado una dirección. Si esta clave existe, las seis cadenas JSON contenidas estarán presentes. Si no proporcionas nada, la cadena estará vacía.
 
 |===
+[[type_astra_label]]
 [role="api-collapsible-fifth-title"]
 etiqueta_tipo_astra
 
@@ -469,6 +480,7 @@ etiqueta_tipo_astra
 | valor | cadena | Verdadero  a| 
 
 |===
+[[type_astra_metadata_update]]
 [role="api-collapsible-fifth-title"]
 type_astra_metadatos_update
 
@@ -501,6 +513,7 @@ Metadatos especificados por el cliente y el servicio asociados con el recurso. L
 | modifiedBy | cadena | Falso  a| 
 
 |===
+[[invalidParams]]
 [role="api-collapsible-fifth-title"]
 invalidParams
 

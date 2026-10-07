@@ -18,18 +18,21 @@ Puede restaurar una aplicación creando una nueva aplicación a partir de una co
 
 
 
+[[step-1-select-the-app-to-restore]]
 == Paso 1: Seleccione la aplicación para restaurar
 
 Realice el flujo de trabajo link:wf_list_man_apps.html["Enumere las aplicaciones"] y seleccione la aplicación que desea clonar. Se necesitan varios de los valores de los recursos para la llamada DE REST utilizada para restaurar la aplicación.
 
 
 
+[[step-2-select-the-backup-to-use]]
 == Paso 2: Seleccione la copia de seguridad a utilizar
 
 Realice el flujo de trabajo link:wf_list_backups.html["Enumere los backups"] y seleccione la copia de seguridad que desea usar.
 
 
 
+[[step-3-restore-the-app]]
 == Paso 3: Restaurar la aplicación
 
 Realice la siguiente llamada de API de REST. Debe proporcionar el ID para un backup (como se muestra a continuación) o una copia Snapshot.

@@ -7,6 +7,7 @@ summary: 'Puntos finales de activos de aplicación de Astra API (ACC)'
 ---
 = Puntos finales de activos de aplicación de Astra API (ACC)
 :allow-uri-read: 
+:imagesdir: ../media/
 
 
 La API de activos de aplicaciones proporciona acceso a colecciones internas de información de estado utilizadas para gestionar aplicaciones.
