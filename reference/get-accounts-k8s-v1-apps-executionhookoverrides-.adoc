@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-k8s-v1-apps-executionhookoverrides-.html 
+keywords: execution hook,execution override,execution hook override,k8s apps,account resource,app resource 
 summary: Recuperar un recurso de anulación de gancho de ejecución 
 ---
 = Recuperar un recurso de anulación de gancho de ejecución
@@ -10,7 +11,20 @@ summary: Recuperar un recurso de anulación de gancho de ejecución
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera un recurso de anulación de hooks de ejecución y proporciona los detalles de configuración almacenados para los flujos de trabajo de integración y automatización.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/executionHookOverrides/{executionHookOverride_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso de la API Execution Hook Override almacenado en el cuerpo de la respuesta JSON.
 

@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-clouds-clusters-clusternodes.html 
+keywords: cloud topology,cluster nodes,resource collection,matching resources,field request 
 summary: Enumera los nodos del clúster para una nube 
 ---
 = Enumera los nodos del clúster para una nube
@@ -10,7 +11,20 @@ summary: Enumera los nodos del clúster para una nube
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera los nodos del clúster de una nube y proporciona información detallada sobre los nodos disponibles en el entorno de nube especificado.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/clouds/{cloud_id}/clusters/{cluster_id}/clusterNodes`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

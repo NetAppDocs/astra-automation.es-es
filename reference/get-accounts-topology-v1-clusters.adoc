@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-clusters.html 
+keywords: clusters,topology,account id,resource collection,field filter,field limit 
 summary: Lista todos los clústeres 
 ---
 = Lista todos los clústeres
@@ -10,7 +11,20 @@ summary: Lista todos los clústeres
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera una lista de clústeres y proporciona información detallada de cada clúster de la colección. Usa esto para evaluar las configuraciones y los estados actuales de tus clústeres.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/clusters`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

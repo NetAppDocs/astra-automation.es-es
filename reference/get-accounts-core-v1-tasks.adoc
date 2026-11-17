@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-core-v1-tasks.html 
+keywords: account tasks,field selection,resource collection,field filter,maximum resources,task list 
 summary: Enumerar todas las tareas 
 ---
 = Enumerar todas las tareas
@@ -10,7 +11,20 @@ summary: Enumerar todas las tareas
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera todas las tareas de la colección y te ofrece una visión completa de los recursos de tareas disponibles. Utiliza esta función para identificar y gestionar las tareas de forma eficiente en tu flujo de trabajo.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/tasks`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

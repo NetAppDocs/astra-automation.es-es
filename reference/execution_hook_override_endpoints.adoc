@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/execution_hook_override_endpoints.html 
+keywords: execution hook override,preloaded hooks,netapp hooks,hook disabling,application hooks,deprecation 
 summary: 'Puntos finales de anulación del hook de ejecución de Astra API (ACC)' 
 ---
 = Puntos finales de anulación del hook de ejecución de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Desactiva los hooks de ejecución precargados de NetApp para una aplicación concreta. Consulta la información de desuso en la página antes de usar estos endpoints.
 
 La API de anulación de ganchos de ejecución permite a un usuario desactivar los ganchos de ejecución "netapp" precargados para una aplicación específica. (*NOTA SOBRE LA DESAPROBACIÓN DE LA API MÁS ABAJO*)

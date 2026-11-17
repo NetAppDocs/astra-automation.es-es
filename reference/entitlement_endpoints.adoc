@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/entitlement_endpoints.html 
+keywords: entitlements,licensed features,enabled capacities,active subscriptions,account entitlements 
 summary: 'Puntos finales de asignación de derechos de Astra API (ACC)' 
 ---
 = Puntos finales de asignación de derechos de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Comprueba qué funciones o capacidades ofrecen las licencias y suscripciones activas para tu cuenta.
 
 La API de asignación de derechos representa qué funciones o capacidades están habilitadas por las licencias y suscripciones activas para una cuenta.

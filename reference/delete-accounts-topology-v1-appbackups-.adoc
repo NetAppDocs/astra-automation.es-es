@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-topology-v1-appbackups-.html 
+keywords: application backup,delete backup,backup removal,backup data delete,delete app backup 
 summary: Eliminar una copia de seguridad de una aplicación 
 ---
 = Eliminar una copia de seguridad de una aplicación
@@ -10,7 +11,20 @@ summary: Eliminar una copia de seguridad de una aplicación
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina una copia de seguridad de una aplicación, eliminando el recurso de copia de seguridad especificado y los datos asociados a él. Utiliza esta opción para gestionar el espacio de almacenamiento o eliminar copias de seguridad obsoletas de los recursos de tu aplicación.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/appBackups/{appBackup_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso API de copia de seguridad de aplicaciones especificado. Las copias de seguridad en curso se cancelarán y luego se eliminarán.
 

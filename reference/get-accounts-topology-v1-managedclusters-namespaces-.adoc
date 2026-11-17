@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-managedclusters-namespaces-.html 
+keywords: namespace resource,managed cluster,namespaces list,stored namespace,account id 
 summary: Recuperar un espacio de nombres para un clúster gestionado 
 ---
 = Recuperar un espacio de nombres para un clúster gestionado
@@ -10,7 +11,20 @@ summary: Recuperar un espacio de nombres para un clúster gestionado
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera un espacio de nombres de un clúster gestionado y proporciona los detalles de configuración almacenados de los recursos del espacio de nombres dentro del clúster.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/managedClusters/{managedCluster_id}/namespaces/{namespace_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso de la API de espacio de nombres almacenado en el cuerpo de respuesta JSON.
 

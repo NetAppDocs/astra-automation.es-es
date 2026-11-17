@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/cluster_node_endpoints.html 
+keywords: cluster nodes,kubernetes nodes,node details,node information,cluster resources 
 summary: 'Puntos finales del nodo del clúster Astra API (ACC)' 
 ---
 = Puntos finales del nodo del clúster Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Ver los nodos que pertenecen a un clúster.
 
 La API del nodo del clúster proporciona acceso a los nodos asociados a un clúster.

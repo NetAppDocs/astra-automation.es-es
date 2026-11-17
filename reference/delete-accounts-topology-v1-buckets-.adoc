@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-topology-v1-buckets-.html 
+keywords: bucket removal,delete bucket,remove bucket,internal cleanup,account bucket,topology bucket 
 summary: Eliminar un bucket 
 ---
 = Eliminar un bucket
@@ -10,7 +11,20 @@ summary: Eliminar un bucket
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina un bucket. Utiliza esta operación para eliminar un bucket que ya no necesites o que esté obsoleto de tus recursos de almacenamiento.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/buckets/{bucket_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso API Bucket especificado.
 

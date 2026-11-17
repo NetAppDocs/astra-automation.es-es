@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-k8s-v1-apps-schedules-.html 
+keywords: remove schedule,k8s schedule,app schedule delete,delete schedule resource,account schedule removal 
 summary: Borrar un horario 
 ---
 = Borrar un horario
@@ -10,7 +11,20 @@ summary: Borrar un horario
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina una programación y quita de Astra el recurso especificado de la API Schedule.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/schedules/{schedule_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso Schedule API especificado.
 

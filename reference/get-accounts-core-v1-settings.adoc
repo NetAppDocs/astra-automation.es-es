@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-core-v1-settings.html 
+keywords: account settings,resource collection,field filtering,resource limit,sort order 
 summary: Lista de todos los ajustes 
 ---
 = Lista de todos los ajustes
@@ -10,7 +11,20 @@ summary: Lista de todos los ajustes
 :imagesdir: ../media/
 
 
+[role="lead"]
+Obtiene una lista de ajustes dentro de la API de Astra, proporcionando las configuraciones actuales de cada recurso de la colección.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/settings`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

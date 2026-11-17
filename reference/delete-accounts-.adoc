@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-.html 
+keywords: remove account,delete account,account removal,account management,account id,deletion effects 
 summary: Eliminar una cuenta 
 ---
 = Eliminar una cuenta
@@ -10,7 +11,20 @@ summary: Eliminar una cuenta
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina una cuenta, lo que impide el acceso y las operaciones sobre el recurso de Account API especificado.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso API de cuenta especificado.
 

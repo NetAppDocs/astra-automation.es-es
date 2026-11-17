@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-core-v1-settings-.html 
+keywords: settings retrieval,account settings,stored settings,setting collection,resource settings 
 summary: Recuperar un ajuste 
 ---
 = Recuperar un ajuste
@@ -10,7 +11,20 @@ summary: Recuperar un ajuste
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera un ajuste y proporciona los detalles de la configuración almacenada para su consulta o modificación.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/settings/{setting_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso de la API de configuración almacenado en el cuerpo de respuesta JSON.
 

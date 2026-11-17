@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts.html 
+keywords: accounts collection,resource listing,json array,resource fields,resource order 
 summary: Lista todas las cuentas 
 ---
 = Lista todas las cuentas
@@ -10,7 +11,20 @@ summary: Lista todas las cuentas
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera todas las cuentas de Astra API y devuelve una matriz JSON de recursos coincidentes en la colección. Usa esto para ver los detalles de la cuenta en función de los campos especificados.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-k8s-v1-apps-appsnaps-.html 
+keywords: application snapshot,delete snapshot,remove app snapshot,app snapshot removal,delete appSnap 
 summary: Eliminar una instantánea de aplicación 
 ---
 = Eliminar una instantánea de aplicación
@@ -10,7 +11,20 @@ summary: Eliminar una instantánea de aplicación
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina una instantánea de una aplicación, borrando del recurso los datos de la instantánea especificada.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/appSnaps/{appSnap_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso API de Application Snapshot especificado.
 

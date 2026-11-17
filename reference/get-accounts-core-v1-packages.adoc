@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-core-v1-packages.html 
+keywords: account packages,matching resources,collection fields,resource filter,resource sort order 
 summary: Lista todos los paquetes 
 ---
 = Lista todos los paquetes
@@ -10,7 +11,20 @@ summary: Lista todos los paquetes
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera todos los recursos del paquete de la colección y proporciona información detallada sobre cada recurso que coincida. Usa esto para ver campos específicos de interés en los datos devueltos.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/packages`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

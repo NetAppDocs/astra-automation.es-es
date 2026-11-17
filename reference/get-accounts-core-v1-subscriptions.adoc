@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-core-v1-subscriptions.html 
+keywords: subscriptions,matching resources,collection fields,account id,resource listing,sort order 
 summary: Lista todas las suscripciones 
 ---
 = Lista todas las suscripciones
@@ -10,7 +11,20 @@ summary: Lista todas las suscripciones
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera una lista de suscripciones y proporciona detalles de cada suscripción de la colección. Utiliza esta función para ver y gestionar tus suscripciones de forma eficaz.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/subscriptions`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

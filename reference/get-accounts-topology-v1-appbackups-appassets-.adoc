@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: true 
 permalink: reference/get-accounts-topology-v1-appbackups-appassets-.html 
+keywords: application asset,app asset,app backup,account resource,app asset collection 
 summary: Recuperar un activo de aplicación de una copia de seguridad de una aplicación 
 ---
 = Recuperar un activo de aplicación de una copia de seguridad de una aplicación
@@ -10,7 +11,20 @@ summary: Recuperar un activo de aplicación de una copia de seguridad de una apl
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera un activo de aplicación desde una copia de seguridad de la aplicación. Utiliza esta opción para acceder a la configuración del activo almacenado con fines de recuperación o análisis.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/appBackups/{appBackup_id}/appAssets/{appAsset_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso de la API de Application Asset almacenado en el cuerpo de respuesta JSON.
 

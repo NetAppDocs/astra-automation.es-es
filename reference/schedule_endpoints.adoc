@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/schedule_endpoints.html 
+keywords: protection schedules,scheduled operations,backup schedules,snapshot schedules,schedule management 
 summary: 'Puntos finales de programación de Astra API (ACC)' 
 ---
 = Puntos finales de programación de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Define los horarios de las operaciones de protección de datos en tus aplicaciones.
 
 La API de programación permite definir varias operaciones programadas de protección de datos.

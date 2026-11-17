@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-clusters-clusternodes.html 
+keywords: cluster nodes,cluster topology,account id,cluster id,resource collection,fields requested 
 summary: Enumera los nodos del clúster de un clúster 
 ---
 = Enumera los nodos del clúster de un clúster
@@ -10,7 +11,20 @@ summary: Enumera los nodos del clúster de un clúster
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera los nodos del clúster de un clúster. Usa esta función para ver todos los nodos del clúster especificado y sus detalles.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/clusters/{cluster_id}/clusterNodes`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

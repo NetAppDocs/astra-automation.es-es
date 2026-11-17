@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-core-v1-licenses-.html 
+keywords: license removal,account license,license deletion,remove license,license entitlements,entitlement recalculation 
 summary: Borrar una licencia 
 ---
 = Borrar una licencia
@@ -10,7 +11,20 @@ summary: Borrar una licencia
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina una licencia específica del sistema. Usa este endpoint para gestionar eficazmente tus derechos de licencia.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/licenses/{license_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso License API especificado. La licencia de evaluación instalada automáticamente no se puede eliminar.
 

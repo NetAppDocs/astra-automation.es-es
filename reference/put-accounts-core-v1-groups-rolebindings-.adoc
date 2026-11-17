@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/put-accounts-core-v1-groups-rolebindings-.html 
+keywords: replace resource,role bindings,account group,modify role,update role bindings 
 summary: Modificar un enlace de rol para un grupo 
 ---
 = Modificar un enlace de rol para un grupo
@@ -10,7 +11,20 @@ summary: Modificar un enlace de rol para un grupo
 :imagesdir: ../media/
 
 
+[role="lead"]
+Modifica una vinculación de roles para un grupo. Utiliza esta opción para actualizar los permisos de acceso asociados a grupos de usuarios específicos dentro de tu entorno.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-put]#PUT# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/groups/{group_id}/roleBindings/{roleBinding_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Sustituye todo el recurso almacenado por el cuerpo de la solicitud JSON suministrado, conservando los valores clave que no son modificables por el usuario.
 

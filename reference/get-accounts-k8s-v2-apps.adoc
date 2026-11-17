@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-k8s-v2-apps.html 
+keywords: netapp ontap,kubernetes apps,resource collection,field filter,account resources 
 summary: Lista todas las aplicaciones 
 ---
 = Lista todas las aplicaciones
@@ -10,7 +11,20 @@ summary: Lista todas las aplicaciones
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera una lista de todas las aplicaciones y proporciona detalles de cada recurso coincidente de la colección. Utiliza esto para acceder a campos específicos de las aplicaciones que te interesen.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v2/apps`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

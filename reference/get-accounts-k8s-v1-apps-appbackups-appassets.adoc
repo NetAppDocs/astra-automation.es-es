@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: true 
 permalink: reference/get-accounts-k8s-v1-apps-appbackups-appassets.html 
+keywords: account resources,k8s apps,app backups,collection fields,resource limit 
 summary: Enumera los activos de una aplicación a partir de una copia de seguridad de una app 
 ---
 = Enumera los activos de una aplicación a partir de una copia de seguridad de una app
@@ -10,7 +11,20 @@ summary: Enumera los activos de una aplicación a partir de una copia de segurid
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera los activos de una aplicación a partir de una copia de seguridad. Usa esto para acceder a los detalles de los recursos incluidos en la copia de seguridad.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/appBackups/{appBackup_id}/appAssets`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

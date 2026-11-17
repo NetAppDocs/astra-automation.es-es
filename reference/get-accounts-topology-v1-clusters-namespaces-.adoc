@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-clusters-namespaces-.html 
+keywords: cluster namespace,namespace resource,stored namespace,cluster resource,namespace collection 
 summary: Recuperar un espacio de nombres para un clúster 
 ---
 = Recuperar un espacio de nombres para un clúster
@@ -10,7 +11,20 @@ summary: Recuperar un espacio de nombres para un clúster
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera un espacio de nombres de un clúster y proporciona los detalles almacenados del recurso de API Namespace.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/clusters/{cluster_id}/namespaces/{namespace_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso de la API de espacio de nombres almacenado en el cuerpo de respuesta JSON.
 

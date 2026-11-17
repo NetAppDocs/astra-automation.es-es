@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/notification_endpoints.html 
+keywords: notifications,user notifications,notification destinations,event notifications,notification management 
 summary: 'Puntos finales de notificación de Astra API (ACC)' 
 ---
 = Puntos finales de notificación de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Consulta los eventos que se envían a un destino de notificación para cada usuario.
 
 La API de Notificación proporciona acceso por usuario a eventos con un destino de notificación.

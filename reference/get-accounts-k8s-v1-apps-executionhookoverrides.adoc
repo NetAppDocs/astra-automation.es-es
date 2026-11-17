@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-k8s-v1-apps-executionhookoverrides.html 
+keywords: execution hook,resource collection,kubernetes apps,account resources,app resources 
 summary: Enumera los recursos de anulación del hook de ejecución para una app 
 ---
 = Enumera los recursos de anulación del hook de ejecución para una app
@@ -10,7 +11,20 @@ summary: Enumera los recursos de anulación del hook de ejecución para una app
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera los recursos de anulación de los hooks de ejecución de una aplicación, lo que permite acceder a configuraciones personalizadas que modifican el comportamiento de la aplicación durante operaciones específicas.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/executionHookOverrides`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

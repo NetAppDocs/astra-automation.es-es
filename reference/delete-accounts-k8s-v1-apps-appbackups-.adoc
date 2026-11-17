@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-k8s-v1-apps-appbackups-.html 
+keywords: application backup,delete backup,container app,app backup removal,kubernetes app,backup data delete 
 summary: Eliminar la copia de seguridad de una aplicación para una app 
 ---
 = Eliminar la copia de seguridad de una aplicación para una app
@@ -10,7 +11,20 @@ summary: Eliminar la copia de seguridad de una aplicación para una app
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina una copia de seguridad de una app. Utiliza este endpoint para gestionar el espacio de almacenamiento eliminando copias de seguridad innecesarias u obsoletas.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/appBackups/{appBackup_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso API de copia de seguridad de aplicaciones especificado. Las copias de seguridad en curso se cancelarán y luego se eliminarán.
 

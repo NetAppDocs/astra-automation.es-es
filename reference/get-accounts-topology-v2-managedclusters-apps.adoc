@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v2-managedclusters-apps.html 
+keywords: managed clusters,resource collection,fields requested,collection limit,resource filter 
 summary: Lista las apps de un clúster gestionado 
 ---
 = Lista las apps de un clúster gestionado
@@ -10,7 +11,20 @@ summary: Lista las apps de un clúster gestionado
 :imagesdir: ../media/
 
 
+[role="lead"]
+Obtiene una lista de aplicaciones de un clúster gestionado. Utiliza esta opción para ver las aplicaciones que se gestionan actualmente en el entorno del clúster.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v2/managedClusters/{managedCluster_id}/apps`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

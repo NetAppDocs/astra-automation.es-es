@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-core-v1-executionhooks-.html 
+keywords: execution hook,execution hook resource,matching containers,matching images,matching criteria,execution hook collection 
 summary: Recuperar un gancho de ejecución 
 ---
 = Recuperar un gancho de ejecución
@@ -10,7 +11,20 @@ summary: Recuperar un gancho de ejecución
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera un hook de ejecución y proporciona detalles del recurso almacenado, así como información coincidente del contenedor y la imagen según los criterios actuales.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/executionHooks/{executionHook_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso de la API de Execution Hook almacenado en el cuerpo de respuesta JSON. También rellena matchingContainers y matchingImages en función del matchingCriteria actual y de la app definida.
 

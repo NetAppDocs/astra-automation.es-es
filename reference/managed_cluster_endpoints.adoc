@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/managed_cluster_endpoints.html 
+keywords: managed clusters,kubernetes clusters,cluster management,cluster onboarding,cluster removal 
 summary: 'Puntos finales de clúster gestionados por Astra API (ACC)' 
 ---
 = Puntos finales de clúster gestionados por Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Gestiona los clústeres de Kubernetes que gestiona Astra Control.
 
 La API de clúster gestionado representa clústeres Kubernetes gestionados.

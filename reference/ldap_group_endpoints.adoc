@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/ldap_group_endpoints.html 
+keywords: ldap groups,directory groups,ldap server,read-only access,group lookup 
 summary: 'Puntos finales de grupo LDAP de Astra API (ACC)' 
 ---
 = Puntos finales de grupo LDAP de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Consulta los grupos en el servidor LDAP (Lightweight Directory Access Protocol) configurado. Estos endpoints son de solo lectura.
 
 La API de grupos LDAP proporciona acceso de solo lectura a los grupos LDAP dentro del servidor LDAP configurado.

@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-managedclusters-apps-appassets-.html 
+keywords: application asset,managed cluster,app assets,stored resource,json response 
 summary: Recuperar un activo de aplicación para un clúster gestionado 
 ---
 = Recuperar un activo de aplicación para un clúster gestionado
@@ -10,7 +11,20 @@ summary: Recuperar un activo de aplicación para un clúster gestionado
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera un activo de aplicación de un clúster gestionado, lo que permite acceder a los detalles de los recursos almacenados para realizar tareas de gestión.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/managedClusters/{managedCluster_id}/apps/{app_id}/appAssets/{appAsset_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso de la API de Application Asset almacenado en el cuerpo de respuesta JSON.
 

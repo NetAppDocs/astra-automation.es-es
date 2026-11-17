@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-core-v1-rolebindings.html 
+keywords: role bindings,account resources,resource collection,json array,field matching,sort order 
 summary: Lista todos los enlaces de rol 
 ---
 = Lista todos los enlaces de rol
@@ -10,7 +11,20 @@ summary: Lista todos los enlaces de rol
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera una lista de asignaciones de roles, proporcionando los recursos correspondientes de la colección. Utiliza esta opción para ver los campos especificados de cada recurso en el orden solicitado.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/roleBindings`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

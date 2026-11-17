@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/storage_class_endpoints.html 
+keywords: storage classes,kubernetes storage,cluster storage classes,storage class details,persistent storage 
 summary: 'Puntos finales de la clase de almacenamiento Astra API (ACC)' 
 ---
 = Puntos finales de la clase de almacenamiento Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Ver las clases de almacenamiento disponibles en un clúster.
 
 La API de clases de almacenamiento describe las clases de almacenamiento conocidas en un clúster determinado.

@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-core-v1-hooksources-.html 
+keywords: hook source,remove resource,delete hook,account management,remove hook 
 summary: Borrar una fuente de gancho 
 ---
 = Borrar una fuente de gancho
@@ -10,7 +11,20 @@ summary: Borrar una fuente de gancho
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina una fuente de hook y quita el recurso especificado del sistema.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/hookSources/{hookSource_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso Hook Source API especificado.
 

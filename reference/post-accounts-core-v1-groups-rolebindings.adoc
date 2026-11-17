@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/post-accounts-core-v1-groups-rolebindings.html 
+keywords: role binding,create role,group role,account role,role management 
 summary: Crear un nuevo vínculo de rol para un grupo 
 ---
 = Crear un nuevo vínculo de rol para un grupo
@@ -10,7 +11,20 @@ summary: Crear un nuevo vínculo de rol para un grupo
 :imagesdir: ../media/
 
 
+[role="lead"]
+Crea una nueva asignación de rol para un grupo y le asigna permisos específicos dentro del entorno de Astra. Usa este endpoint para gestionar de forma eficaz los controles de acceso en operaciones basadas en grupos.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/groups/{group_id}/roleBindings`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Indica los valores deseados para el recurso API de Role Binding que se va a crear.
 

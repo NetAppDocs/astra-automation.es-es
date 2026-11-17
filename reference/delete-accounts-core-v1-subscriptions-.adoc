@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-core-v1-subscriptions-.html 
+keywords: subscription removal,delete subscription,subscription charges,account subscription,subscription deletion 
 summary: Eliminar una suscripción 
 ---
 = Eliminar una suscripción
@@ -10,7 +11,20 @@ summary: Eliminar una suscripción
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina una suscripción y quita el recurso especificado de Subscription API junto con todos los cargos asociados.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/subscriptions/{subscription_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso API de suscripción especificado.
 

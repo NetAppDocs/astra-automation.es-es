@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-volumes-.html 
+keywords: volume resource,volume collection,stored volume,account id,topology volumes 
 summary: Recuperar un volumen 
 ---
 = Recuperar un volumen
@@ -10,7 +11,20 @@ summary: Recuperar un volumen
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera un volumen y proporciona los detalles de configuración almacenados para el recurso de volumen especificado. Usa esta opción para examinar el estado actual del volumen en tu entorno de almacenamiento.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/volumes/{volume_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso de la API de volumen almacenado en el cuerpo de respuesta JSON.
 

@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/upgrade_endpoints.html 
+keywords: software upgrades,upgrade eligibility,component upgrades,upgrade initiation,upgrade packages 
 summary: 'Puntos finales de actualización de Astra API (ACC)' 
 ---
 = Puntos finales de actualización de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Busca los componentes de software que se pueden actualizar e inicia las actualizaciones. Los paquetes que registres determinan qué actualizaciones están disponibles.
 
 La API de la aplicación de actualización proporciona acceso a los componentes de software susceptibles de actualización y permite iniciar actualizaciones. La disponibilidad de las actualizaciones se determina en función de los paquetes registrados en la API de paquetes.

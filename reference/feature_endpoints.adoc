@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/feature_endpoints.html 
+keywords: feature flags,enabled features,disabled features,feature status,feature check 
 summary: 'Puntos finales de las funciones de Astra API (ACC)' 
 ---
 = Puntos finales de las funciones de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Comprueba qué funciones de Astra Control están activadas o desactivadas consultando los feature flags.
 
 La API de funciones proporciona acceso de solo lectura a los recursos de indicadores de funciones para determinar qué funciones están activadas o desactivadas en el sistema.

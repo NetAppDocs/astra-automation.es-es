@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-appbackups.html 
+keywords: account topology,backup resources,collection fields,resource limit,account data 
 summary: Lista todas las copias de seguridad de aplicaciones 
 ---
 = Lista todas las copias de seguridad de aplicaciones
@@ -10,7 +11,20 @@ summary: Lista todas las copias de seguridad de aplicaciones
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera todas las copias de seguridad de las aplicaciones y proporciona una lista completa de los recursos de copia de seguridad disponibles en la colección. Puedes especificar campos concretos en tu solicitud para personalizar la información que recibes.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/appBackups`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

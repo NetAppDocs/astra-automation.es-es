@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/setting_endpoints.html 
+keywords: account settings,key value settings,feature settings,setting management,astra configuration 
 summary: 'Configuración de endpoints de Astra API (ACC)' 
 ---
 = Configuración de endpoints de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Gestiona los ajustes de la cuenta, que son pares clave/valor que configuran una función en una cuenta de Astra Control.
 
 Un ajuste de cuenta es una colección de pares clave/valor que son importantes para una función conocida en una cuenta de Astra. La API de ajustes proporciona acceso a información importante sobre un ajuste de cuenta.

@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/ldap_user_endpoints.html 
+keywords: ldap users,directory users,ldap server,read-only access,user lookup 
 summary: 'Puntos finales de usuario LDAP de la API Astra (ACC)' 
 ---
 = Puntos finales de usuario LDAP de la API Astra (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Visualiza los usuarios del servidor LDAP (Lightweight Directory Access Protocol) configurado. Estos puntos finales son de solo lectura.
 
 La API de usuario LDAP proporciona acceso de solo lectura a los usuarios LDAP dentro del servidor LDAP configurado.

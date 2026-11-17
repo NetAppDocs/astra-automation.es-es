@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/post-accounts-topology-v1-buckets.html 
+keywords: bucket creation,topology buckets,account resource,bucket values,ontap endpoint 
 summary: Crear un nuevo bucket 
 ---
 = Crear un nuevo bucket
@@ -10,7 +11,20 @@ summary: Crear un nuevo bucket
 :imagesdir: ../media/
 
 
+[role="lead"]
+Crea un nuevo bucket en la API de Astra, especificando los valores deseados para el recurso de API Bucket que se va a crear.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/buckets`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Indica los valores deseados para el recurso API Bucket que se va a crear.
 

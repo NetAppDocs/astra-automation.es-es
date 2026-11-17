@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/put-accounts-core-v1-hooksources-.html 
+keywords: replace resource,source hook,snapshot impact,md5 checksum,execution hooks 
 summary: Modificar una fuente de gancho 
 ---
 = Modificar una fuente de gancho
@@ -10,7 +11,20 @@ summary: Modificar una fuente de gancho
 :imagesdir: ../media/
 
 
+[role="lead"]
+Modifica el origen de un hook en Astra API. Puedes usar este endpoint para actualizar el código fuente de los hooks de ejecución asociados a las instantáneas de la aplicación.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-put]#PUT# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/hookSources/{hookSource_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Sustituye todo el recurso almacenado por el cuerpo de la solicitud JSON suministrado, conservando los valores clave que no son modificables por el usuario.
 

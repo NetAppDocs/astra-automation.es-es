@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/post-accounts-core-v1-licenses.html 
+keywords: license creation,account license,license resource,create license,license values 
 summary: Crear una nueva licencia 
 ---
 = Crear una nueva licencia
@@ -10,7 +11,20 @@ summary: Crear una nueva licencia
 :imagesdir: ../media/
 
 
+[role="lead"]
+Crea una nueva licencia, especificando los valores deseados para el recurso «License API». Utiliza este endpoint para gestionar de forma eficaz las necesidades de licencias en tu entorno.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/licenses`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Indica los valores deseados para el recurso API de licencia que se va a crear.
 

@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-buckets.html 
+keywords: account topology,bucket resources,collection fields,resource collection,matching resources 
 summary: Listar todos los buckets 
 ---
 = Listar todos los buckets
@@ -10,7 +11,20 @@ summary: Listar todos los buckets
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera una lista de buckets, proporcionando una matriz JSON con todos los recursos coincidentes de la colección. Utiliza esto para examinar los buckets disponibles y sus campos especificados.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/buckets`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

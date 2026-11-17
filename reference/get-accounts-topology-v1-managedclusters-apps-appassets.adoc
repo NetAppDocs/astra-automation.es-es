@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-managedclusters-apps-appassets.html 
+keywords: managed clusters,app assets,resource collection,account resources,field inclusion,resource limit 
 summary: Enumera los activos de la aplicación para un clúster gestionado 
 ---
 = Enumera los activos de la aplicación para un clúster gestionado
@@ -10,7 +11,20 @@ summary: Enumera los activos de la aplicación para un clúster gestionado
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera los activos de las aplicaciones de un clúster gestionado y proporciona una lista de recursos relacionados con las aplicaciones del clúster. Usa esto para identificar y acceder a recursos específicos de las aplicaciones dentro del clúster gestionado.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/managedClusters/{managedCluster_id}/apps/{app_id}/appAssets`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

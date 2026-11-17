@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: true 
 permalink: reference/get-accounts-core-v1-groups-users-tokens-.html 
+keywords: account resource,group resource,user resource,token collection,stored token 
 summary: Recuperar un token para un usuario de un grupo 
 ---
 = Recuperar un token para un usuario de un grupo
@@ -10,7 +11,20 @@ summary: Recuperar un token para un usuario de un grupo
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera un token para un usuario de un grupo y devuelve el recurso de token de API almacenado. Usa esto para autenticarte y acceder de forma segura a recursos específicos del grupo.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/groups/{group_id}/users/{user_id}/tokens/{token_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso Token API almacenado en el cuerpo de respuesta JSON.
 

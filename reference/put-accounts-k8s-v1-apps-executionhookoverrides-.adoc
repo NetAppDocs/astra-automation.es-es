@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/put-accounts-k8s-v1-apps-executionhookoverrides-.html 
+keywords: execution hook,hook override,replace resource,app execution,netapp hook,execution enable 
 summary: Modificar un recurso de anulación de gancho de ejecución 
 ---
 = Modificar un recurso de anulación de gancho de ejecución
@@ -10,7 +11,20 @@ summary: Modificar un recurso de anulación de gancho de ejecución
 :imagesdir: ../media/
 
 
+[role="lead"]
+Modifica un recurso de anulación de hooks de ejecución sustituyendo todo el recurso almacenado por el cuerpo de solicitud JSON proporcionado. Usa esta operación para actualizar los hooks de ejecución que se aplican a una aplicación específica.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-put]#PUT# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/executionHookOverrides/{executionHookOverride_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Sustituye todo el recurso almacenado por el cuerpo de la solicitud JSON suministrado, conservando los valores clave que no son modificables por el usuario.
 

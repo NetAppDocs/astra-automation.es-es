@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/subscription_endpoints.html 
+keywords: subscriptions,active subscriptions,account subscriptions,subscription resources,licensing 
 summary: 'Puntos finales de suscripción de Astra API (ACC)' 
 ---
 = Puntos finales de suscripción de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Consulta las suscripciones activas de tu cuenta de Astra Control.
 
 La API de suscripción proporciona acceso a los recursos de suscripción para representar las suscripciones activas.

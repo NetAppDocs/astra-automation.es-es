@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-topology-v1-clouds-.html 
+keywords: cloud instance,deletion,non-managed clusters,non-managed volumes,cloud id 
 summary: Borrar una nube 
 ---
 = Borrar una nube
@@ -10,7 +11,20 @@ summary: Borrar una nube
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina la instancia en la nube solicitada, junto con cualquier clúster y volumen no gestionado asociado a ella. Usa esta operación para eliminar los recursos en la nube que ya no sean necesarios.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/clouds/{cloud_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina la instancia de nube solicitada y todos los clústeres y volúmenes no gestionados asociados a esa nube específica.
 

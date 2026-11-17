@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-managedclusters-volumes.html 
+keywords: account topology,managed cluster volumes,resource collection,volume listing,field inclusion,resource limit 
 summary: Lista los volúmenes de un clúster gestionado 
 ---
 = Lista los volúmenes de un clúster gestionado
@@ -10,7 +11,20 @@ summary: Lista los volúmenes de un clúster gestionado
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera una lista de volúmenes de un clúster gestionado. Usa esto para ver los recursos de almacenamiento disponibles en el clúster.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/managedClusters/{managedCluster_id}/volumes`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

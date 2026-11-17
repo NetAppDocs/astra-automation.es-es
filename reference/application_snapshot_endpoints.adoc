@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/application_snapshot_endpoints.html 
+keywords: application snapshots,snapshot creation,managed applications,snapshot retrieval,data protection 
 summary: 'Puntos finales de instantáneas de la aplicación Astra API (ACC)' 
 ---
 = Puntos finales de instantáneas de la aplicación Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Crear y visualizar instantáneas de una aplicación gestionada.
 
 La API de instantáneas de aplicaciones permite a un usuario crear y ver instantáneas de una aplicación gestionada.

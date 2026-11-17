@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-core-v1-groups-rolebindings.html 
+keywords: role bindings,group roles,account resources,collection filters,resource sorting 
 summary: Enumera los vínculos de rol de un grupo 
 ---
 = Enumera los vínculos de rol de un grupo
@@ -10,7 +11,20 @@ summary: Enumera los vínculos de rol de un grupo
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera las vinculaciones de roles de un grupo y proporciona una lista de los recursos coincidentes de la colección. Usa esto para acceder a información detallada sobre vinculaciones de roles específicas asociadas al grupo.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/groups/{group_id}/roleBindings`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

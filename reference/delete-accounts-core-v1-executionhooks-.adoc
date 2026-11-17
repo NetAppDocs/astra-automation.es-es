@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-core-v1-executionhooks-.html 
+keywords: execution hook,execution removal,delete execution,remove execution hook,account resource,execution collection 
 summary: Eliminar un gancho de ejecución 
 ---
 = Eliminar un gancho de ejecución
@@ -10,7 +11,20 @@ summary: Eliminar un gancho de ejecución
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina un gancho de ejecución, lo que impide que se ejecute en acciones futuras.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/executionHooks/{executionHook_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso de la API de Execution Hook especificado.
 

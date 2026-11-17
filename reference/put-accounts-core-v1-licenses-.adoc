@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/put-accounts-core-v1-licenses-.html 
+keywords: replace license,license entitlements,account licenses,license collection,entitlement recalculation 
 summary: Modificar una licencia 
 ---
 = Modificar una licencia
@@ -10,7 +11,20 @@ summary: Modificar una licencia
 :imagesdir: ../media/
 
 
+[role="lead"]
+Modifica un recurso de licencia sustituyendo los datos almacenados por la información proporcionada, al tiempo que conserva determinados valores clave. Puedes usar este endpoint para actualizar los derechos de licencia de forma eficiente.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-put]#PUT# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/licenses/{license_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Sustituye todo el recurso almacenado por el cuerpo de la solicitud JSON suministrado, conservando los valores clave que no son modificables por el usuario.
 

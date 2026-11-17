@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/package_endpoints.html 
+keywords: software packages,package registration,installable packages,upgrade packages,package management 
 summary: 'Puntos finales del paquete Astra API (ACC)' 
 ---
 = Puntos finales del paquete Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Gestiona los paquetes de software instalables registrados en Astra Control. Los paquetes que registres determinan qué actualizaciones están disponibles.
 
 La API de paquetes representa paquetes de software instalables.

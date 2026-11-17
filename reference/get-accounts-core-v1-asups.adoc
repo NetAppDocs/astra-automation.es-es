@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-core-v1-asups.html 
+keywords: account resources,collection fields,resource list,account collection,resource limit 
 summary: Lista todos los recursos ASUP 
 ---
 = Lista todos los recursos ASUP
@@ -10,7 +11,20 @@ summary: Lista todos los recursos ASUP
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera una lista de recursos de ASUP y ofrece información detallada sobre cada recurso de la colección. Puedes especificar campos concretos para adaptar la salida a tus necesidades.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/asups`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

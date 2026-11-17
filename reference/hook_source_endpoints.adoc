@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/hook_source_endpoints.html 
+keywords: hook sources,shared hook source,execution hooks,hook management,reusable hooks 
 summary: 'Puntos finales de origen del hook Astra API (ACC)' 
 ---
 = Puntos finales de origen del hook Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Gestiona las fuentes de los hooks por separado de los hooks de ejecución, de modo que varios hooks puedan compartir una misma fuente. Al actualizar una fuente compartida, el cambio se aplica en todos los lugares donde se utiliza.
 
 La API de Hook Source permite una gestión sencilla de las fuentes de ganchos independiente de la gestión de los recursos de ganchos de ejecución. Por ejemplo, una única fuente de ganchos puede ser referenciada por varios ganchos de ejecución para evitar la duplicación de fuentes de ganchos y permitir que una sola llamada a la API actualice una fuente de ganchos, incluso si es utilizada por varios recursos de ganchos de ejecución.

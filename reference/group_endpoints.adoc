@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/group_endpoints.html 
+keywords: astra groups,group management,group membership,user groups,group creation 
 summary: 'Puntos finales de grupo de Astra API (ACC)' 
 ---
 = Puntos finales de grupo de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Gestiona los grupos en Astra Control, incluidos los usuarios que forman parte de ellos.
 
 La API de grupo proporciona acceso a los recursos de grupo de Astra.

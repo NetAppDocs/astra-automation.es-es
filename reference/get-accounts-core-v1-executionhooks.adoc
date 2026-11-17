@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-core-v1-executionhooks.html 
+keywords: execution hooks,account resources,matching resources,collection fields,resource filter 
 summary: Lista todos los ganchos de ejecución 
 ---
 = Lista todos los ganchos de ejecución
@@ -10,7 +11,20 @@ summary: Lista todos los ganchos de ejecución
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera todos los hooks de ejecución y proporciona una matriz JSON de recursos que coinciden con los criterios especificados. Usa esto para ver información detallada sobre cada hook de la colección.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/executionHooks`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: true 
 permalink: reference/get-accounts-core-v1-groups-users-rolebindings.html 
+keywords: role bindings,resource collection,user role,group resource,account resource 
 summary: Enumera las vinculaciones de roles para un usuario en un grupo 
 ---
 = Enumera las vinculaciones de roles para un usuario en un grupo
@@ -10,7 +11,20 @@ summary: Enumera las vinculaciones de roles para un usuario en un grupo
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera las asignaciones de roles de un usuario dentro de un grupo. Usa esta función para ver los roles asignados a un usuario y gestionar los permisos de acceso de forma eficaz.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/groups/{group_id}/users/{user_id}/roleBindings`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

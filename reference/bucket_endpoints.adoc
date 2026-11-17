@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/bucket_endpoints.html 
+keywords: backup buckets,object storage buckets,application backups,bucket management,backup storage 
 summary: 'Puntos finales de bucket de Astra API (ACC)' 
 ---
 = Puntos finales de bucket de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Gestiona los buckets que utiliza Astra Control para almacenar las copias de seguridad de las aplicaciones.
 
 La API de Bucket proporciona acceso a los buckets utilizados para almacenar las copias de seguridad de las aplicaciones en Astra.

@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-k8s-v1-apps-volumes-.html 
+keywords: volume resource,volume collection,stored volume,app resource,k8s volumes 
 summary: Recuperar un volumen para una aplicación 
 ---
 = Recuperar un volumen para una aplicación
@@ -10,7 +11,20 @@ summary: Recuperar un volumen para una aplicación
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera un volumen para una aplicación y proporciona detalles sobre el recurso de volumen almacenado.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/volumes/{volume_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso de la API de volumen almacenado en el cuerpo de respuesta JSON.
 

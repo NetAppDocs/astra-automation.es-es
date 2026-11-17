@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: true 
 permalink: reference/get-accounts-k8s-v1-apps-appsnaps-appassets.html 
+keywords: account resources,app resources,k8s apps,app snapshots,app assets 
 summary: Lista los activos de la aplicación para una instantánea de la aplicación 
 ---
 = Lista los activos de la aplicación para una instantánea de la aplicación
@@ -10,7 +11,20 @@ summary: Lista los activos de la aplicación para una instantánea de la aplicac
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera los activos de la aplicación para una instantánea de la aplicación, ofreciendo una vista detallada de los recursos asociados a la instantánea.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/appSnaps/{appSnap_id}/appAssets`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

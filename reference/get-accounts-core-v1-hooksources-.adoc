@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-core-v1-hooksources-.html 
+keywords: hook source,hook collection,account resource,stored resource,json response 
 summary: Recupera una fuente de hook 
 ---
 = Recupera una fuente de hook
@@ -10,7 +11,20 @@ summary: Recupera una fuente de hook
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera un hook source y devuelve en la respuesta el recurso de la API de Hook Source almacenado. Usa esta función para acceder a configuraciones específicas de hook source para tareas de integración.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/hookSources/{hookSource_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso Hook Source API almacenado en el cuerpo de respuesta JSON.
 

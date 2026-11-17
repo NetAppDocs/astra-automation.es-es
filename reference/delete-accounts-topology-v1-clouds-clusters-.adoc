@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-topology-v1-clouds-clusters-.html 
+keywords: cluster removal,delete cluster,remove cluster,cloud cleanup,internal data cleanup 
 summary: Eliminar un clúster para una nube 
 ---
 = Eliminar un clúster para una nube
@@ -10,7 +11,20 @@ summary: Eliminar un clúster para una nube
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina un clúster de la nube. Usa esta operación para eliminar el recurso de Cluster API especificado y limpiar las estructuras de datos internas.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/clouds/{cloud_id}/clusters/{cluster_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso Cluster API especificado.
 

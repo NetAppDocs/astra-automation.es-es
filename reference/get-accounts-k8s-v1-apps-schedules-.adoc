@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-k8s-v1-apps-schedules-.html 
+keywords: account schedule,k8s schedule,app schedule,stored schedule,schedule listing 
 summary: Recupera un horario 
 ---
 = Recupera un horario
@@ -10,7 +11,20 @@ summary: Recupera un horario
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera una programación guardada. Utiliza esta opción para acceder a los detalles de configuración de la programación y revisarlos.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/schedules/{schedule_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve el recurso de Schedule API almacenado en el cuerpo de la respuesta JSON.
 

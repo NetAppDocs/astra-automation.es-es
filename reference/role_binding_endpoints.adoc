@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/role_binding_endpoints.html 
+keywords: role bindings,roles,permissions,access control,user permissions,group permissions 
 summary: 'Puntos finales de binding de roles de Astra API (ACC)' 
 ---
 = Puntos finales de binding de roles de Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Gestiona las asignaciones de roles que otorgan permisos a usuarios o grupos de una cuenta. Una asignación de roles vincula a un usuario o grupo con un rol.
 
 La API de vinculación de roles describe las relaciones entre los pares usuario-cuenta, o grupo-cuenta, junto con los conjuntos de permisos que se les conceden (roles).

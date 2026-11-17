@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/post-accounts-k8s-v1-apps-appmirrors.html 
+keywords: appmirror,app mirrors,k8s apps,app resource,account resource 
 summary: Crear un nuevo recurso AppMirror para una app 
 ---
 = Crear un nuevo recurso AppMirror para una app
@@ -10,7 +11,20 @@ summary: Crear un nuevo recurso AppMirror para una app
 :imagesdir: ../media/
 
 
+[role="lead"]
+Crea un recurso AppMirror para una aplicación, especificando los valores de configuración deseados para la replicación. Usa esto para establecer una configuración de replicación adaptada a las necesidades de tu aplicación.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/appMirrors`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Indica los valores deseados para el recurso API AppMirror que se va a crear.
 

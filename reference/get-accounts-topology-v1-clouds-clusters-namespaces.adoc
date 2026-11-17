@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/get-accounts-topology-v1-clouds-clusters-namespaces.html 
+keywords: cloud topology,resource collection,namespace list,field filter,cluster resources 
 summary: Enumera los espacios de nombres de una nube 
 ---
 = Enumera los espacios de nombres de una nube
@@ -10,7 +11,20 @@ summary: Enumera los espacios de nombres de una nube
 :imagesdir: ../media/
 
 
+[role="lead"]
+Recupera los espacios de nombres de una nube y proporciona una lista de todos los recursos coincidentes disponibles en la colección.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-get]#GET# [.api-doc-code-block]#`/accounts/{account_id}/topology/v1/clouds/{cloud_id}/clusters/{cluster_id}/namespaces`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Devuelve una matriz JSON de todos los recursos coincidentes de la colección. Si se especifican campos individuales en la solicitud, la matriz JSON de elementos contendrá los campos solicitados para cada recurso coincidente en el orden especificado.
 

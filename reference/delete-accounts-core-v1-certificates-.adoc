@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-core-v1-certificates-.html 
+keywords: certificate removal,account certificate,delete certificate,certificate management,remove certificate 
 summary: Borrar un certificado 
 ---
 = Borrar un certificado
@@ -10,7 +11,20 @@ summary: Borrar un certificado
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina un certificado. Usa este endpoint para eliminar un recurso específico de Certificate API cuando ya no sea necesario.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/certificates/{certificate_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso Certificate API especificado.
 

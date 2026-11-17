@@ -3,11 +3,15 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/namespace_endpoints.html 
+keywords: namespaces,kubernetes namespaces,cluster namespaces,namespace details,read-only access 
 summary: 'Puntos finales del espacio de nombres Astra API (ACC)' 
 ---
 = Puntos finales del espacio de nombres Astra API (ACC)
 :allow-uri-read: 
 :imagesdir: ../media/
 
+
+[role="lead"]
+Ver los espacios de nombres que pertenecen a un clúster. Estos puntos de conexión son de solo lectura.
 
 La API de espacios de nombres proporciona acceso de solo lectura a los recursos de espacios de nombres para describir los espacios de nombres asociados a un clúster determinado.

@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: true 
 permalink: reference/post-accounts-core-v1-groups-users-rolebindings.html 
+keywords: role binding,group roles,user roles,account role binding,user role binding 
 summary: Crear un nuevo vínculo de rol para un usuario de un grupo 
 ---
 = Crear un nuevo vínculo de rol para un usuario de un grupo
@@ -10,7 +11,20 @@ summary: Crear un nuevo vínculo de rol para un usuario de un grupo
 :imagesdir: ../media/
 
 
+[role="lead"]
+Crea una nueva vinculación de rol para un usuario en un grupo, y establece los permisos para que el usuario realice acciones dentro del contexto del grupo especificado.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/groups/{group_id}/users/{user_id}/roleBindings`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Indica los valores deseados para el recurso API de Role Binding que se va a crear.
 

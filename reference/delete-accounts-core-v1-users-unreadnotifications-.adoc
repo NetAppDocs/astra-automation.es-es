@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/delete-accounts-core-v1-users-unreadnotifications-.html 
+keywords: remove unread notification,unread notification delete,delete unread notification,user notification remove,account notification delete 
 summary: Eliminar una notificación no leída 
 ---
 = Eliminar una notificación no leída
@@ -10,7 +11,20 @@ summary: Eliminar una notificación no leída
 :imagesdir: ../media/
 
 
+[role="lead"]
+Elimina una notificación no leída y quita el recurso de notificación especificado de tu lista de notificaciones.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-delete]#DELETE# [.api-doc-code-block]#`/accounts/{account_id}/core/v1/users/{user_id}/unreadNotifications/{unreadNotification_id}`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Elimina el recurso Unread Notification API especificado.
 

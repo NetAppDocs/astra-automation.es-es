@@ -3,6 +3,7 @@ sidebar: sidebar
 api: true 
 explorer: false 
 permalink: reference/post-accounts-k8s-v1-apps-appsnaps.html 
+keywords: application snapshot,create snapshot,k8s apps,account resource,app resource 
 summary: Crear una nueva instantánea de aplicación para una app 
 ---
 = Crear una nueva instantánea de aplicación para una app
@@ -10,7 +11,20 @@ summary: Crear una nueva instantánea de aplicación para una app
 :imagesdir: ../media/
 
 
+[role="lead"]
+Crea una nueva instantánea de una aplicación, capturando el estado actual de la aplicación con fines de copia de seguridad o recuperación.
+
+
+
+[[http-method-and-endpoint]]
+== Método HTTP y punto final
+
 [.api-doc-operation .api-doc-operation-post]#POST# [.api-doc-code-block]#`/accounts/{account_id}/k8s/v1/apps/{app_id}/appSnaps`#
+
+
+
+[[usage-notes]]
+== Notas de uso
 
 Indica los valores deseados para el recurso API de instantánea de aplicación que se va a crear.
 
